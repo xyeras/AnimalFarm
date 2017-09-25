@@ -6,8 +6,13 @@ function month_stats(mn,d)
 }
 
 	var today = new Date();
-	year_curr = today.getFullYear();
-
+	var months = today.getMonth()+1;
+	var days = today.getDate();
+	var years = today.getFullYear();
+	
+	next_date(months,days,years,27);
+	
+	
 
 function next_date(month_curr, day_curr, year_curr,days_til)
 {
@@ -35,7 +40,6 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		var feb = new month_stats(2,29);
 	else	
 		var feb = new month_stats(2,28);
-	document.write(feb.month_num + " " + feb.days);
 	
 	var mar = new month_stats(3,31);
 	var apr = new month_stats(4,30);
@@ -48,7 +52,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 	var nov = new month_stats(11,30);
 	var dec = new month_stats(12,31);
 	
-	if (month_curr == jan.month)
+	if (month_curr == jan.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > jan.days)
@@ -65,7 +69,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		}
 	}	
 	
-	else if (month_curr == feb.month)
+	else if (month_curr == feb.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > feb.days)
@@ -82,7 +86,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		}
 	}
 
-	else if (month_curr == mar.month)
+	else if (month_curr == mar.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > mar.days)
@@ -98,7 +102,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == apr.month)
+	else if (month_curr == apr.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > apr.days)
@@ -114,7 +118,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == may.month)
+	else if (month_curr == may.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > may.days)
@@ -130,7 +134,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == jun.month)
+	else if (month_curr == jun.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > jun.days)
@@ -146,7 +150,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == jul.month)
+	else if (month_curr == jul.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > jul.days)
@@ -162,7 +166,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == aug.month)
+	else if (month_curr == aug.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > aug.days)
@@ -178,7 +182,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == sep.month)
+	else if (month_curr == sep.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > sep.days)
@@ -194,7 +198,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == oct.month)
+	else if (month_curr == oct.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > oct.days)
@@ -210,7 +214,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == nov.month)
+	else if (month_curr == nov.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > nov.days)
@@ -226,7 +230,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	else if (month_curr == dec.month)
+	else if (month_curr == dec.month_num)
 	{
 		temp_days = day_curr + days_til;
 		if (temp_days > dec.days)
@@ -244,14 +248,14 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 	}
 	
 	// saves calculated date in one variable
-	var futr_date = 
-	{
-		futr_month: next_month,
-		futr_day  : next_day,
-		futr_year : next_year
-	};
-	
-	return futr_date;	
+	document.write("next month: " + next_month + " next day: " + next_day + " next year: " + next_year);
+//	var futr_date = 
+//	{
+//		futr_month: next_month,
+//		futr_day  : next_day,
+//		futr_year : next_year
+//	};
+		
 }
 
 

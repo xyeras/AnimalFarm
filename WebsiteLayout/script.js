@@ -5,11 +5,12 @@ function month_stats(mn,d)
 	this.days = d;
 }
 
-	var today = new Date();
-	var months = today.getMonth()+1;
-	var days = today.getDate();
-	var years = today.getFullYear();
+	var today = new Date();				// today is a Date object
+	var months = today.getMonth()+1;	// gets the current month
+	var days = today.getDate();			// gets the current day
+	var years = today.getFullYear();	// gets the current year
 	
+	// call the next_date function
 	next_date(months,days,years,27);
 	
 	
@@ -41,6 +42,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 	else	
 		var feb = new month_stats(2,28);
 	
+	// continues to initialize months
 	var mar = new month_stats(3,31);
 	var apr = new month_stats(4,30);
 	var may = new month_stats(5,31);
@@ -52,16 +54,17 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 	var nov = new month_stats(11,30);
 	var dec = new month_stats(12,31);
 	
-	if (month_curr == jan.month_num)
+	// calculated next date
+	if (month_curr == jan.month_num)		// matches the current month
 	{
-		temp_days = day_curr + days_til;
-		if (temp_days > jan.days)
+		temp_days = day_curr + days_til;	// checks if the next date is in the next month
+		if (temp_days > jan.days)			// calculates next month's day and set month num
 		{
 			next_month = 2;
 			next_day   = temp_days - jan.days;
 			next_year  = year_curr;
 		}
-		else
+		else								// caculates day in the current month
 		{
 			next_month = month_curr;
 			next_day   = temp_days;
@@ -237,7 +240,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		{
 			next_month = 1;
 			next_day   = temp_days - dec.days;
-			next_year  = year_curr + 1;
+			next_year  = year_curr + 1;			// increments year 
 		}
 		else
 		{
@@ -247,7 +250,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		}
 	}
 	
-	// saves calculated date in one variable
+	// prints out the date
 	document.write("next month: " + next_month + " next day: " + next_day + " next year: " + next_year);
 //	var futr_date = 
 //	{

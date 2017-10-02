@@ -263,5 +263,11 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 
 
 
+$.post('workhop/WebsiteLayout/dbConnect.php',{}, 
+function (data)
+{
+	$('#result').html(data);
+	
+});
 
 

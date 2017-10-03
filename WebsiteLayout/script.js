@@ -262,12 +262,10 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 }
 
 
-
-$.post('workhop/WebsiteLayout/dbConnect.php',{}, 
-function (data)
+// retrieves data from the database
+$.get("index.php",function (data)
 {
-	$('#result').html(data);
-	
+	$('#result').html(data);	
 });
 
 

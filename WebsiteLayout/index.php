@@ -7,9 +7,9 @@ if (mysqli_connect_error())
 {
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
-else
-{
-	echo "all is good";
-}
+// statment to retrieve rows from database
+$msyqlStatment = "SELECT pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens";
 
+// close connection to database
+mysqli_close($con);
 ?>

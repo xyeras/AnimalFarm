@@ -34,7 +34,7 @@ function fetchData(){
 			</tr>";
 		}
 	}
-
+}
 // ----------------------------
 // close connection to database
 mysqli_close($con);

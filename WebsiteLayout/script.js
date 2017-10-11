@@ -37,11 +37,18 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			break;	
 	}	
 	
-	if (year_count == year_curr)
-		var feb = new month_stats(2,29);
-	else	
-		var feb = new month_stats(2,28);
+	var feb = new month_stats(0,0);
 	
+	if (year_count == year_curr)
+	{
+		feb.month_num = 2;
+		feb.days = 29;
+	}
+	else	
+	{
+		feb.month_num = 2;
+		feb.days = 28;
+	}
 	// continues to initialize months
 	var mar = new month_stats(3,31);
 	var apr = new month_stats(4,30);

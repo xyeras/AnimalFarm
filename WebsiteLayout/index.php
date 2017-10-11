@@ -10,6 +10,11 @@ if (mysqli_connect_error())
 // statment to retrieve rows from database
 $msyqlStatment = "SELECT pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens";
 
+// Kathryn's code here
+
+
+
+// ----------------------------
 // close connection to database
 mysqli_close($con);
 ?>

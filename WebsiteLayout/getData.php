@@ -16,21 +16,7 @@ $rowData = $con->query($msyqlStatment);
 if($rowData->num_rows > 0) {
 	// output data into table
 	echo "
-    	<table>
-          <tr>
-	        <th>Pen</th>
-	        <th>Notch</th>
-	        <th>Tag</th>
-        	<th>Date</th>
-        	<th>Boar</th>
-        	<th>Date</th>
-        	<th>Boar</th>
-        	<th>Heat</th>
-        	<th>Date</th>
-        	<th>Line</th>
-        	<th>New Pen</th>
-    	    <th>Comments</th>
-          </tr>";
+    	<table>";
 	while($row = $rowData->fetch_assoc())
 	{
 		echo 

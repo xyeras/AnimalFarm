@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+	color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+	background-color: #1b4b80;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: white;
+	color: black;
+}
+
+tr:nth-child(odd) {
+	background-color: #cfebff;
+	color: black;
+}
+</style>
+</head>
+<body>
+ <script src="jquery-3.2.1.min.js"></script>
+ <script src="script.js"></script> 
+ <script src="newRowColumn.js"></script>
+ 
+ <!-- where the table from the database will be printed-->
+ <div id = "result"></div>
+
+<button onclick="newRow()" id="insertNew">New Row</button>
+</body>
+</html>

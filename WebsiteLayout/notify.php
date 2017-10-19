@@ -13,10 +13,10 @@ if (mysqli_connect_error())
 // grab php variable (today's date from date method) for name to search
 $heatDate = mysqli_real_escape_string($con,$_POST['heat_date']); 
 
-$mysqlStatement = "SELECT pen,notch,tag,date1,boar1,date2,boar2 FROM pigpens WHERE date3 = $heatDate";
+$mysqlStatement = "SELECT pen,notch,tag,date1,boar1,date2,boar2 FROM pigpens WHERE date3 = $heatDate"; // need to find out why $heatDate doesn't make date3 in datebase
 
 // return data for pigs who need a heat checkdate
-$rowData = $con->query($msyqlStatment);
+$rowData = $con->query($mysqlStatement);
 if($rowData->num_rows > 0) {
 	echo "
     	<table>

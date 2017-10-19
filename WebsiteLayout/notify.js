@@ -4,7 +4,7 @@ var days = today.getDate();			// gets the current day
 var years = today.getFullYear();	// gets the current year
 
 // saves date in one variable
-var heatDate = String(months) + "/" + String(days) + "/" + String(years);
+var heatDate = String(months) + "/" + String(days) + "/" + String(years); // need to check if month & day is 06 or 6 (not much of a concern since varible is determined by method Date) for consistency of writing
 
 
 // retrieves data from the database

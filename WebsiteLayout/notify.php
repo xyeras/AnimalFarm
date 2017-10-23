@@ -11,9 +11,22 @@ if (mysqli_connect_error())
 }
 
 // grab php variable (today's date from date method) for name to search
-$heatDate = mysqli_real_escape_string($con,$_POST['heat_date']); 
+$m = mysqli_real_escape_string($con,$_POST['months']);
+$d = mysqli_real_escape_string($con,$_POST['days']);
+$y = mysqli_real_escape_string($con,$_POST['years']);
 
-$mysqlStatement = "SELECT pen,notch,tag,date1,boar1,date2,boar2 FROM pigpens WHERE date3 = $heatDate"; // need to find out why $heatDate doesn't make date3 in datebase
+
+
+$mInt = (int) $m;
+$dInt = (int) $d;
+$yInt = (int) $y;
+// n is for month with no 0 prefix,j is for the day with no 0 prefix Y is needed for fout digit year
+// this is a string
+$heatDate = date("n/j/Y",mktime(0,0,0,$mInt,$dInt,$yInt));
+
+
+
+$mysqlStatement = "SELECT pen,notch,tag,date1,boar1,date2,boar2 FROM pigpens WHERE date3 = '$heatDate'"; // need to find out why $heatDate doesn't make date3 in datebase
 
 // return data for pigs who need a heat checkdate
 $rowData = $con->query($mysqlStatement);

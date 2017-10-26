@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Compiled and minified CSS -->
+
+<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
+</head>
+    <body>
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Starter Template</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+      <div class="row center">
+        <h5 class="header col s12 light">A click away from all your agricultural data</h5>
+        <div id="main-btns" class="container" style= "padding-top: 100px;">     
+     
+       
+            <button data-target="modal1" class="waves-effect waves-light btn-large blue-grey modal-trigger"><i class ="material-icons left">add</i>Modal</button>
+            
+      </div>
+<!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Is this a new entry?</h4>
+    </div>
+    <div class="modal-footer">
+      <a href="index.html" class="modal-action modal-close waves-effect waves-green btn-flat ">Yes!</a>
+      <a href="index.html" class="modal-action modal-close waves-effect waves-green btn-flat ">No</a>
+    </div>
+  </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+
+<script>
+$(document).ready(function() {
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+});
+</script>
+        </body>
+    
+    </html>

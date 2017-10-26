@@ -1,162 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-    </script>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+ <!DOCTYPE html>
+  <html>
+    <head> 
+ <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
-    </script>
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script>
-    
-    <style>
-        .space button{margin-right:16px;}
-        .space button:last-child{margin-right:0px;}
-
-        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal {
-          width: 50%;
-          left: 25%;
-          right: 5%;
-        }
-
-    </style>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+          
 </head>
-<body> 
-    <!--<div id="theEntries" class="row container" style="display:none;">
-    <input type="submit" onclick="showInput();"><br/>
-        <p><span id='display'></span></p>
+      
+      <body>
 
-    </div> -->
-    
-    <h5 class="center header col s12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
 
-    <div class="row container center space" style="padding-top: 40px; padding-left: 130px; padding-right: 100px">
-        <button data-target="penModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Pen</button>
-        <button data-target="notchModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Notch</button>
-        <button data-target="dateModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Date</button>
-        <button data-target="boarModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Boar</button>
-        <button data-target="date2Modal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Date 2</button>
-    </div>
-
-
-    <!-- Modal Structure for PEN -->
-    <div id="penModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Pen </h4>
-                <div class="input-field col s3">
-                    <form>
-                        <input id="pen" type="text" name="penEn" class="validate">
-                        <label for="pen">Pen</label>
-                    </form>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" onclick="showInput()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
-            <!--<p><span id='display'></span></p>-->
-        </div>
-    </div>
-    
-    <!-- Modal Structure for NOTCH -->
-    <div id="notchModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Notch</h4>
-                <div class="input-field col s6">
-                    <input id="notch" type="text" class="validate">
-                    <label for="notch">Notch</label>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
-        </div>
-    </div>
-
-     <!-- Modal Structure for DATE -->
-    <div id="dateModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Date</h4>
-            <div class="input-field col s6">
-                <input id="date" type="text" class="validate">
-                <label for="date">Date</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
-        </div>
-    </div>
-
-    <!-- Modal Structure for BOAR -->
-    <div id="boarModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Boar</h4>
-            <div class="input-field col s6">
-                <input id="boar" type="text" class="validate">
-                <label for="boar">Boar</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
-        </div>
-    </div>
-
-     <!-- Modal Structure for DATE2 -->
-    <div id="date2Modal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Date</h4>
-            <div class="input-field col s6">
-                <input id="date2" type="text" class="validate">
-                <label for="date2">Date 2</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
-        </div>
-    </div>
-    
-<!--to make stuff apear upon clicking-->
+<div class="row section">
+  <div class="col">
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+    <p>You have to include jQuery and Materialize JS + CSS for the modal to work. You can include it from <a href="http://materializecss.com/getting-started.html">CDN (getting started)</a>.
+  </div>
+</div>
+          
 <script>
-    $(document).ready(
-        function() {
-            $("#p").click(function() {
-                $("#theTable").fadeToggle();
-            });
-        });
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
 </script>
-    
-<!--for the modals to work -->
-<script>
-    $(document).ready(function() {
-        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-</script>
-    
-<!--trying to display user input, dont know if i willl need -->
-<script>
-    $(document).ready(
-            function showInput() {
-                document.getElementById('display').innerHTML =
-                    document.getElementById("pen").value;
-            }
-</script>
-
-  <footer>
-        <div class="footer-copyright">
-            <div class="container row center grey-text" style="padding-top: 450px ">
-                California State University, Fresno
-                <br/> 2017 Animal Farm
-
-            </div>
-        </div>
-    </footer>
-</body>    
+          </body>
 </html>

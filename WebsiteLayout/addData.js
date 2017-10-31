@@ -7,14 +7,7 @@ function addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c)
 		notch	: n,
 		tag		: t,
 		date1	: d1,
-		boar1	: b1,
-		date2	: d2,
-		boar2	: b2,
-		heat	: h,
-		date3	: d3,
-		line	: l,
-		newPen	: nP,
-		comm	: c	
+		boar1	: b1
 	},
 	function(data, status){
 	    alert("Status: " + status);
@@ -32,15 +25,8 @@ $(document).ready(function(){
 		var t 	= $('#tag').val();
 		var d1	= $('#date1').val();
 		var b1	= $('#boar1').val();
-		var d2	= $('#date2').val();
-		var b2	= $('#boar2').val();
-		var h 	= $('#heat').val();
-		var d3	= $('#date3').val();
-		var l 	= $('#line').val();
-		var nP	= $('#newPen').val();
-		var c 	= $('#comm').val();
 		
-		addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c);
+		addNew(p,n,t,d1,b1);
 	});
 	
 });

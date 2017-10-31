@@ -1,5 +1,5 @@
 
-function addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c)
+function addNew(p,n,t,d1,b1)
 {
 
 	$.post("addData.php",

@@ -15,13 +15,6 @@ $notch	=	mysqli_real_escape_string($con,$_POST['notch']);
 $tag	=	mysqli_real_escape_string($con,$_POST['tag']);
 $date1	=	mysqli_real_escape_string($con,$_POST['date1']);
 $boar1	=	mysqli_real_escape_string($con,$_POST['boar1']);
-$date2	=	mysqli_real_escape_string($con,$_POST['date2']);
-$boar2	=	mysqli_real_escape_string($con,$_POST['boar2']);
-$heat	=	mysqli_real_escape_string($con,$_POST['heat']);
-$date3	=	mysqli_real_escape_string($con,$_POST['date3']);
-$line	=	mysqli_real_escape_string($con,$_POST['line']);
-$newPen	=	mysqli_real_escape_string($con,$_POST['newPen']);
-$comments=	mysqli_real_escape_string($con,$_POST['comm']);
 
 $insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, date2, boar2, heat, date3, line, newPen, comm)
 		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$date2', '$boar2', '$heat', '$date3', '$line', '$newPen', '$comments')";

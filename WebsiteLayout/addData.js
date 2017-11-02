@@ -23,8 +23,8 @@ $(document).ready(function(){
 		var p 	= $('#pen').val();
 		var n 	= $('#notch').val();
 		var t 	= $('#tag').val();
-		var d1	= $('#date1').val();
-		var b1	= $('#boar1').val();
+		var d1	= $('#date').val();
+		var b1	= $('#boar').val();
 		
 		addNew(p,n,t,d1,b1);
 	});

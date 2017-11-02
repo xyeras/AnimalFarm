@@ -45,9 +45,9 @@
     <div id="theTable" class="row container" style="display:none;">
 
     <input id="p" ><br/>
-        <p><span id='display'></span></p>
+<!--        <p><span id='display'></span></p>-->
 
-
+    <p><span id='display'></span></p>
  
     <!-- table with one row for entries to be sent to database -->
     <table id="p" class=" container col s3">
@@ -79,6 +79,65 @@
 
     
     
+    <script type="text/javascript">
+function createTable()
+{
+    var num_rows = document.getElementById('rows').value;
+    var num_cols = document.getElementById('cols').value;
+    var theader = '<table border="1">\n';
+    var tbody = '';
+
+    for( var i=0; i<num_rows;i++)
+    {
+        tbody += '<tr>';
+        for( var j=0; j<num_cols;j++)
+        {
+            tbody += '<td>';
+            tbody += 'Cell ' + i + ',' + j;
+            tbody += '</td>'
+        }
+        tbody += '</tr>\n';
+    }
+    var tfooter = '</table>';
+    document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+}
+</script>
+    
+    <script type="text/javascript">
+function createTable()
+{
+    var num_rows = document.getElementById('rows').value;
+    var num_cols = document.getElementById('cols').value;
+    var theader = '<table border="1">\n';
+    var tbody = '';
+
+    for( var i=0; i<num_rows;i++)
+    {
+        tbody += '<tr>';
+        for( var j=0; j<num_cols;j++)
+        {
+            tbody += '<td>';
+            tbody += 'Cell ' + i + ',' + j;
+            tbody += '</td>'
+        }
+        tbody += '</tr>\n';
+    }
+    var tfooter = '</table>';
+    document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+}
+</script>
+    
+    
+
+<form name="tablegen">
+<label>Rows: <input type="text" name="rows" id="rows"/></label><br />
+<label>Cols: <input type="text" name="cols" id="cols"/></label><br/>
+<input name="generate" type="button" value="Create Table!" onclick='createTable();'/>
+</form>
+
+<div id="wrapper"></div>
+    
+    
 
     <!-- Modal Structure for PEN -->
     <div id="penModal" class="modal bottom-sheet">
@@ -91,10 +150,12 @@
                     </form>
                 </div>
         </div>
+       
         <div class="modal-footer">
-            <button type="submit" onclick="showInput()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
-            <!--<p><span id='display'></span></p>-->
+            <button onclick="showInput();" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            
         </div>
+        
     </div>
     
     <!-- Modal Structure for NOTCH -->
@@ -185,14 +246,17 @@
             }
 </script>
 
+
+<!--
   <footer>
         <div class="footer-copyright">
-            <div class="container row center grey-text" style="padding-top: 450px; padding-left: 430px; position: absolute">
+            <div class="container row center grey-text" style="padding-top: 450px; padding-left: 430px; padding-right: 430px; position: absolute">
                 California State University, Fresno
                 <br/> 2017 Animal Farm
 
             </div>
         </div>
     </footer>
+-->
 </body>    
 </html>

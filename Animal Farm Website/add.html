@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    
+    <style>
+        .space button{margin-right:16px;}
+        .space button:last-child{margin-right:0px;}
+
+        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal {
+          width: 50%;
+          left: 25%;
+          right: 5%;
+        }
+
+    </style>
+</head>   
+<body> 
+    <h5 class="centered center header col s12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+
+    <div class="centered row container center space" style="padding-top: 40px; padding-left: 130px; padding-right: 100px">
+        <button data-target="penModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Pen</button>
+        <button data-target="notchModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Notch</button>
+        <button data-target="dateModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Date</button>
+        <button data-target="boarModal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Boar</button>
+        <button data-target="date2Modal" class="col xl2 waves-effect waves-light btn-large modal-trigger">Date 2</button>
+    </div>
+
+    <div id="theTable" class="row container" style="display:none;">
+
+    <input id="p" ><br/>
+<!--        <p><span id='display'></span></p>-->
+
+    <p><span id='display'></span></p>
+ 
+    <!-- table with one row for entries to be sent to database -->
+    <table id="p" class=" container col s3">
+        <thead>
+          <tr>
+        
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+    </table>
+   </div> 
+
+    
+    
+    <script type="text/javascript">
+function createTable()
+{
+    var num_rows = document.getElementById('rows').value;
+    var num_cols = document.getElementById('cols').value;
+    var theader = '<table border="1">\n';
+    var tbody = '';
+
+    for( var i=0; i<num_rows;i++)
+    {
+        tbody += '<tr>';
+        for( var j=0; j<num_cols;j++)
+        {
+            tbody += '<td>';
+            tbody += 'Cell ' + i + ',' + j;
+            tbody += '</td>'
+        }
+        tbody += '</tr>\n';
+    }
+    var tfooter = '</table>';
+    document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+}
+</script>
+    
+    <script type="text/javascript">
+function createTable()
+{
+    var num_rows = document.getElementById('rows').value;
+    var num_cols = document.getElementById('cols').value;
+    var theader = '<table border="1">\n';
+    var tbody = '';
+
+    for( var i=0; i<num_rows;i++)
+    {
+        tbody += '<tr>';
+        for( var j=0; j<num_cols;j++)
+        {
+            tbody += '<td>';
+            tbody += 'Cell ' + i + ',' + j;
+            tbody += '</td>'
+        }
+        tbody += '</tr>\n';
+    }
+    var tfooter = '</table>';
+    document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+}
+</script>
+    
+    
+
+<form name="tablegen">
+<label>Rows: <input type="text" name="rows" id="rows"/></label><br />
+<label>Cols: <input type="text" name="cols" id="cols"/></label><br/>
+<input name="generate" type="button" value="Create Table!" onclick='createTable();'/>
+</form>
+
+<div id="wrapper"></div>
+    
+    
+
+    <!-- Modal Structure for PEN -->
+    <div id="penModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Pen </h4>
+                <div class="input-field col s3">
+                    <form>
+                        <input id="pen" type="text" name="penEn" class="validate">
+                        <label for="pen">Pen</label>
+                    </form>
+                </div>
+        </div>
+       
+        <div class="modal-footer">
+            <button onclick="showInput();" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Modal Structure for NOTCH -->
+    <div id="notchModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Notch</h4>
+                <div class="input-field col s6">
+                    <input id="notch" type="text" class="validate">
+                    <label for="notch">Notch</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+        </div>
+    </div>
+
+     <!-- Modal Structure for DATE -->
+    <div id="dateModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Date</h4>
+            <div class="input-field col s6">
+                <input id="date" type="text" class="validate">
+                <label for="date">Date</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+        </div>
+    </div>
+
+    <!-- Modal Structure for BOAR -->
+    <div id="boarModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Boar</h4>
+            <div class="input-field col s6">
+                <input id="boar" type="text" class="validate">
+                <label for="boar">Boar</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+        </div>
+    </div>
+
+     <!-- Modal Structure for DATE2 -->
+    <div id="date2Modal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Date</h4>
+            <div class="input-field col s6">
+                <input id="date2" type="text" class="validate">
+                <label for="date2">Date 2</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+        </div>
+    </div>
+    
+<!--to make stuff apear upon clicking-->
+<script>
+    $(document).ready(
+        function() {
+            $("#p").click(function() {
+                $("#theTable").fadeToggle();
+            });
+        });
+</script>
+    
+<!--for the modals to work -->
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+    $(document).ready(function() {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+</script>
+
+    
+<!--trying to display user input, dont know if i willl need -->
+<script>
+    $(document).ready(
+            function showInput() {
+                document.getElementById('display').innerHTML =
+                    document.getElementById("pen").value;
+            }
+</script>
+
+
+<!--
+  <footer>
+        <div class="footer-copyright">
+            <div class="container row center grey-text" style="padding-top: 450px; padding-left: 430px; padding-right: 430px; position: absolute">
+                California State University, Fresno
+                <br/> 2017 Animal Farm
+
+            </div>
+        </div>
+    </footer>
+-->
+</body>    
+</html>

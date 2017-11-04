@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head> 
+     <script src="addData.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
     <!--Import Google Icon Font-->
@@ -33,7 +34,15 @@
         }
         
          table, td {
-    
+             border: 1px solid black;
+             width: 35%;
+             margin-left: 290px;
+        }
+        
+        th {
+            height: 50px;
+        }
+     
         
 
     </style>
@@ -48,7 +57,7 @@
         <button data-target="notchModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button>
         <button data-target="dateModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
         <button data-target="boarModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
-        <button data-target="date2Modal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
+       <button data-target="commentsModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button>
     </div>
 
    
@@ -63,7 +72,7 @@
 </table><br>
 
         
-     <script src="addData.js"></script> 
+    
     
     <button id="add">Submit Data</button>
     
@@ -78,32 +87,33 @@ function myFunction() {
             
 function myFunction2() {
     var row = document.getElementById("myRow");
+ 
     var y = row.insertCell(1);
     y.innerHTML = document.getElementById("pen").value;
     
 }
     function myFunction3() {
     var row = document.getElementById("myRow");
-    var y = row.insertCell(2);
-    y.innerHTML = document.getElementById("notch").value;
+    var a = row.insertCell(2);
+    a.innerHTML = document.getElementById("notch").value;
     
 }
     function myFunction4() {
     var row = document.getElementById("myRow");
-    var y = row.insertCell(3);
-    y.innerHTML = document.getElementById("date").value;
+    var b = row.insertCell(3);
+    b.innerHTML = document.getElementById("date").value;
     
 }
     function myFunction5() {
     var row = document.getElementById("myRow");
-    var y = row.insertCell(4);
-    y.innerHTML = document.getElementById("boar").value;
+    var c = row.insertCell(4);
+    c.innerHTML = document.getElementById("boar").value;
     
 }
     function myFunction6() {
     var row = document.getElementById("myRow");
-    var y = row.insertCell(5);
-    y.innerHTML = document.getElementById("date2").value;
+    var d = row.insertCell(5);
+    d.innerHTML = document.getElementById("comments").value;
     
 }
 </script>
@@ -192,12 +202,12 @@ function myFunction2() {
     </div>
 
      <!-- Modal Structure for DATE2 -->
-    <div id="date2Modal" class="modal bottom-sheet">
+    <div id="commentsModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
-            <h4>Enter Date</h4>
+            <h4>Add Comments</h4>
             <div class="input-field col s6">
-                <input id="date2" type="text" class="validate">
-                <label for="date2">Date 2</label>
+                <input id="comments" type="text" class="validate">
+                <label for="comments">Comments</label>
             </div>
         </div>
         <div class="modal-footer">

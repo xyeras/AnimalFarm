@@ -20,12 +20,12 @@ table {
     width: 100%;
 }
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
 }
 th {
-	background-color: #1b4b80;
+	background-color: #ff6868;
 	color: white;
 }
 tr:nth-child(even) {
@@ -33,7 +33,7 @@ tr:nth-child(even) {
 	color: black;
 }
 tr:nth-child(odd) {
-	background-color: #cfebff;
+	background-color: #ffafaf;
 	color: black;
 }
 </style>
@@ -52,10 +52,9 @@ tr:nth-child(odd) {
     </div>
   </nav>
 
-<!--Practice-->
+<!--Search table-->
  <script src="jquery-3.2.1.min.js"></script>
  <script src="searchData.js"></script>
-
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
  <select id = "specifier">
@@ -65,7 +64,6 @@ tr:nth-child(odd) {
 </select>
  <input type="text" id="searchTerm" placeholder="Search for names.." onkeyup="searchData()">
  
-
 <table id="table1">
   <tr class="header">
     <th style="width:60%;">Name</th>
@@ -88,15 +86,14 @@ tr:nth-child(odd) {
     <td>Germany</td>
   </tr>
 </table>
-
 <!--trying to hide buttons-->
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
-<style>h2 {margin: 0px 0 0 325px;}</style>
+<style>h2 {margin: 40px 0 0 100px;}</style>
 
-<a class="waves-effect waves-light btn-large red">Edit</a>
-<a class="waves-effect waves-light btn-large red">Delete</a>
+<h1 class="waves-effect waves-light btn-large red center ">Edit</h1>
+<h2 class="waves-effect waves-light btn-large red center">Delete</h2>
 
 <!--Bottom header-->
         <footer class="page-footer">

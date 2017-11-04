@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    <!--animate css -->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+    <style>
+        .space button{margin-right:15px;}
+        .space button:last-child{margin-right:0px;}
+
+        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal, #tagModal {
+          width: 50%;
+          left: 25%;
+          right: 5%;
+        }
+        
+         table, td {
+    
+        
+
+    </style>
+</head>   
+<body> 
+  <nav>
+    <div class="nav-wrapper">
+      <center><a href="#" class="brand-logo">Add Data</a></center>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="homeapp.html">Home</a></li>
+        <li><a href="pigTable.html">View Data</a></li>
+		<li><a href="searchdata.html">Search Data</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+
+    <div class="centered row container  space" style="padding-top: 40px; margin-left: 260px; margin-right: 50px;">
+        <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+        <button data-target="tagModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button>
+        <button data-target="penModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button>
+        <button data-target="notchModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button>
+        <button data-target="dateModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
+        <button data-target="boarModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
+        <button data-target="date2Modal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
+    </div>
+
+   
+<!--        <p><span id='display'></span></p>-->
+
+    <p><span id='display'></span></p>
+
+        
+        <table>
+  <tr id="myRow">
+  </tr>
+</table><br>
+
+        
+     <script src="addData.js"></script> 
+    
+    <button id="add">Submit Data</button>
+    
+    
+        
+<script>
+function myFunction() {
+    var row = document.getElementById("myRow");
+    var x = row.insertCell(0);
+    x.innerHTML = document.getElementById("tag").value;   
+}
+            
+function myFunction2() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(1);
+    y.innerHTML = document.getElementById("pen").value;
+    
+}
+    function myFunction3() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(2);
+    y.innerHTML = document.getElementById("notch").value;
+    
+}
+    function myFunction4() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(3);
+    y.innerHTML = document.getElementById("date").value;
+    
+}
+    function myFunction5() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(4);
+    y.innerHTML = document.getElementById("boar").value;
+    
+}
+    function myFunction6() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(5);
+    y.innerHTML = document.getElementById("date2").value;
+    
+}
+</script>
+
+<div id="wrapper"></div>
+    
+    
+    <!-- Modal Structure for TAG -->
+    <div id="tagModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Tag</h4>
+                <div class="input-field col s3">
+                        
+                        <input id="tag" type="text" name="tagEn" class="validate">
+                        <label for="tag">Tag</label>
+                    
+                </div>
+        </div>
+       
+        <div class="modal-footer">
+            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            
+        </div>
+        
+    </div>
+
+    <!-- Modal Structure for PEN -->
+    <div id="penModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Pen </h4>
+                <div class="input-field col s3">
+                    <form>
+                        <input id="pen" type="text" name="penEn" class="validate">
+                        <label for="pen">Pen</label>
+                    </form>
+                </div>
+        </div>
+       
+        <div class="modal-footer">
+            <button onclick="myFunction2()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Modal Structure for NOTCH -->
+    <div id="notchModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Notch</h4>
+                <div class="input-field col s6">
+                    <input id="notch" type="text" class="validate">
+                    <label for="notch">Notch</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="myFunction3()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+        </div>
+    </div>
+
+     <!-- Modal Structure for DATE -->
+    <div id="dateModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Date</h4>
+            <div class="input-field col s6">
+                <input id="date" type="text" class="validate">
+                <label for="date">Date</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="myFunction4()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+        </div>
+    </div>
+
+    <!-- Modal Structure for BOAR -->
+    <div id="boarModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Boar</h4>
+            <div class="input-field col s6">
+                <input id="boar" type="text" class="validate">
+                <label for="boar">Boar</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button onclick="myFunction5()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+        </div>
+    </div>
+
+     <!-- Modal Structure for DATE2 -->
+    <div id="date2Modal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Date</h4>
+            <div class="input-field col s6">
+                <input id="date2" type="text" class="validate">
+                <label for="date2">Date 2</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button onclick="myFunction6()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+        </div>
+    </div>
+    
+<!--to make stuff apear upon clicking-->
+<script>
+    $(document).ready(
+        function() {
+            $("#p").click(function() {
+                $("#theTable").fadeToggle();
+            });
+        });
+</script>
+    
+<!--for the modals to work -->
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+    $(document).ready(function() {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+</script>
+
+    
+<!--trying to display user input, dont know if i willl need -->
+
+
+<!--
+  <footer>
+        <div class="footer-copyright">
+            <div class="container row center grey-text" style="padding-top: 450px; padding-left: 430px; padding-right: 430px; position: absolute">
+                California State University, Fresno
+                <br/> 2017 Animal Farm
+
+            </div>
+        </div>
+    </footer>
+-->
+</body>    
+</html>

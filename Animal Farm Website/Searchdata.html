@@ -49,8 +49,8 @@
 <!--trying to hide buttons-->
 
 
-<h1 class="waves-effect waves-light btn-large red"
-	onClick = "myFunction()">View Recent Data</h1>
+<h1 class="waves-effect waves-light btn-large red center"
+	onClick = "this.style.visibility= 'hidden';myFunction()">View Recent Data</h1>
 <h2 class="waves-effect waves-light btn-large red hide">Edit</h2>
 <h2 class="waves-effect waves-light btn-large red hide">Delete</h2>
 <p>
@@ -85,10 +85,9 @@ function myFunction() {
   </nav>
 <p>
 </p>
-
-      <table class="container">
-        <thead>
-          <tr>
+    <table class="container">
+      <thead>
+        <tr>
 				<th>Pen</th>
 				<th>Notch</th>
 				<th>Tag</th>

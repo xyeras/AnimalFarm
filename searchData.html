@@ -30,39 +30,30 @@ tr:nth-child(odd) {
 <body>
  <script src="jquery-3.2.1.min.js"></script>
  <script src="searchData.js"></script>
+ <script src="searchTable.js"></script>
 
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
  <select id = "specifier">
-  <option value="0">No Specifier</option>
-  <option value="1">Name</option>
-  <option value="2">Country</option>
+  <option value="0">None</option>
+  <option value="1">Pen</option>
+  <option value="2">Notch</option>
+  <option value="3">Tag</option>
+  <option value="4">Date 1</option>
+  <option value="5">Boar 1</option>
+  <option value="6">Date 2</option>
+  <option value="7">Boar 2</option>
+  <option value="8">Heat</option>
+  <option value="9">Date 3</option>
+  <option value="10">Line</option>
+  <option value="11">New Pen</option>
+  <option value="12">Comments</option>
 </select>
  <input type="text" id="searchTerm" placeholder="Search for names.." onkeyup="searchData()">
  
+	<div id = "result"></div>
 
-<table id="table1">
-  <tr class="header">
-    <th style="width:60%;">Name</th>
-    <th style="width:40%;">Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbkop</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Koniglich Essen</td>
-    <td>Germany</td>
-  </tr>
-</table>
+
 
 </body>
 </html>

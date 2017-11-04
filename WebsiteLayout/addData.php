@@ -10,14 +10,16 @@ if (mysqli_connect_error())
 }
 
 		
-$pen	=	mysqli_real_escape_string($con,$_POST['pen']);
-$notch	=	mysqli_real_escape_string($con,$_POST['notch']);
-$tag	=	mysqli_real_escape_string($con,$_POST['tag']);
-$date1	=	mysqli_real_escape_string($con,$_POST['date1']);
-$boar1	=	mysqli_real_escape_string($con,$_POST['boar1']);
+$pen		=	mysqli_real_escape_string($con,$_POST['pen']);
+$notch		=	mysqli_real_escape_string($con,$_POST['notch']);
+$tag		=	mysqli_real_escape_string($con,$_POST['tag']);
+$date1		=	mysqli_real_escape_string($con,$_POST['date1']);
+$boar1		=	mysqli_real_escape_string($con,$_POST['boar1']);
+$comments	=	mysqli_real_escape_string($con,$_POST['comments']);
 
-$insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, date2, boar2, heat, date3, line, newPen, comm)
-		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$date2', '$boar2', '$heat', '$date3', '$line', '$newPen', '$comments')";
+
+$insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, comm)
+		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$comments')";
 
 if($con->query($insert) === TRUE){
 	echo "Save successful!)";

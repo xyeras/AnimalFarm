@@ -1,5 +1,5 @@
 
-function addNew(p,n,t,d1,b1)
+function addNew(p,n,t,d1,b1,c)
 {
 
 	$.post("addData.php",
@@ -7,7 +7,8 @@ function addNew(p,n,t,d1,b1)
 		notch	: n,
 		tag		: t,
 		date1	: d1,
-		boar1	: b1
+		boar1	: b1,
+		comments: c
 	},
 	function(data, status){
 	    alert("Status: " + status);
@@ -25,8 +26,9 @@ $(document).ready(function(){
 		var t 	= $('#tag').val();
 		var d1	= $('#date').val();
 		var b1	= $('#boar').val();
+		var c	= $('#comments').val();
 		
-		addNew(p,n,t,d1,b1);
+		addNew(p,n,t,d1,b1,c);
 	});
 	
 });

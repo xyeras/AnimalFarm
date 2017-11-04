@@ -23,84 +23,108 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     
     <style>
-        .space button{margin-right:16px;}
+        .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
 
-        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal {
+        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal, #tagModal {
           width: 50%;
           left: 25%;
           right: 5%;
         }
+        
+         table, td {
+    
+        
 
     </style>
 </head>   
 <body> 
-    <h5 class="animated bounceInDown centered center header col s12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+    
 
-    <div class="centered row container center space" style="padding-top: 40px; padding-left: 130px; padding-right: 100px">
-        <button data-target="penModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button>
-        <button data-target="penModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button>
-        <button data-target="notchModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button>
-        <button data-target="dateModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
-        <button data-target="boarModal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
-        <button data-target="date2Modal" class="col xl2 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
+    <div class="centered row container  space" style="padding-top: 40px; margin-left: 260px; margin-right: 50px;">
+        <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+        <button data-target="tagModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button>
+        <button data-target="penModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button>
+        <button data-target="notchModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button>
+        <button data-target="dateModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
+        <button data-target="boarModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
+        <button data-target="date2Modal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
     </div>
 
-    <div id="theTable" class="row container" style="display:none;">
-
-    <input id="p" ><br/>
+   
 <!--        <p><span id='display'></span></p>-->
 
     <p><span id='display'></span></p>
- 
-    <!-- table with one row for entries to be sent to database -->
-    <table id="p" class=" container col s3">
-        <thead>
-          <tr>
+
         
-          </tr>
-        </thead>
+        <table>
+  <tr id="myRow">
+  </tr>
+</table><br>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-    </table>
-   </div> 
-
+        
+     <script src="addData.js"></script> 
+    
+    <button id="add">Submit Data</button>
     
     
+        
+<script>
+function myFunction() {
+    var row = document.getElementById("myRow");
+    var x = row.insertCell(0);
+    x.innerHTML = document.getElementById("tag").value;   
+}
+            
+function myFunction2() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(1);
+    y.innerHTML = document.getElementById("pen").value;
+    
+}
+    function myFunction3() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(2);
+    y.innerHTML = document.getElementById("notch").value;
+    
+}
+    function myFunction4() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(3);
+    y.innerHTML = document.getElementById("date").value;
+    
+}
+    function myFunction5() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(4);
+    y.innerHTML = document.getElementById("boar").value;
+    
+}
+    function myFunction6() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(5);
+    y.innerHTML = document.getElementById("date2").value;
+    
+}
+</script>
 
 <div id="wrapper"></div>
     
     
     <!-- Modal Structure for TAG -->
-    <div id="penModal" class="modal bottom-sheet">
+    <div id="tagModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
             <h4>Enter Tag</h4>
                 <div class="input-field col s3">
-                    <form>
+                        
                         <input id="tag" type="text" name="tagEn" class="validate">
                         <label for="tag">Tag</label>
-                    </form>
+                    
                 </div>
         </div>
        
         <div class="modal-footer">
-            <button onclick="showInput();" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
             
         </div>
         
@@ -119,7 +143,7 @@
         </div>
        
         <div class="modal-footer">
-            <button onclick="showInput();" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            <button onclick="myFunction2()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
             
         </div>
         
@@ -135,7 +159,7 @@
                 </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+            <button onclick="myFunction3()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
         </div>
     </div>
 
@@ -149,7 +173,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+            <button onclick="myFunction4()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
         </div>
     </div>
 
@@ -163,7 +187,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+           <button onclick="myFunction5()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
         </div>
     </div>
 
@@ -177,7 +201,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+           <button onclick="myFunction6()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
         </div>
     </div>
     
@@ -205,13 +229,6 @@
 
     
 <!--trying to display user input, dont know if i willl need -->
-<script>
-    $(document).ready(
-            function showInput() {
-                document.getElementById('display').innerHTML =
-                    document.getElementById("pen").value;
-            }
-</script>
 
 
 <!--

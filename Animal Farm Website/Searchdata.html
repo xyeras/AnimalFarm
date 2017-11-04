@@ -12,22 +12,36 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <title>Animal Farm SearchDataPage</title>
   
-  	<script type="text/javascript">
-	
-	window.onload = function() {
-		var frm = document.getElementById("formId");
-		frm.onsubmit = function() {
-			document.getElementById("btnSubmit").disabled = true;
-			return false;
-		}
-	}
-	</script>
-	
+<style>
+table {
+    font-family: arial, sans-serif;
+	color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+	background-color: #1b4b80;
+	color: white;
+}
+tr:nth-child(even) {
+	background-color: white;
+	color: black;
+}
+tr:nth-child(odd) {
+	background-color: #cfebff;
+	color: black;
+}
+</style>
+
 </head>
 
 <body>
-
-<!--Top Header also takes you to Home Page-->
+<!--Top Header-->
   <nav>
     <div class="nav-wrapper">
       <center><a href="#" class="brand-logo white-text">Search Data</a></center>
@@ -37,157 +51,53 @@
       </ul>
     </div>
   </nav>
-<!-- -->
-<p>
-</p>
-<!-- Search Bar                                        -->	
+
+<!--Practice-->
+ <script src="jquery-3.2.1.min.js"></script>
+ <script src="searchData.js"></script>
+
+ <!-- where the table from the database will be printed
+ <div id = "putTableHere"></div>-->
+ <select id = "specifier">
+  <option value="0">No Specifier</option>
+  <option value="1">Name</option>
+  <option value="2">Country</option>
+</select>
+ <input type="text" id="searchTerm" placeholder="Search for names.." onkeyup="searchData()">
+ 
+
+<table id="table1">
+  <tr class="header">
+    <th style="width:60%;">Name</th>
+    <th style="width:40%;">Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbkop</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Koniglich Essen</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<!--trying to hide buttons-->
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 0px 0 0 325px;}</style>
 
-<!--trying to hide buttons-->
+<a class="waves-effect waves-light btn-large red">Edit</a>
+<a class="waves-effect waves-light btn-large red">Delete</a>
 
-
-<h1 class="waves-effect waves-light btn-large red center"
-	onClick = "this.style.visibility= 'hidden';myFunction()">View Recent Data</h1>
-<h2 class="waves-effect waves-light btn-large red hide">Edit</h2>
-<h2 class="waves-effect waves-light btn-large red hide">Delete</h2>
-<p>
-</p>
-<!--Practice examples-->
-
-
-<script>
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-		
-		}
-}
-</script>
-
-
-<div id="myDIV">
-  <nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
-<p>
-</p>
-    <table class="container">
-      <thead>
-        <tr>
-				<th>Pen</th>
-				<th>Notch</th>
-				<th>Tag</th>
-				<th>Date</th>
-				<th>Boar</th>
-				<th>Date</th>
-				<th>Boar</th>
-				<th>Heat</th>
-				<th>Date</th>
-				<th>Line</th>
-				<th>New Pen</th>
-				<th>Comments</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-		    <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-			<td>$0.87</td>
-			<td>Alvin</td>
-          </tr>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-		    <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-          </tr>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-		    <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-          </tr>
-		            <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-		    <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-          </tr>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-		    <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-            <td>$0.87</td>
-			<td>Alvin</td>
-          </tr>
-        </tbody>
-     </table>
-<center>
-	<ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
-</center>
-</div>
 <!--Bottom header-->
         <footer class="page-footer">
           <div class="container">

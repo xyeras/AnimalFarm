@@ -11,6 +11,18 @@
     <!-- CSS  -->
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <title>Animal Farm SearchDataPage</title>
+  
+  	<script type="text/javascript">
+	
+	window.onload = function() {
+		var frm = document.getElementById("formId");
+		frm.onsubmit = function() {
+			document.getElementById("btnSubmit").disabled = true;
+			return false;
+		}
+	}
+	</script>
+	
 </head>
 
 <body>
@@ -31,6 +43,35 @@
 <!-- Search Bar                                        -->	
 <p>
 </p>
+<style>h1 {margin: 40px 0 0 550px;}</style> 
+<style>h2 {margin: 0px 0 0 325px;}</style>
+
+<!--trying to hide buttons-->
+
+
+<h1 class="waves-effect waves-light btn-large red"
+	onClick = "myFunction()">View Recent Data</h1>
+<h2 class="waves-effect waves-light btn-large red hide">Edit</h2>
+<h2 class="waves-effect waves-light btn-large red hide">Delete</h2>
+<p>
+</p>
+<!--Practice examples-->
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+		
+		}
+}
+</script>
+
+
+<div id="myDIV">
   <nav>
     <div class="nav-wrapper">
       <form>
@@ -147,18 +188,7 @@
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </center>
-
-<style>h1 {margin: 40px 0 0 550px;}</style> 
-<style>h2 {margin: 0px 0 0 325px;}</style>
-
-<h1 class="waves-effect waves-light btn-large red">View Recent Data</h1>
-<h2 class="waves-effect waves-light btn-large red hide">Edit</h2>
-<h2 class="waves-effect waves-light btn-large red hide">Delete</h2>
-<p>
-</p>
-<!--Practice examples-->
-
-
+</div>
 <!--Bottom header-->
         <footer class="page-footer">
           <div class="container">

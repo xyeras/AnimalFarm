@@ -11,6 +11,18 @@
     <!-- CSS  -->
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <title>Animal Farm SearchDataPage</title>
+  
+  	<script type="text/javascript">
+	
+	window.onload = function() {
+		var frm = document.getElementById("formId");
+		frm.onsubmit = function() {
+			document.getElementById("btnSubmit").disabled = true;
+			return false;
+		}
+	}
+	</script>
+	
 </head>
 
 <body>
@@ -18,12 +30,10 @@
 <!--Top Header also takes you to Home Page-->
   <nav>
     <div class="nav-wrapper">
-      <center><a href="#" class="brand-logo">Edit Data</a></center>
+      <center><a href="#" class="brand-logo white-text">Search Data</a></center>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Home</a></li>
-        <li><a href="badges.html">View Recent Data</a></li>
-        <li><a href="collapsible.html">Add Data</a></li>
-		<li><a href="collapsible.html">Search Data</a></li>
+        <li><a href="homeapp.html" class="white-text">Home</a></li>
+        <li><a href="add.html" class="white-text">Add Data</a></li>
       </ul>
     </div>
   </nav>
@@ -33,6 +43,35 @@
 <!-- Search Bar                                        -->	
 <p>
 </p>
+<style>h1 {margin: 40px 0 0 550px;}</style> 
+<style>h2 {margin: 0px 0 0 325px;}</style>
+
+<!--trying to hide buttons-->
+
+
+<h1 class="waves-effect waves-light btn-large red center"
+	onClick = "this.style.visibility= 'hidden';myFunction()">View Recent Data</h1>
+<h2 class="waves-effect waves-light btn-large red hide">Edit</h2>
+<h2 class="waves-effect waves-light btn-large red hide">Delete</h2>
+<p>
+</p>
+<!--Practice examples-->
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+		
+		}
+}
+</script>
+
+
+<div id="myDIV">
   <nav>
     <div class="nav-wrapper">
       <form>
@@ -46,10 +85,9 @@
   </nav>
 <p>
 </p>
-
-      <table class="container">
-        <thead>
-          <tr>
+    <table class="container">
+      <thead>
+        <tr>
 				<th>Pen</th>
 				<th>Notch</th>
 				<th>Tag</th>
@@ -138,27 +176,6 @@
           </tr>
         </tbody>
      </table>
-
-<p>
-</p>
-<style>
-
-h1 {
-    margin: 40px 0 0 600px;
-}
-
-</style> 
-<style>
-
-h2 {
-    margin: 40px 0 0 100px;
-}
-
-
-</style> 
-<h1 class="waves-effect waves-light btn-large red ">Delete</h1>
-<h2 class="waves-effect waves-light btn-large red">Edit</h2>
-
 <center>
 	<ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -170,13 +187,14 @@ h2 {
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </center>
-
+</div>
+<!--Bottom header-->
         <footer class="page-footer">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Summary</h5>
-                <p class="grey-text text-lighten-4">You can use this page to search or edit entries.</p>
+                <p class="grey-text text-lighten-4">You can use this page to search data then edit entries.</p>
               </div>
             </div>
           </div>

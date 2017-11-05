@@ -2530,13 +2530,11 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  padding-right: 10px;
 }
 
 td,
 th {
   padding: 0;
-  padding-right: 10px;
 }
 
 html {

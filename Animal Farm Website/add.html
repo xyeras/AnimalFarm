@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head> 
-     <script src="addData.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
     <!--Import Google Icon Font-->
@@ -33,6 +32,7 @@
           right: 5%;
         }
         
+<<<<<<< HEAD
        
       
         th {
@@ -46,15 +46,26 @@
         .inner{
             display: inline-flex;
         }
+=======
+         table, td {
+    
+        
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 
     </style>
 </head>   
 <body> 
   <nav>
+<<<<<<< HEAD
     <div class="nav-wrapper pink darken-1">
       <a href="#" class="brand-logo center">Add Data</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+=======
+    <div class="nav-wrapper">
+      <center><a href="#" class="brand-logo">Add Data</a></center>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
         <li><a href="homeapp.html">Home</a></li>
         <li><a href="pigTable.html">View Data</a></li>
 		<li><a href="searchdata.html">Search Data</a></li>
@@ -79,7 +90,19 @@
         
         
     
+<<<<<<< HEAD
         </div>
+=======
+
+    <div class="centered row container  space" style="padding-top: 40px; margin-left: 260px; margin-right: 50px;">
+        <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
+        <button data-target="tagModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button>
+        <button data-target="penModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button>
+        <button data-target="notchModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button>
+        <button data-target="dateModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
+        <button data-target="boarModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
+        <button data-target="date2Modal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
     </div>
     
        
@@ -102,6 +125,13 @@
     
         
         
+<<<<<<< HEAD
+=======
+        <table>
+  <tr id="myRow">
+  </tr>
+</table><br>
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 
         <div id= "outer" class="container">
     <footer>
@@ -111,11 +141,18 @@
           <br/>
           2017 Animal Farm
         
+<<<<<<< HEAD
       </div>
     </div>
   </footer>
     
 </div>
+=======
+     <script src="addData.js"></script> 
+    
+    <button id="add">Submit Data</button>
+    
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
     
         
 <script>
@@ -129,34 +166,41 @@ function myFunction() {
             
 function myFunction2() {
     var row = document.getElementById("myRow");
- 
     var y = row.insertCell(1);
     y.innerHTML = document.getElementById("pen").value;
     
 }
     function myFunction3() {
     var row = document.getElementById("myRow");
-    var a = row.insertCell(2);
-    a.innerHTML = document.getElementById("notch").value;
+    var y = row.insertCell(2);
+    y.innerHTML = document.getElementById("notch").value;
     
 }
+<<<<<<< HEAD
     function getDateNow() {
         var row = document.getElementById("myRow");
         var date = new Date();
         formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
         var b = row.insertCell(3);
         b.innerHTML = formatDate;
+=======
+    function myFunction4() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(3);
+    y.innerHTML = document.getElementById("date").value;
+    
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 }
     function myFunction5() {
     var row = document.getElementById("myRow");
-    var c = row.insertCell(4);
-    c.innerHTML = document.getElementById("boar").value;
+    var y = row.insertCell(4);
+    y.innerHTML = document.getElementById("boar").value;
     
 }
     function myFunction6() {
     var row = document.getElementById("myRow");
-    var d = row.insertCell(5);
-    d.innerHTML = document.getElementById("comments").value;
+    var y = row.insertCell(5);
+    y.innerHTML = document.getElementById("date2").value;
     
 }
 </script>
@@ -244,13 +288,13 @@ function myFunction2() {
         </div>
     </div>
 
-     <!-- Modal Structure for comments -->
-    <div id="commentsModal" class="modal bottom-sheet">
+     <!-- Modal Structure for DATE2 -->
+    <div id="date2Modal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
-            <h4>Add Comments</h4>
+            <h4>Enter Date</h4>
             <div class="input-field col s6">
-                <input id="comments" type="text" class="validate">
-                <label for="comments">Comments</label>
+                <input id="date2" type="text" class="validate">
+                <label for="date2">Date 2</label>
             </div>
         </div>
         <div class="modal-footer">

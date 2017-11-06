@@ -26,30 +26,73 @@
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
 
-        #notchModal, #penModal, #dateModal, #boarModal, #date2Modal, #tagModal {
+        #notchModal, #penModal, #dateModal, #boarModal, #commentsModal, #tagModal {
           width: 50%;
           left: 25%;
           right: 5%;
         }
         
+<<<<<<< HEAD
+       
+      
+        th {
+            height: 50px;
+        }
+     
+        #outer{
+            width:100%;
+            text-align: center;
+        }
+        .inner{
+            display: inline-flex;
+        }
+=======
          table, td {
     
         
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 
     </style>
 </head>   
 <body> 
   <nav>
+<<<<<<< HEAD
+    <div class="nav-wrapper pink darken-1">
+      <a href="#" class="brand-logo center">Add Data</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+=======
     <div class="nav-wrapper">
       <center><a href="#" class="brand-logo">Add Data</a></center>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
         <li><a href="homeapp.html">Home</a></li>
+        <li><a href="pigTable.html">View Data</a></li>
+		<li><a href="searchdata.html">Search Data</a></li>
+      </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="homeapp.html">Home</a></li>
         <li><a href="pigTable.html">View Data</a></li>
 		<li><a href="searchdata.html">Search Data</a></li>
       </ul>
     </div>
   </nav>
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which field you would like to fill.</h5>
+    <div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+        
+        <div class="inner"><button data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
+        <div class="inner"><button data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
+        <div class="inner"><button data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
+        <div class="inner"><button onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
+        <div class="inner"><button data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
+       <div class="inner"><button data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
+        
+        
     
+<<<<<<< HEAD
+        </div>
+=======
 
     <div class="centered row container  space" style="padding-top: 40px; margin-left: 260px; margin-right: 50px;">
         <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 10px; text-align:center">Simply select which field you would like to fill.</h5>
@@ -59,27 +102,62 @@
         <button data-target="dateModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date</button>
         <button data-target="boarModal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button>
         <button data-target="date2Modal" class="col xl1 waves-effect waves-light btn-large modal-trigger pink darken-1">Date 2</button>
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
     </div>
-
+    
+       
+<div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+    
+    <table class="bordered centered responsive-table container" style="padding-top: 100px">
+            <tr id="myRow">
+            </tr>   
+        </table>
+    </div>
+ </div>
+    
+    
+    <div id= "outer" class="container">
+    <button class="btn waves-effect waves-light brown" id="add" style="top:100px">Submit Data</button> 
+        </div>
    
-<!--        <p><span id='display'></span></p>-->
 
-    <p><span id='display'></span></p>
-
+    
         
+        
+<<<<<<< HEAD
+=======
         <table>
   <tr id="myRow">
   </tr>
 </table><br>
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 
+        <div id= "outer" class="container">
+    <footer>
+    <div class="footer-copyright">
+      <div class=" row  grey-text" style="padding-top: 200px" >
+      California State University, Fresno
+          <br/>
+          2017 Animal Farm
         
+<<<<<<< HEAD
+      </div>
+    </div>
+  </footer>
+    
+</div>
+=======
      <script src="addData.js"></script> 
     
     <button id="add">Submit Data</button>
     
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
     
         
 <script>
+
+    
 function myFunction() {
     var row = document.getElementById("myRow");
     var x = row.insertCell(0);
@@ -98,11 +176,20 @@ function myFunction2() {
     y.innerHTML = document.getElementById("notch").value;
     
 }
+<<<<<<< HEAD
+    function getDateNow() {
+        var row = document.getElementById("myRow");
+        var date = new Date();
+        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        var b = row.insertCell(3);
+        b.innerHTML = formatDate;
+=======
     function myFunction4() {
     var row = document.getElementById("myRow");
     var y = row.insertCell(3);
     y.innerHTML = document.getElementById("date").value;
     
+>>>>>>> af4df643fcdd017444504bd27e801011839cb943
 }
     function myFunction5() {
     var row = document.getElementById("myRow");
@@ -134,7 +221,7 @@ function myFunction2() {
         </div>
        
         <div class="modal-footer">
-            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
             
         </div>
         
@@ -163,13 +250,13 @@ function myFunction2() {
     <div id="notchModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
             <h4>Enter Notch</h4>
-                <div class="input-field col s6">
+                <div class="input-field col s6 ">
                     <input id="notch" type="text" class="validate">
                     <label for="notch">Notch</label>
                 </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction3()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            <button onclick="myFunction3()" class="modal-action modal-close waves-effect waves-green btn-flat brown white-text">Enter</button>
         </div>
     </div>
 
@@ -183,7 +270,7 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction4()" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+            <button onclick="myFunction4()">Enter</button>
         </div>
     </div>
 
@@ -222,7 +309,10 @@ function myFunction2() {
             $("#p").click(function() {
                 $("#theTable").fadeToggle();
             });
+            $(".button-collapse").sideNav();
         });
+    
+      
 </script>
     
 <!--for the modals to work -->
@@ -238,8 +328,6 @@ function myFunction2() {
 </script>
 
     
-<!--trying to display user input, dont know if i willl need -->
-
 
 <!--
   <footer>

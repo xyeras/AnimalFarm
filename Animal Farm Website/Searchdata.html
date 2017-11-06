@@ -41,14 +41,45 @@ tr:nth-child(odd) {
 	color: black;
 }
 </style>
- <script src="jquery-3.2.1.min.js"></script>
+
+<script src="jquery-3.2.1.min.js"></script>
+ 
+ <script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+ <style>
+ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
+ </style>
+ <script>
+ </script>
 </head>
 
 <body>
 <!--Top Header-->
   <nav>
     <div class="nav-wrapper">
-      <center><a href="#" class="brand-logo white-text">Search Data</a></center>
+      <center><a href="#" class="brand-logo white-text">Edit Data</a></center>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="homeapp.html" class="white-text">Home</a></li>
       </ul>
@@ -67,7 +98,7 @@ tr:nth-child(odd) {
   <option value="1">Name</option>
   <option value="2">Country</option>
 </select>
-<input type="text center" id="searchTerm" placeholder="   Search.." onkeyup="searchData()">
+<input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()">
 <div id = "result"></div>
 
 <table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable">
@@ -124,25 +155,4 @@ tr:nth-child(odd) {
         </footer>
 
 	</body>
-    
-    
-    <script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
 </html>

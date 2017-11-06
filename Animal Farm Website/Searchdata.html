@@ -67,11 +67,11 @@ tr:nth-child(odd) {
   <option value="1">Name</option>
   <option value="2">Country</option>
 </select>
-<input type="text" id="searchTerm" placeholder=" Search for names.." onkeyup="searchData()">
+<input type="text center" id="searchTerm" placeholder="   Search.." onkeyup="searchData()">
 
 <div id = "result"></div>
 
-<table id="table1">
+<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable">
   <tr class="header">
     <th style="width:60%;">Name</th>
     <th style="width:40%;">Country</th>
@@ -94,12 +94,13 @@ tr:nth-child(odd) {
   </tr>
 </table>
 
-td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+$("tr.table").click(function() {
+    var tableData = $(this).children("td").map(function() {
+        return $(this).text();
+    }).get();
 
-.selected {
-    background-color: brown;
-    color: #FFF;
-}
+    alert("Your data is: " + $.trim(tableData[0]) + " , " + $.trim(tableData[1]) + " , " + $.trim(tableData[2]));
+});
 <!--trying to hide buttons-->
 
 <p>

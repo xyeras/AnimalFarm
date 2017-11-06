@@ -12,6 +12,10 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <title>Animal Farm SearchDataPage</title>
   
+	<title>W3.CSS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <style>
 table {
     font-family: arial, sans-serif;
@@ -37,6 +41,7 @@ tr:nth-child(odd) {
 	color: black;
 }
 </style>
+ <script src="jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -46,7 +51,6 @@ tr:nth-child(odd) {
       <center><a href="#" class="brand-logo white-text">Search Data</a></center>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="homeapp.html" class="white-text">Home</a></li>
-        <li><a href="add.html" class="white-text">Add Data</a></li>
       </ul>
     </div>
   </nav>
@@ -54,15 +58,19 @@ tr:nth-child(odd) {
 <!--Search table-->
  <script src="jquery-3.2.1.min.js"></script>
  <script src="searchData.js"></script>
+  <script src="searchTable.js"></script>
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
+ 
  <select id="specifier">
   <option value="0">No Specifier</option>
   <option value="1">Name</option>
   <option value="2">Country</option>
 </select>
- <input type="text" id="searchTerm" placeholder=" Search for names.." onkeyup="searchData()">
- 
+<input type="text" id="searchTerm" placeholder=" Search for names.." onkeyup="searchData()">
+
+<div id = "result"></div>
+
 <table id="table1">
   <tr class="header">
     <th style="width:60%;">Name</th>
@@ -85,14 +93,22 @@ tr:nth-child(odd) {
     <td>Germany</td>
   </tr>
 </table>
+
+td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
 <!--trying to hide buttons-->
+
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 <form action="add.html">
-    <input type="submit" value="Edit" class="waves-effect waves-light btn-large red" />
+    <input type="submit" value="Edit" class="waves-effect waves-light btn-large red disabled" />
 	<h2 class="waves-effect waves-light btn-large red center hide">Delete</h2>
 </form>
 

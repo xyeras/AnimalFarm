@@ -15,7 +15,28 @@
 	<title>W3.CSS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <script src="addData.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    <!--animate css -->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
 <style>
 table {
     font-family: arial, sans-serif;
@@ -29,7 +50,7 @@ td, th {
     padding: 8px;
 }
 th {
-	background-color: #ff6868;
+	background-color: pink;
 	color: white;
 }
 tr:nth-child(even) {
@@ -78,8 +99,8 @@ function myFunction() {
 <body>
 <!--Top Header-->
   <nav>
-    <div class="nav-wrapper">
-      <center><a href="#" class="brand-logo white-text">Edit Data</a></center>
+    <div class="nav-wrapper pink darken-1">
+        <a href="#" class="brand-logo center white-text">Edit Data</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="homeapp.html" class="white-text">Home</a></li>
       </ul>
@@ -92,16 +113,23 @@ function myFunction() {
   <script src="searchTable.js"></script>
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
- 
- <select id="specifier">
-  <option value="0">No Specifier</option>
-  <option value="1">Name</option>
-  <option value="2">Country</option>
-</select>
-<input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()">
+
+    <div id="bodyOfPage" style="padding-top: 50px" class="container">
+    <div class="input-field " style="padding-right: 900px; padding-bottom: 10px">
+    <select id="specifier">
+      <option value="" disabled selected>select</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Search By:</label>
+        <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()">
+  </div>
+    <!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
+<input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
 <div id = "result"></div>
 
-<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable">
+<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable ">
   <tr class="header">
     <th style="width:60%;">Name</th>
     <th style="width:40%;">Country</th>
@@ -125,15 +153,15 @@ function myFunction() {
 </table>
 
 <!--trying to hide buttons-->
-
+</div>
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
-<form action="add.html">
-    <input type="submit" value="Edit" class="waves-effect waves-light btn-large red disabled" />
-	<h2 class="waves-effect waves-light btn-large red center hide">Delete</h2>
+<form action="add.html" class="container center" style="padding-bottom: 15px;">
+    <input type="submit" value="Edit" class="waves-effect waves-light btn-large red disabled " />
+	<h2 class="waves-effect waves-light btn-large red center hide">Edit</h2>
 </form>
 
 <!--Bottom header-->
@@ -153,6 +181,13 @@ function myFunction() {
             </div>
           </div>
         </footer>
+    
+        <script>
+     $(document).ready(function() {
+    $('select').material_select();
+  });
+      
+    </script>
 
 	</body>
 </html>

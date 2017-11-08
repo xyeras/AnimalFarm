@@ -10,26 +10,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- CSS  -->
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <title>Animal Farm SearchDataPage</title>
+  <title>Edit Page</title>
   
-	<title>W3.CSS</title>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<!--<script src="addData.js"></script>--> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script src="addData.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -58,6 +61,15 @@ tr:nth-child(odd) {
 	background-color: #ffafaf;
 	color: black;
 }
+td {
+    border: 1px #DDD solid; 
+    padding: 5px; 
+    cursor: pointer;
+}
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
 </style>
 
 <script src="jquery-3.2.1.min.js"></script>
@@ -81,16 +93,7 @@ function myFunction() {
   }
 }
 </script>
- <style>
- td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
-.selected {
-    background-color: brown;
-    color: #FFF;
-}
- </style>
- <script>
- </script>
 </head>
 
 <body>
@@ -113,7 +116,6 @@ function myFunction() {
     </div>
   </nav>
 
-  
 <!--Search table-->
  <script src="jquery-3.2.1.min.js"></script>
  <script src="searchData.js"></script>
@@ -121,24 +123,31 @@ function myFunction() {
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
 
-    <div class="input-field " style="padding-right: 900px; padding-bottom: 10px">
+    <div class="container" style="padding-top: 30px;">
+    <div class="row">
+    <div class="input-field col s4 ">
+    
     <select id="specifier">
       <option value="" disabled selected>select</option>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
     </select>
-    <label>Search By:</label>
-        <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()">
-  </div>
+        <label>Search By:</label>
+    </div>
+    </div>
+    </div>
+    <div id="bodyOfPage" style="padding-bottom: 20px" class="container">
+        <div style="padding-bottom:15px;">
+            
+        <input type="text center" id="searchTerm" placeholder="Search.." onkeyup="searchData()">
+        </div>
     <!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
- <div id="bodyOfPage" style="padding-top: 50px" class="container">
-
 <div id = "result"></div>
 
-	<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable pink darken-1">
-  <tr class="header ">
+<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable ">
+  <tr class="header">
     <th style="width:60%;">Name</th>
     <th style="width:40%;">Country</th>
   </tr>
@@ -158,22 +167,22 @@ function myFunction() {
     <td>Koniglich Essen</td>
     <td>Germany</td>
   </tr>
-	</table>
-</div>
-<!--trying to hide buttons-->
+</table>
 
+<!--trying to hide buttons-->
+</div>
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 <form action="add.html" class="container center" style="padding-bottom: 15px;">
-    <input type="submit" value="Edit" class="waves-effect waves-light btn-large red disabled " />
-	<h2 class="waves-effect waves-light btn-large red center hide">Edit</h2>
+    <input type="submit" value="Edit" class="waves-effect waves-light btn-large brown disabled " style="padding-top: 15px;">
+	<h2 class="waves-effect waves-light btn-large brown center hide">Edit</h2>
 </form>
 
 <!--Bottom header-->
-        <footer class="page-footer">
+        <footer class="page-footer ">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -182,7 +191,7 @@ function myFunction() {
               </div>
             </div>
           </div>
-          <div class="footer-copyright">
+          <div class="footer-copyright pink darken-1">
             <div class="container">
             Animal Farm 2017
             <a class="grey-text text-lighten-4 right" href="#!">California State University, Fresno</a>
@@ -193,6 +202,7 @@ function myFunction() {
         <script>
      $(document).ready(function() {
     $('select').material_select();
+          $(".button-collapse").sideNav();
   });
       
     </script>

@@ -100,11 +100,9 @@ function myFunction() {
 <!--Top Header-->
   <nav>
     <div class="nav-wrapper pink darken-1">
-        <center><a href="#" class="brand-logo center white-text">Edit Data</a></center>
+        <a href="#" class="brand-logo center white-text">Edit Data</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="homeapp.html" class="white-text">Home</a></li>
-        <li><a href="pigTable.html" class="white-text">View Data</a></li>
-        <li><a href="add.html" class="white-text">Add Data</a></li>
       </ul>
     </div>
   </nav>

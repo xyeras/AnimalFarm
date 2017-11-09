@@ -34,10 +34,11 @@
         }
 
        
-      
+        
         th {
             height: 50px;
         }
+        
      
         #outer{
             width:100%;
@@ -47,26 +48,29 @@
             display: inline-flex;
         }
 
-        
+              
+        .makePink{
+           color:#d81b60;
+        }
 
     </style>
 </head>   
 <body> 
   <nav>
 
-    <div class="nav-wrapper pink darken-1">
-      <center><a href="#" class="brand-logo center">Add Data</a></center>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper white">
+      <a href="#" class="brand-logo center pink-text">Add Data</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <li><a href="homeapp.html">Home</a></li>
-        <li><a href="pigTable.html">View Data</a></li>
-		<li><a href="searchdata.html">Search Data</a></li>
+        <li><a class="makePink text" href="homeapp.html">Home</a></li>
+        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
+		<li><a class="makePink text" href="searchdata.html">Edit Data</a></li>
       </ul>
      <ul class="side-nav" id="mobile-demo">
        <li><a href="homeapp.html">Home</a></li>
         <li><a href="pigTable.html">View Data</a></li>
-		<li><a href="searchdata.html">Search Data</a></li>
+		<li><a href="searchdata.html">Edit Data</a></li>
       </ul>
     </div>
   </nav>
@@ -88,9 +92,6 @@
         </div>
     </div>
 
-
-   
-    
        
 <div id="outer" class= "container">
     <div class="container" style="padding-top: 40px ">
@@ -103,12 +104,12 @@
  </div>
     
     
-    <div id= "outer" class="container">
-    <button class="btn waves-effect waves-light brown" id="add" style="top:100px">Submit Data</button> 
+    <div id= "outer" class="container" style="padding-top: 50px; position: relative">
+    <button class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
         </div>
    
 
-
+<!--
         <div id= "outer" class="container">
     <footer>
     <div class="footer-copyright">
@@ -125,10 +126,27 @@
 </div>
 
      
+    -->
     
     
-    
-
+  
+	<!--Footer-->
+        <footer class="page-footer pink darken-1">
+           <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Summary</h5>
+                <p class="grey-text text-lighten-4">You can use this page to add new data.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright pink darken-1 ">
+            <div class="container">
+            Animal Farm 2017
+            <a class="grey-text text-lighten-4 right" href="index.html">California State University, Fresno</a>
+            </div>
+          </div>
+        </footer>
     
         
 <script>
@@ -161,13 +179,13 @@ function myFunction2() {
         a.innerHTML = formatDate;
     }
 
-    function myFunction4() {
+    /*function myFunction4() {
     var row = document.getElementById("myRow");
     var b = row.insertCell(3);
     b.innerHTML = document.getElementById("date").value;
     
 
-}
+}*/
     function myFunction5() {
     var row = document.getElementById("myRow");
     var c = row.insertCell(4);
@@ -190,16 +208,13 @@ function myFunction2() {
         <div class="modal-content center col s6">
             <h4>Enter Tag</h4>
                 <div class="input-field col s3">
-                        
                         <input id="tag" type="text" name="tagEn" class="validate">
                         <label for="tag">Tag</label>
-                    
                 </div>
         </div>
-       
         <div class="modal-footer">
             <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
-            
+  
         </div>
         
     </div>
@@ -215,12 +230,9 @@ function myFunction2() {
                     </form>
                 </div>
         </div>
-       
         <div class="modal-footer">
-            <button onclick="myFunction2()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
-            
+            <button id="3" onclick="myFunction2()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
         </div>
-        
     </div>
     
     <!-- Modal Structure for NOTCH -->
@@ -233,11 +245,11 @@ function myFunction2() {
                 </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction3()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
+            <button id="4" onclick="myFunction3()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
         </div>
     </div>
 
-     <!-- Modal Structure for DATE -->
+     <!-- Modal Structure for DATE 
     <div id="dateModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
             <h4>Enter Date</h4>
@@ -250,7 +262,7 @@ function myFunction2() {
             <button onclick="myFunction4()">Enter</button>
         </div>
     </div>
-
+    -->
     <!-- Modal Structure for BOAR -->
     <div id="boarModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
@@ -261,7 +273,7 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-           <button onclick="myFunction5()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="5" onclick="myFunction5()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
         </div>
     </div>
 
@@ -275,36 +287,16 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-           <button onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
         </div>
     </div>
-    
-	<!--Footer-->
-        <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Summary</h5>
-                <p class="grey-text text-lighten-4">You can use this page to search data then edit entries.</p>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            Animal Farm 2017
-            <a class="grey-text text-lighten-4 right" href="#!">California State University, Fresno</a>
-            </div>
-          </div>
-        </footer>
+  
 	
 <script>
     $(document).ready(
         function() {
-          
             $(".button-collapse").sideNav();
         });
-    
-      
 </script>
     
 <!--for the modals to work -->

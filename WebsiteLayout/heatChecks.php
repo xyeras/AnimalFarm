@@ -29,41 +29,16 @@ $heatDate = date("n/j/Y",mktime(0,0,0,$mInt,$dInt,$yInt));
 $mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE date3 = '$heatDate'"; // need to find out why $heatDate doesn't make date3 in datebase
 
 // return data for pigs who need a heat checkdate
+$counter = 0;
 $rowData = $con->query($mysqlStatement);
-if($rowData->num_rows > 0) {
-	echo "
-    	<table>
-          <tr>
-	        <th>Pen</th>
-	        <th>Notch</th>
-	        <th>Tag</th>
-        	<th>Date</th>
-        	<th>Boar</th>
-        	<th>Date</th>
-        	<th>Boar</th>
-		  </tr>";
+if($rowData->num_rows > 0) 
+{   
 	while($row = $rowData->fetch_assoc())
 	{
-		echo 
-		// Kathryn's edit table code mabye in a later interation
-		"<tr data-value=\"".$row["num_rows"]."\">
-		<td>".$row["pen"]."</td>
-		<td>".$row["notch"]."</td>
-		<td>".$row["tag"]."</td>
-		<td>".$row["date1"]."</td>
-		<td>".$row["boar1"]."</td>
-		<td>".$row["date2"]."</td>
-		<td>".$row["boar2"]."</td>
-        <td>".$row["heat"]."</td>
-        <td>".$row["date3"]."</td>
-        <td>".$row["line"]."</td>
-        <td>".$row["newPen"]."</td>
-        <td>".$row["comm"]."</td>
-		</tr>";
+        $counter = $counter + 1;
 	}
-	echo "</table>";
 }
-
+ echo "$counter";
 // close connection to database
 mysqli_close($con);
 

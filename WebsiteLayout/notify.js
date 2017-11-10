@@ -11,7 +11,9 @@ var heatDate = String(months) + "/" + String(days) + "/" + String(years); // nee
 // we use .post here to send variable to search data table with
 $.post("notify.php",
 {
-	heat_date: heatDate
+	months: String(months),
+	days: String(days),
+	years: String(years)
 },
 function (data)
 {

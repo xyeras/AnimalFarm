@@ -70,37 +70,41 @@ td {
     background-color: brown;
     color: #FFF;
 }
+<!--Css for selsecting row-->
+td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
 </style>
 
 <script src="jquery-3.2.1.min.js"></script>
  
  <script>
+<!--JavaScript for selsecting row-->
+$("#table tr").click(function(){
+   $(this).addClass('selected').siblings().removeClass('selected');    
+   var value=$(this).find('td:first').html();
+   alert(value);    
+});
+
+$('.ok').on('click', function(e){
+    alert($("#table tr.selected td:first").html());
+});
+<!--JavaScript for hide button-->
 function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 </script>
 
 </head>
-     <style>
-          .makePink{
-           color:#d81b60;
-          }
-      
-      </style>
+<style>.makePink{color:#d81b60;}</style>
 
 <body>
 <!--Top Header-->
@@ -131,7 +135,7 @@ function myFunction() {
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
 
-    <div class="container" style="padding-top: 13px;">
+<div class="container" style="padding-top: 13px;">
     <div class="row pink-text">
     <div class="input-field col s4" style="margin: 40px 0 -30 310px">
     
@@ -151,15 +155,13 @@ function myFunction() {
 	  <option value="12">Comment</option>
     </select>
         <label>Search By: </label>
-    </div>
-    </div>
-    </div>
-    <div id="bodyOfPage" style="padding-bottom: 20px" class="container">
+</div></div></div>
+	
+<div id="bodyOfPage" style="padding-bottom: 20px" class="container">
         <div style="margin: 0px 0 10 310px">
-            
         <input type="text center" id="searchTerm" placeholder="Search.." onkeyup="searchData()">
         </div>
-    <!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
+<!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
 <div id = "result"></div>
 
@@ -179,39 +181,25 @@ function myFunction() {
     <th style="width:40%;">Comment</th>
 	</tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td>Pig</td>
+    <td>Ger</td>
+    <td>Alf Futterkiste</td>
+    <td>many</td>
+    <td>Xe</td>
+    <td>Gemany</td>
+    <td>Afreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>Alfs Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
 	</tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td>Ert Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>Xe</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
@@ -221,11 +209,25 @@ function myFunction() {
     <td>Germany</td>
   </tr>
   <tr>
+    <td>Ql</td>
+    <td>Usa</td>
+    <td>Kn</td>
+    <td>Rc</td>
+    <td>Xe</td>
+    <td>Germany</td>
+    <td>Mg</td>
+    <td>Pr</td>
+    <td>NN</td>
+    <td>Z</td>
+    <td>X</td>
+    <td>Y</td>
+  </tr>
+  <tr>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>Xe</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
@@ -235,9 +237,6 @@ function myFunction() {
     <td>Germany</td>
   </tr>
 </table>
-<!--java to select row-->
-
-<!--trying to hide buttons-->
 </div>
 <p>
 </p>

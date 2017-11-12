@@ -70,7 +70,7 @@ td {
     background-color: brown;
     color: #FFF;
 }
-<!--Css for selsecting row-->
+/*Css for selsecting row*/
 td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
 .selected {
@@ -82,7 +82,7 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 <script src="jquery-3.2.1.min.js"></script>
  
  <script>
-<!--JavaScript for selsecting row-->
+/*JavaScript for selecting row*/
 $("#table tr").click(function(){
    $(this).addClass('selected').siblings().removeClass('selected');    
    var value=$(this).find('td:first').html();
@@ -92,7 +92,7 @@ $("#table tr").click(function(){
 $('.ok').on('click', function(e){
     alert($("#table tr.selected td:first").html());
 });
-<!--JavaScript for hide button-->
+/*JavaScript for hide button*/
 function myFunction() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {

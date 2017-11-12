@@ -1,8 +1,12 @@
+<!-- Complete heat check: this is the page that the user will arrive once they want to edit an entry
+for the second time. This time the user should be adding data into the heat cell and 
+possibly line, new pen , and comments (these three can always be changed)
+-->
 <!DOCTYPE html>
 <html>
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="addData.js"></script> 
+    <script src="notify.js"></script> 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -21,12 +25,12 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
+    <title>Heat Check</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
 
-        #notchModal, #penModal, #dateModal, #boarModal, #commentsModal, #tagModal {
+        #heatModal, #lineModal, #newPenModal, #commentsModal {
           width: 50%;
           left: 25%;
           right: 5%;
@@ -58,7 +62,7 @@
   <nav>
 
     <div class="nav-wrapper white">
-      <a href="#" class="brand-logo center pink-text">Add Data</a>
+      <a href="#" class="brand-logo center pink-text">Complete Heat Check</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
@@ -74,15 +78,14 @@
     </div>
   </nav>
     
-    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which field you would like to fill.</h5>
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to modify.</h5>
     <div id="outer" class= "container">
+        <div><p>Slected row from heat checks needed page shows here.</p></div>
     <div class="container" style="padding-top: 40px ">
         
-        <div class="inner"><button data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
-        <div class="inner"><button data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
-        <div class="inner"><button data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
-        <div class="inner"><button onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
-        <div class="inner"><button data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
+        <div class="inner"><button data-target="heatModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Heat</button></div>
+        <div class="inner"><button data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
+        <div class="inner"><button data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
        <div class="inner"><button data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
         
         
@@ -95,7 +98,10 @@
 <div id="outer" class= "container">
     <div class="container" style="padding-top: 40px ">
     
-    <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
+    <table class="bordered centered responsive-table container" style="padding-top: 100px">
+            <!--cells that should already be filled when arriving at this page 
+            or i can make another instance of it and then it can be appended to whats exisiting??
+            -->
             <tr id="myRow">
             </tr>   
         </table>
@@ -108,24 +114,6 @@
         </div>
    
 
-<!--
-        <div id= "outer" class="container">
-    <footer>
-    <div class="footer-copyright">
-      <div class=" row  grey-text" style="padding-top: 270px" >
-      California State University, Fresno
-          <br/>
-          2017 Animal Farm
-        
-
-      </div>
-    </div>
-  </footer>
-    
-</div>
-
-     
-    -->
     
     
   
@@ -135,7 +123,7 @@
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Summary</h5>
-                <p class="grey-text text-lighten-4">You can use this page to add new data.</p>
+                <p class="grey-text text-lighten-4">You can use this page to complete the heat check. This page is only accesible through the heat checks needed page.</p>
               </div>
             </div>
           </div>
@@ -151,128 +139,81 @@
 <script>
 
     
-function myFunction() {
+function insertHeat() {
     var row = document.getElementById("myRow");
-    var x = row.insertCell(0);
-    x.innerHTML = document.getElementById("tag").value;   
+    var a = row.insertCell(0);
+    a.innerHTML = document.getElementById("heat").value;   
 }
             
-function myFunction2() {
+function insertLine() {
     var row = document.getElementById("myRow");
-    var y = row.insertCell(1);
-    y.innerHTML = document.getElementById("pen").value;
+    var b = row.insertCell(1);
+    b.innerHTML = document.getElementById("line").value;
     
 }
-    function myFunction3() {
+    function insertNewPen() {
     var row = document.getElementById("myRow");
-    var z = row.insertCell(2);
-    z.innerHTML = document.getElementById("notch").value;
+    var c = row.insertCell(2);
+    c.innerHTML = document.getElementById("newPen").value;
     
 }
 
-    function getDateNow() {
-        var row = document.getElementById("myRow");
-        var date = new Date();
-        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-        var a = row.insertCell(3);
-        a.innerHTML = formatDate;
-    }
-
-    /*function myFunction4() {
+   function insertComm() {
     var row = document.getElementById("myRow");
-    var b = row.insertCell(3);
-    b.innerHTML = document.getElementById("date").value;
-    
-
-}*/
-    function myFunction5() {
-    var row = document.getElementById("myRow");
-    var c = row.insertCell(4);
-    c.innerHTML = document.getElementById("boar").value;
-    
-}
-    function myFunction6() {
-    var row = document.getElementById("myRow");
-    var d = row.insertCell(5);
+    var d = row.insertCell(3);
     d.innerHTML = document.getElementById("comments").value;
     
 }
+   
 </script>
 
 
     
     
-    <!-- Modal Structure for TAG -->
-    <div id="tagModal" class="modal bottom-sheet">
+    <!-- Modal Structure for HEAT -->
+    <div id="heatModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
-            <h4>Enter Tag</h4>
+            <h4>Enter Heat</h4>
                 <div class="input-field col s3">
-                        <input id="tag" type="text" name="tagEn" class="validate">
-                        <label for="tag">Tag</label>
+                        <input id="heat" type="text" name="heatEn" class="validate">
+                        <label for="heat">Heat</label>
                 </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+            <button onclick="insertHeat()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
   
         </div>
         
     </div>
 
-    <!-- Modal Structure for PEN -->
-    <div id="penModal" class="modal bottom-sheet">
+    <!-- Modal Structure for NEW PEN -->
+    <div id="newPenModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
-            <h4>Enter Pen </h4>
+            <h4>Enter New Pen </h4>
                 <div class="input-field col s3">
                     <form>
-                        <input id="pen" type="text" name="penEn" class="validate ">
-                        <label for="pen">Pen</label>
+                        <input id="newPen" type="text" name="newPenEn" class="validate ">
+                        <label for="newPen">New Pen</label>
                     </form>
                 </div>
         </div>
         <div class="modal-footer">
-            <button id="3" onclick="myFunction2()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+            <button id="3" onclick="insertNewPen()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
         </div>
     </div>
     
-    <!-- Modal Structure for NOTCH -->
-    <div id="notchModal" class="modal bottom-sheet">
+    
+    <!-- Modal Structure for LINE -->
+    <div id="lineModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
-            <h4>Enter Notch</h4>
-                <div class="input-field col s6 ">
-                    <input id="notch" type="text" class="validate">
-                    <label for="notch">Notch</label>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button id="4" onclick="myFunction3()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
-        </div>
-    </div>
-
-     <!-- Modal Structure for DATE 
-    <div id="dateModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Date</h4>
+            <h4>Enter Line</h4>
             <div class="input-field col s6">
-                <input id="date" type="text" class="validate">
-                <label for="date">Date</label>
+                <input id="line" type="text" class="validate">
+                <label for="line">Line</label>
             </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction4()">Enter</button>
-        </div>
-    </div>
-    -->
-    <!-- Modal Structure for BOAR -->
-    <div id="boarModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Boar</h4>
-            <div class="input-field col s6">
-                <input id="boar" type="text" class="validate">
-                <label for="boar">Boar</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-           <button id="5" onclick="myFunction5()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="5" onclick="insertLine()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
         </div>
     </div>
 
@@ -286,7 +227,7 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="6" onclick="insertComm()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
         </div>
     </div>
   

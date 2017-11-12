@@ -36,7 +36,7 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
+	
 <style>
 table {
     font-family: arial, sans-serif;
@@ -80,28 +80,26 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 </style>
 
 <script src="jquery-3.2.1.min.js"></script>
- 
- <script>
-/*JavaScript for selecting row*/
-$("#table tr").click(function(){
-   $(this).addClass('selected').siblings().removeClass('selected');    
-   var value=$(this).find('td:first').html();
-   alert(value);    
-});
+<script type="text/javascript" src="//code.jquery.com/jquery-1.8.3.js"></script>
 
-$('.ok').on('click', function(e){
-    alert($("#table tr.selected td:first").html());
-});
-/*JavaScript for hide button*/
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+ <script>
+var table = document.getElementById('table1'),
+    selected = table.getElementsByClassName('selected');
+table.onclick = highlight;
+function highlight(e) {
+    if (selected[0]) selected[0].className = '';
+    e.target.parentNode.className = 'selected';
+}
+function fnselect(){
+var $row=$(this).parent().find('td');
+    var clickeedID=$row.eq(0).text();
+    alert(clickeedID);
 }
 </script>
+<style>
+td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+.selected {background-color: brown;color: #FFF;}
+</style>
 
 </head>
 <style>.makePink{color:#d81b60;}</style>
@@ -165,7 +163,7 @@ function myFunction() {
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
 <div id = "result"></div>
 
-<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable ">
+<table id="table1" class=" table w3-bordered w3-striped w3-border test w3-hoverable " arrow-selector>
   <tr class="header">
     <th style="width:60%;">Pen</th>
     <th style="width:40%;">Notch</th>
@@ -244,7 +242,7 @@ function myFunction() {
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 <form action="add.html" class="container center" style="padding-bottom: 20px;">
-    <input type="submit" value="Edit Row" class="waves-effect waves-light btn-large red " style="padding-top: 15px;">
+    <input type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px;">
 </form>
 
 <!--Bottom header-->

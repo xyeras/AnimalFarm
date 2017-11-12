@@ -9,7 +9,7 @@ var heatDate = String(months) + "/" + String(days) + "/" + String(years); // nee
 
 // retrieves data from the database
 // we use .post here to send variable to search data table with
-$.post("notify.php",
+$.post("heatChecks.php",
 {
 	months: String(months),
 	days: String(days),

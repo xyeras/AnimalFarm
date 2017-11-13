@@ -83,11 +83,10 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
 <script type="text/javascript" class="init">
 
-function myFunction(x) {
+function showData() {
 	alert("Row index is: " + x.rowIndex)
 	alert('Row data: '+JSON.stringify( td.row( { selected: true } ).data(x) ));
-	
-	}
+}
 	
 </script>
 
@@ -233,12 +232,12 @@ function myFunction(x) {
 
 <script>
 $('tr').click(function(){
-document.getElementById('Edit').removeAttr('disabled');
+document.getElementById('Edit').classList = "waves-effect waves-light btn-large red"
 });
 </script>
 
-<form action="add.html" class="container center" style="padding-bottom: 20px;">
-    <input id="Edit"type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px;">
+<form class="container center" style="padding-bottom: 20px;">
+    <button id="Edit"type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px;" onclick = showdata()>
 </form>
 
 <!--Bottom header-->

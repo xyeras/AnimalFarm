@@ -76,9 +76,14 @@ td {
 <script src="jquery-3.2.1.min.js"></script>
 <script type="text/javascript" class="init">
 
+$('#table1').DataTable( {select: true} );
+
 function myFunction(x) {
-	alert("The Data in Row is: " + x.innerHTML)
-	}
+	alert("Row index is: " + x.rowIndex)
+	alert("The Data in Row is: " + x.innerHTML);
+	
+	e.target.parentNode.className = 'selected';
+}
 	
 </script>
 
@@ -163,15 +168,15 @@ function myFunction(x) {
     <td>Pig</td>
     <td>Ger</td>
     <td>Alf Futterkiste</td>
-    <td>many</td>
+    <td>11/10/2017</td>
     <td>Xe</td>
-    <td>Gemany</td>
+    <td>11/11/2017</td>
     <td>Afreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfs Futterkiste</td>
+    <td>No</td>
+    <td>11/12/2017</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>Pig</td>
 	</tr>
   <tr onclick="myFunction(this)">
     <td>T Kn</td>
@@ -182,10 +187,10 @@ function myFunction(x) {
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>>_</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>red Pig</td>
   </tr>
   <tr onclick="myFunction(this)">
     <td>Ql</td>
@@ -196,7 +201,7 @@ function myFunction(x) {
     <td>Germany</td>
     <td>Mg</td>
     <td>Pr</td>
-    <td>NN</td>
+    <td>>_</td>
     <td>Z</td>
     <td>X</td>
     <td>Y</td>
@@ -210,10 +215,10 @@ function myFunction(x) {
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>>_</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>Purple Pig</td>
   </tr>
 </table>
 </div>

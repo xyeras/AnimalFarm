@@ -36,7 +36,7 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
+	
 <style>
 table {
     font-family: arial, sans-serif;
@@ -70,37 +70,21 @@ td {
     background-color: brown;
     color: #FFF;
 }
-/*Css for selsecting row*/
-td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
-.selected {
-    background-color: brown;
-    color: #FFF;
-}
 </style>
 
 <script src="jquery-3.2.1.min.js"></script>
- 
- <script>
-/*JavaScript for selecting row*/
-$("#table tr").click(function(){
-   $(this).addClass('selected').siblings().removeClass('selected');    
-   var value=$(this).find('td:first').html();
-   alert(value);    
-});
+<script type="text/javascript" class="init">
 
-$('.ok').on('click', function(e){
-    alert($("#table tr.selected td:first").html());
-});
-/*JavaScript for hide button*/
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+$('#table1').DataTable( {select: true} );
+
+function myFunction(x) {
+	alert("Row index is: " + x.rowIndex)
+	alert("The Data in Row is: " + x.innerHTML);
+	
+	e.target.parentNode.className = 'selected';
 }
+	
 </script>
 
 </head>
@@ -165,7 +149,7 @@ function myFunction() {
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
 <div id = "result"></div>
 
-<table id="table1" class="w3-bordered w3-striped w3-border test w3-hoverable ">
+<table id="table1" class=" table w3-bordered w3-striped w3-border test w3-hoverable " arrow-selector>
   <tr class="header">
     <th style="width:60%;">Pen</th>
     <th style="width:40%;">Notch</th>
@@ -180,35 +164,35 @@ function myFunction() {
 	<th style="width:60%;">New Pen</th>
     <th style="width:40%;">Comment</th>
 	</tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Pig</td>
     <td>Ger</td>
     <td>Alf Futterkiste</td>
-    <td>many</td>
+    <td>11/10/2017</td>
     <td>Xe</td>
-    <td>Gemany</td>
+    <td>11/11/2017</td>
     <td>Afreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfs Futterkiste</td>
+    <td>No</td>
+    <td>11/12/2017</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>Pig</td>
 	</tr>
-  <tr>
-    <td>Ert Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+  <tr onclick="myFunction(this)">
+    <td>T Kn</td>
+    <td>Abc</td>
+    <td>XyZ</td>
+    <td>BmX</td>
     <td>Xe</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>>_</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>red Pig</td>
   </tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Ql</td>
     <td>Usa</td>
     <td>Kn</td>
@@ -217,12 +201,12 @@ function myFunction() {
     <td>Germany</td>
     <td>Mg</td>
     <td>Pr</td>
-    <td>NN</td>
+    <td>>_</td>
     <td>Z</td>
     <td>X</td>
     <td>Y</td>
   </tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
@@ -231,10 +215,10 @@ function myFunction() {
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td>>_</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
+    <td>Purple Pig</td>
   </tr>
 </table>
 </div>
@@ -243,8 +227,14 @@ function myFunction() {
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
-<form action="add.html" class="container center" style="padding-bottom: 20px;">
-    <input type="submit" value="Edit Row" class="waves-effect waves-light btn-large red " style="padding-top: 15px;">
+<script>
+$('tr').click(function(){
+document.getElementById('Edit').classList = "waves-effect waves-light btn-large red"
+});
+</script>
+
+<form class="container center" style="padding-bottom: 20px;" action="add.html">
+    <button id="Edit"type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 0px;" onclick = showdata()>Edit Row</button>
 </form>
 
 <!--Bottom header-->

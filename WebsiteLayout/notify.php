@@ -25,7 +25,6 @@ $yInt = (int) $y;
 $heatDate = date("n/j/Y",mktime(0,0,0,$mInt,$dInt,$yInt));
 
 
-
 $mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE date3 = '$heatDate' AND heat IS NULL"; 
 
 // return data for pigs who need a heat checkdate
@@ -34,13 +33,18 @@ if($rowData->num_rows > 0) {
 	echo "
     	<table>
           <tr>
-	        <th>Pen</th>
+	       <th>Pen</th>
 	        <th>Notch</th>
 	        <th>Tag</th>
         	<th>Date</th>
         	<th>Boar</th>
         	<th>Date</th>
         	<th>Boar</th>
+        	<th>Heat</th>
+        	<th>Date</th>
+        	<th>Line</th>
+        	<th>New Pen</th>
+    	    <th>Comments</th>
 		  </tr>";
 	while($row = $rowData->fetch_assoc())
 	{

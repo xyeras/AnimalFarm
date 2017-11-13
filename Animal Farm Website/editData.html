@@ -80,26 +80,16 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 </style>
 
 <script src="jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.8.3.js"></script>
 
- <script>
-var table = document.getElementById('table1'),
-    selected = table.getElementsByClassName('selected');
-table.onclick = highlight;
-function highlight(e) {
-    if (selected[0]) selected[0].className = '';
-    e.target.parentNode.className = 'selected';
-}
-function fnselect(){
-var $row=$(this).parent().find('td');
-    var clickeedID=$row.eq(0).text();
-    alert(clickeedID);
-}
+<script type="text/javascript" class="init">
+
+function myFunction(x) {
+	alert("Row index is: " + x.rowIndex)
+	alert('Row data: '+JSON.stringify( td.row( { selected: true } ).data(x) ));
+	
+	}
+	
 </script>
-<style>
-td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
-.selected {background-color: brown;color: #FFF;}
-</style>
 
 </head>
 <style>.makePink{color:#d81b60;}</style>
@@ -178,7 +168,7 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 	<th style="width:60%;">New Pen</th>
     <th style="width:40%;">Comment</th>
 	</tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Pig</td>
     <td>Ger</td>
     <td>Alf Futterkiste</td>
@@ -192,7 +182,7 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
 	</tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Ert Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
@@ -206,7 +196,7 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
   </tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Ql</td>
     <td>Usa</td>
     <td>Kn</td>
@@ -220,7 +210,7 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
     <td>X</td>
     <td>Y</td>
   </tr>
-  <tr>
+  <tr onclick="myFunction(this)">
     <td>Alfreds Futterkiste</td>
     <td>Germany</td>
     <td>Alfreds Futterkiste</td>
@@ -241,8 +231,14 @@ td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
+<script>
+$('tr').click(function(){
+document.getElementById('Edit').removeAttr('disabled');
+});
+</script>
+
 <form action="add.html" class="container center" style="padding-bottom: 20px;">
-    <input type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px;">
+    <input id="Edit"type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px;">
 </form>
 
 <!--Bottom header-->

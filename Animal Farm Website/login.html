@@ -45,7 +45,7 @@
 	 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper white">
-        <a href="#" class="brand-logo center pink-text">Register</a>
+        <a href="#" class="brand-logo center pink-text">Login</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           
@@ -66,13 +66,11 @@
     <div class="row container">
     <form class="col s12">
       <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email" data-error="Invalid" data-success="Valid">Email</label>
         </div>
       </div>
       <div class="row">
@@ -81,14 +79,14 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email" data-error="Invalid" data-success="Invalid">Email</label>
-        </div>
-      </div>
     </form>
   </div>
+ 
+<center>
+    <div class="container" style="padding-top: 50px; position: relative">
+		<button class="btn waves-effect waves-light brown" id="register" >Submit</button> 
+    </div>
+</center>
         
 	
         <footer class="page-footer pink darken-1">

@@ -44,12 +44,12 @@ if($rowData->num_rows > 0) {
 	        <th>Pen</th>
 	        <th>Notch</th>
 	        <th>Tag</th>
-        	<th>Date</th>
-        	<th>Boar</th>
-        	<th>Date</th>
-        	<th>Boar</th>
+        	<th>Date 1</th>
+        	<th>Boar 1</th>
+        	<th>Date 2</th>
+        	<th>Boar 2</th>
         	<th>Heat</th>
-        	<th>Date</th>
+        	<th>Date 3</th>
         	<th>Line</th>
         	<th>New Pen</th>
     	    <th>Comments</th>

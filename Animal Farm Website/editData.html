@@ -1,4 +1,4 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <!--Import Google Icon Font-->
@@ -15,7 +15,6 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
- <!--<script src="addData.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
     <!--Import Google Icon Font-->
@@ -31,8 +30,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>-->
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -66,6 +65,9 @@ td {
     padding: 5px; 
     cursor: pointer;
 }
+
+/*Css for selsecting row*/
+
 .selected {
     background-color: brown;
     color: #FFF;
@@ -73,22 +75,17 @@ td {
 
 </style>
 
-<script src="jquery-3.2.1.min.js"></script>
 <script type="text/javascript" class="init">
 
-$('#table1').DataTable( {select: true} );
-
-function myFunction(x) {
-	alert("Row index is: " + x.rowIndex)
-	alert("The Data in Row is: " + x.innerHTML);
-	
-	e.target.parentNode.className = 'selected';
+function showData(x) {
+	alert(x.innerHTML);
 }
 	
 </script>
-
-</head>
+<script src="editData.js"></script>
 <style>.makePink{color:#d81b60;}</style>
+</head>
+
 
 <body>
 <!--Top Header-->
@@ -99,9 +96,9 @@ function myFunction(x) {
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
         <ul class="right hide-on-med-and-down">
       
-        <li><a class="makePink text" href="homeapp.html" class="white-text">Home</a></li>
-        <li><a class="makePink text" href="pigTable.html" class="white-text">View Data</a></li>
-        <li><a class="makePink text" href="add.html" class="white-text">Add Data</a></li>
+        <li><a class="makePink text" href="homeapp.html">Home</a></li>
+        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
+        <li><a class="makePink text" href="add.html">Add Data</a></li>
       </ul>
      <ul class="side-nav" id="mobile-demo">
        <li><a href="homeapp.html">Home</a></li>
@@ -113,11 +110,12 @@ function myFunction(x) {
     </div>
 
 <!--Search table-->
- <script src="jquery-3.2.1.min.js"></script>
  <script src="searchData.js"></script>
   <script src="searchTable.js"></script>
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
+ 
+ 
 
 <div class="container" style="padding-top: 13px;">
     <div class="row pink-text">
@@ -149,93 +147,18 @@ function myFunction(x) {
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
 <div id = "result"></div>
 
-<table id="table1" class=" table w3-bordered w3-striped w3-border test w3-hoverable " arrow-selector>
-  <tr class="header">
-    <th style="width:60%;">Pen</th>
-    <th style="width:40%;">Notch</th>
-	<th style="width:60%;">Tag</th>
-    <th style="width:40%;">Date</th>
-    <th style="width:60%;">Boar 1</th>
-    <th style="width:40%;">Date 2</th>
-	<th style="width:60%;">Boar 2</th>
-    <th style="width:40%;">Heat</th>
-    <th style="width:60%;">Date 3</th>
-    <th style="width:40%;">Line</th>
-	<th style="width:60%;">New Pen</th>
-    <th style="width:40%;">Comment</th>
-	</tr>
-  <tr onclick="myFunction(this)">
-    <td>Pig</td>
-    <td>Ger</td>
-    <td>Alf Futterkiste</td>
-    <td>11/10/2017</td>
-    <td>Xe</td>
-    <td>11/11/2017</td>
-    <td>Afreds Futterkiste</td>
-    <td>No</td>
-    <td>11/12/2017</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Pig</td>
-	</tr>
-  <tr onclick="myFunction(this)">
-    <td>T Kn</td>
-    <td>Abc</td>
-    <td>XyZ</td>
-    <td>BmX</td>
-    <td>Xe</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>>_</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>red Pig</td>
-  </tr>
-  <tr onclick="myFunction(this)">
-    <td>Ql</td>
-    <td>Usa</td>
-    <td>Kn</td>
-    <td>Rc</td>
-    <td>Xe</td>
-    <td>Germany</td>
-    <td>Mg</td>
-    <td>Pr</td>
-    <td>>_</td>
-    <td>Z</td>
-    <td>X</td>
-    <td>Y</td>
-  </tr>
-  <tr onclick="myFunction(this)">
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>Xe</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-    <td>>_</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Purple Pig</td>
-  </tr>
-</table>
 </div>
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
-<script>
-$('tr').click(function(){
-document.getElementById('Edit').classList = "waves-effect waves-light btn-large red"
-});
-</script>
 
-<form class="container center" style="padding-bottom: 20px;" action="add.html">
-    <button id="Edit"type="submit" value="Edit Row" class="waves-effect waves-light btn-large red disabled" style="padding-top: 0px;" onclick = showdata()>Edit Row</button>
+<form id="editForm" class="container center" style="padding-bottom: 20px;" action="addMore.html">
+	<input id="rowNum" type="hidden" name="rowNum" value="0">
+	<input id="submit" type="submit" value="Edit Data" class="conwaves-effect waves-light btn-large red disabled">
 </form>
+
 
 <!--Bottom header-->
         <footer class="page-footer pink darken-1 ">
@@ -254,14 +177,14 @@ document.getElementById('Edit').classList = "waves-effect waves-light btn-large 
             </div>
           </div>
         </footer>
-    
-        <script>
-     $(document).ready(function() {
+
+<script>
+ $(document).ready(function() {
+    //Makes the select tag work
     $('select').material_select();
-          $(".button-collapse").sideNav();
-  });
-      
-    </script>
+    $(".button-collapse").sideNav();
+});
+ </script>
 
 	</body>
 </html>

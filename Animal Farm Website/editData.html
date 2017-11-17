@@ -29,9 +29,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script>-->
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -78,7 +75,25 @@ td {
 <script type="text/javascript" class="init">
 
 function showData(x) {
-	alert(x.innerHTML);
+    var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
+        /*alert(x[8].innerHTML);*/
+    /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
+            if(x[8].innerHTML == ''){
+                 document.getElementById("insem").disabled = false;
+                 document.getElementById("last3").disabled = true;
+                
+            }
+            /* if heat is filled in it means they just want to edit line pen or comment*/
+            else if(x[7].innerHTML != ''){
+                 document.getElementById("last3").disabled = false;
+                document.getElementById("insem").disabled = true;
+                
+            } 
+            
+    /*alert("Row index is: " + x.rowIndex)
+	alert("The Data in Row is: " + x.innerHTML);*/
+	
+	e.target.parentNode.className = 'selected';
 }
 	
 </script>
@@ -86,8 +101,8 @@ function showData(x) {
 <style>.makePink{color:#d81b60;}</style>
 </head>
 
-
-<body>
+<!-- On page load all the buttons are disabled -->
+<body onload="disableAll()">
 <!--Top Header-->
      <div class="navbar-fixed">
   <nav>
@@ -154,12 +169,31 @@ function showData(x) {
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 
+    
+    <div class="container center" style="padding-bottom: 20px;" >
+     <form action="add.html">
+        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
+    </form>
+    <form action= "alwaysAdd.html">
+    <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
+    </form>
+    </div> 
+    
+     <script>
+        /* disables all buttons on load*/
+        function disableAll(){
+            document.getElementById("insem").disabled = true;
+            document.getElementById("last3").disabled = true;
+        }    
+        
+    </script>
+<!--
 <form id="editForm" class="container center" style="padding-bottom: 20px;" action="addMore.html">
 	<input id="rowNum" type="hidden" name="rowNum" value="0">
-	<input id="submit" type="submit" value="Edit Data" class="conwaves-effect waves-light btn-large red disabled">
+	<input id="submit" type="submit" value="Edit Data" class="conwaves-effect waves-light btn-large brown disabled">
 </form>
 
-
+-->
 <!--Bottom header-->
         <footer class="page-footer pink darken-1 ">
           <div class="container">

@@ -73,11 +73,13 @@ td {
 </style>
 
 <script type="text/javascript" class="init">
+$('#table1').DataTable({select:true});
 
-$('#table1').DataTable( {select: true} );
+
 function edButton(x) {
+    var val = $(x).attr('value');
     var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
-    
+        /*alert(x[8].innerHTML);*/
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
             if(x[8].innerHTML == ''){
                  document.getElementById("insem").disabled = false;
@@ -90,7 +92,11 @@ function edButton(x) {
                 document.getElementById("insem").disabled = true;
                 
             } 
-            
+    /*alert("Row index is: " + x.rowIndex)
+	alert("The Data in Row is: " + x.innerHTML);*/
+    document.getElementById('rowNum').value = val;
+	document.getElementById('rowNum2').value = val;
+	
 	e.target.parentNode.className = 'selected';
 }
 	
@@ -169,11 +175,12 @@ function edButton(x) {
 
     
     <div class="container center" style="padding-bottom: 20px;" >
-     <form action="addMore.html" style="padding-bottom: 20px">
+     <form action="addMore.html">
          <input id="rowNum" type="hidden" name="rowNum" value="0">
         <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
     </form>
     <form action= "alwaysAdd.html">
+        <input id="rowNum2" type="hidden" name="rowNum" value="0">
     <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
     </form>
     </div> 

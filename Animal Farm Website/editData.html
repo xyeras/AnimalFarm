@@ -65,19 +65,21 @@ td {
 
 /*Css for selsecting row*/
 
-.selected {
-    background-color: brown;
+tr.selected {
+    background-color: #ff5050 !important;
     color: #FFF;
 }
 
 </style>
 
 <script type="text/javascript" class="init">
-$('#table1').DataTable({select:true});
+//$('#table1').DataTable({select:true});
 
 
 function edButton(x) {
     var val = $(x).attr('value');
+    $(x).addClass('selected');
+    $(x).siblings().removeClass('selected');
     var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
         /*alert(x[8].innerHTML);*/
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
@@ -97,7 +99,7 @@ function edButton(x) {
     document.getElementById('rowNum').value = val;
 	document.getElementById('rowNum2').value = val;
 	
-	e.target.parentNode.className = 'selected';
+	//e.target.parentNode.className = 'selected';
 }
 	
 </script>

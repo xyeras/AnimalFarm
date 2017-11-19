@@ -9,6 +9,7 @@ taka place. Line, New Pen , and Comments can always be modified
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="notify.js"></script> 
     <script src="getRow.js"></script>
+    <script src ="js/updateDB__1.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -146,12 +147,15 @@ taka place. Line, New Pen , and Comments can always be modified
       
     }
     
+  
+    
     function getDate2() {
         var row = document.getElementById("myRow");
         var date = new Date();
         formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-        var a = row.insertCell(0);
+         var a = row.insertCell(0);
         a.innerHTML = formatDate;
+         /* enable date and disable  all others */
         document.getElementById("11").disabled = false;
         document.getElementById("10").disabled = true;
     }
@@ -169,11 +173,13 @@ taka place. Line, New Pen , and Comments can always be modified
      function getHeatCheckDate() {
         var row = document.getElementById("myRow");
         var date = new Date();
-        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        /*formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();*/
+        var date2 = next_date(date.getMonth()+1, date.getDate(), date.getFullYear(), 20);
         var c = row.insertCell(2);
-        c.innerHTML = formatDate;
-         document.getElementById("13").disabled = false;
-         document.getElementById("11").disabled = true;
+        var date3 = date2.month + '/' + date2.day + '/' + date2.year;
+        c.innerHTML = date3;
+        document.getElementById("13").disabled = false;
+        document.getElementById("11").disabled = true;
         document.getElementById("10").disabled = true;
         document.getElementById("12").disabled = true;
     }

@@ -74,9 +74,10 @@ td {
 
 <script type="text/javascript" class="init">
 
-function showData(x) {
+$('#table1').DataTable( {select: true} );
+function edButton(x) {
     var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
-        /*alert(x[8].innerHTML);*/
+    
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
             if(x[8].innerHTML == ''){
                  document.getElementById("insem").disabled = false;
@@ -90,9 +91,6 @@ function showData(x) {
                 
             } 
             
-    /*alert("Row index is: " + x.rowIndex)
-	alert("The Data in Row is: " + x.innerHTML);*/
-	
 	e.target.parentNode.className = 'selected';
 }
 	
@@ -171,7 +169,8 @@ function showData(x) {
 
     
     <div class="container center" style="padding-bottom: 20px;" >
-     <form action="add.html">
+     <form action="addMore.html" style="padding-bottom: 20px">
+         <input id="rowNum" type="hidden" name="rowNum" value="0">
         <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
     </form>
     <form action= "alwaysAdd.html">

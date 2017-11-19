@@ -25,7 +25,7 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <title>Add More Data</title>
+    <title>Modify Data</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
@@ -131,16 +131,15 @@
         
 <script>
     
-  
     
     function linefunc() {
-    var row = document.getElementById("myRow");
-    var d = row.insertCell(0);
-    d.innerHTML = document.getElementById("line").value;
+        var row = document.getElementById("myRow");
+        var d = row.insertCell(0);
+        d.innerHTML = document.getElementById("line").value;
    
+    }
     
-}
-      function newpenfunc() {
+    function newpenfunc() {
         var row = document.getElementById("myRow");
         var e = row.insertCell(1);
         e.innerHTML = document.getElementById("newPen").value;
@@ -148,11 +147,9 @@
       }
     
     function commfunc() {
-    var row = document.getElementById("myRow");
-    var f= row.insertCell(2);
-    f.innerHTML = document.getElementById("comments").value;
-    
-        
+        var row = document.getElementById("myRow");
+        var f= row.insertCell(2);
+        f.innerHTML = document.getElementById("comments").valuee;    
     
     }
     
@@ -206,7 +203,7 @@
         </div>
     </div>
   
-	
+		<!--In order for the page to be mobile friendly I need this JQuery-->
 <script>
     $(document).ready(
         function() {
@@ -214,7 +211,7 @@
         });
 </script>
     
-<!--for the modals to work -->
+<!--for the modals to work i need this JQuery-->
 <script>
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered

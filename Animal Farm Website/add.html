@@ -1,3 +1,6 @@
+<!--add:This is the page that the user will arrive on when they want to add for the first time. The date button is automatically inserts
+the current date for the user.
+-->
 <!DOCTYPE html>
 <html>
 <head> 
@@ -21,7 +24,7 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
+    <title>Add Data</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
@@ -54,7 +57,8 @@
 
     </style>
 </head>   
-<body> 
+    <!--All buttons except the first are disabled -->
+<body onload="disableBtns()"> 
   <nav>
 
     <div class="nav-wrapper white">
@@ -78,12 +82,12 @@
     <div id="outer" class= "container">
     <div class="container" style="padding-top: 40px ">
         
-        <div class="inner"><button data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
-        <div class="inner"><button data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
-        <div class="inner"><button data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
-        <div class="inner"><button onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
-        <div class="inner"><button data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
-       <div class="inner"><button data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
+        <div class="inner"><button id="1" data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
+        <div class="inner"><button id="2" data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
+        <div class="inner"><button id="3" data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
+        <div class="inner"><button id="4" onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
+        <div class="inner"><button id="5" data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
+       <div class="inner"><button id="6"  data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
         
         
     
@@ -91,7 +95,7 @@
         </div>
     </div>
 
-       
+   <!-- This is where what the user enter shows up-->    
 <div id="outer" class= "container">
     <div class="container" style="padding-top: 40px ">
     
@@ -104,29 +108,9 @@
     
     
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
+    <button id="7" class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
         </div>
-   
-
-<!--
-        <div id= "outer" class="container">
-    <footer>
-    <div class="footer-copyright">
-      <div class=" row  grey-text" style="padding-top: 270px" >
-      California State University, Fresno
-          <br/>
-          2017 Animal Farm
-        
-
-      </div>
-    </div>
-  </footer>
-    
-</div>
-
-     
-    -->
-    
+       
     
   
 	<!--Footer-->
@@ -151,23 +135,35 @@
 <script>
 
     
-function myFunction() {
+function tagFunc() {
     var row = document.getElementById("myRow");
     var x = row.insertCell(0);
-    x.innerHTML = document.getElementById("tag").value;   
+    x.innerHTML = document.getElementById("tag").value; 
+    /* enable pen and disable tag keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = false;
+  
 }
             
-function myFunction2() {
+function penFunc() {
     var row = document.getElementById("myRow");
     var y = row.insertCell(1);
     y.innerHTML = document.getElementById("pen").value;
+    /* enable notch and disable tag and pen keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = true;
+    document.getElementById("3").disabled = false;
     
 }
-    function myFunction3() {
+    function notchFunc() {
     var row = document.getElementById("myRow");
     var z = row.insertCell(2);
     z.innerHTML = document.getElementById("notch").value;
-    
+      /* enable notch and disable tag and pen keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = true;
+    document.getElementById("3").disabled = true;
+    document.getElementById("4").disabled = false;
 }
 
     function getDateNow() {
@@ -176,6 +172,12 @@ function myFunction2() {
         formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
         var a = row.insertCell(3);
         a.innerHTML = formatDate;
+         /* enable date and disable  all others */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = false;
     }
 
     /*function myFunction4() {
@@ -185,18 +187,45 @@ function myFunction2() {
     
 
 }*/
-    function myFunction5() {
+    function boarFunc() {
     var row = document.getElementById("myRow");
     var c = row.insertCell(4);
     c.innerHTML = document.getElementById("boar").value;
+     /* enable boar and disable  all others  */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = false;
     
 }
     function myFunction6() {
     var row = document.getElementById("myRow");
     var d = row.insertCell(5);
     d.innerHTML = document.getElementById("comments").value;
+         /* enable sumbit and disable all others */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = true;
+        document.getElementById("7").disabled = false;
+        
     
 }
+    
+    function disableBtns() {
+        document.getElementById("1").disabled = false;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = true;
+        document.getElementById("7").disabled = true;
+      
+    }
 </script>
 
 
@@ -212,7 +241,7 @@ function myFunction2() {
                 </div>
         </div>
         <div class="modal-footer">
-            <button onclick="myFunction()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+            <button onclick="tagFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
   
         </div>
         
@@ -230,7 +259,7 @@ function myFunction2() {
                 </div>
         </div>
         <div class="modal-footer">
-            <button id="3" onclick="myFunction2()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+            <button id="3" onclick="penFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
         </div>
     </div>
     
@@ -244,24 +273,11 @@ function myFunction2() {
                 </div>
         </div>
         <div class="modal-footer">
-            <button id="4" onclick="myFunction3()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
+            <button id="4" onclick="notchFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
         </div>
     </div>
 
-     <!-- Modal Structure for DATE 
-    <div id="dateModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Date</h4>
-            <div class="input-field col s6">
-                <input id="date" type="text" class="validate">
-                <label for="date">Date</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button onclick="myFunction4()">Enter</button>
-        </div>
-    </div>
-    -->
+
     <!-- Modal Structure for BOAR -->
     <div id="boarModal" class="modal bottom-sheet">
         <div class="modal-content center col s6">
@@ -272,7 +288,7 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-           <button id="5" onclick="myFunction5()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="5" onclick="boarFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
         </div>
     </div>
 
@@ -286,11 +302,11 @@ function myFunction2() {
             </div>
         </div>
         <div class="modal-footer">
-           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat">Enter</button>
+           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
         </div>
     </div>
   
-	
+	<!--In order for the page to be mobile friendly I need this JQuery-->
 <script>
     $(document).ready(
         function() {
@@ -298,7 +314,7 @@ function myFunction2() {
         });
 </script>
     
-<!--for the modals to work -->
+<!--for the modals to work i need this JQuery-->
 <script>
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered

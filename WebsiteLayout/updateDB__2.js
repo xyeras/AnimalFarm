@@ -1,9 +1,9 @@
 
 $(document).ready(function ()
 {
-	$('#update').click(function () // match to id in tag in HTML file
+	$('#subBtn').click(function () // match to id in tag in HTML file
 	{
-		var num_rows = $('#num_rows').val();
+		var num_rows = $(document.getElementById('row1')).attr('value');
 		var heat   = $('#heat').val();
 		var line   = $('#line').val();
 		var newPen = $('#newPen').val();
@@ -26,8 +26,9 @@ function update(num_rows,heat,line,newPen,comm)
 		np   : newPen,
 		comm : comm
 	},
-	function (date)
+	function (date,status)
 	{
+        alert(status);
 		$('#result').html(data); // match in HTML file
 	});
 }

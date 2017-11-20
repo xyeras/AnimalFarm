@@ -31,7 +31,7 @@ $mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,da
 $rowData = $con->query($mysqlStatement);
 if($rowData->num_rows > 0) {
 	echo "
-    	<table>
+    	<table class=\"highlight centered bordered container\">
           <tr>
 	       <th>Pen</th>
 	        <th>Notch</th>
@@ -50,7 +50,7 @@ if($rowData->num_rows > 0) {
 	{
 		echo 
 		// Kathryn's edit table code mabye in a later interation
-		"<tr data-value=\"".$row["num_rows"]."\">
+		"<tr value=\"".$row["num_rows"]."\" onclick=\"sendRow(this)\">
 		<td>".$row["pen"]."</td>
 		<td>".$row["notch"]."</td>
 		<td>".$row["tag"]."</td>

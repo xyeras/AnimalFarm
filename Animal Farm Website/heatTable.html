@@ -44,10 +44,24 @@
             width:100%;
             text-align: center;
         }
-      
+        tr.selected {
+            background-color: #ff5050 !important;
+            color: #FFF;
+        }
       </style>
 
     <body>
+        <script>
+            
+            function sendRow(x) {
+                var val = $(x).attr('value');
+                $(x).addClass('selected');
+                $(x).siblings().removeClass('selected');
+       
+                document.getElementById('rowNum').value = val;
+            }
+            
+        </script>
 	 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper white">
@@ -74,7 +88,11 @@
         <!--this is the button that collectes the selected data from the row and takes user to "comHeatCheck.html"-->
         
         <div id="outer" class="container">
-        <a  href="comHeatCheck.html" class="waves-effect waves-light btn brown">Check Heat</a>
+             <form action="comHeatCheck.html">
+                  <input id="rowNum" type="hidden" name="rowNum" value="0">
+                <button id="heat" type="submit" value="heat" class="waves-effect waves-light btn brown " style="padding-top: 0px;">Check Heat</button>
+            </form>
+        <!--<a  href="comHeatCheck.html" class="waves-effect waves-light btn brown">Check Heat</a>-->
         </div>
 	
 	

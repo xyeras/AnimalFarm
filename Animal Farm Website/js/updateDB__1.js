@@ -278,34 +278,36 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 
 $(document).ready(function ()
 {
-	$('#update').click(function () // match to id in tag in HTML file
+	$('#add').click(function () // match to id in tag in HTML file
 	{
-		var num_rows = $('#num_rows').val();
+		var num_rows = $(document.getElementById('row1')).attr('value');
 		var boar2  = $('#boar2').val();
-		// only need date3 to check when to update date2 and date3
-		var date3  = $('#date3').val();
-		var heat   = $('#heat').val();
 		var line   = $('#line').val();
 		var newPen = $('#newPen').val();
-		var comm   = $('#comm').val();
+		var comm   = $('#comments').val();
 		
 		// call the next_date function-----------------------------------------
 		var retrieve_date = next_date(months,days,years,20);
-		if (boar2 != NULL && heat == NULL)
-		{
-			date2_month = String(months);
-			date2_day   = String(days);
-			date2_year  = String(years);
-			date3_month = retrieve_date.month;
-			date3_day   = retrieve_date.day;
-			date3_year  = retrieve_date.year;
+
+		date2_month = String(months);
+		date2_day   = String(days);
+		date2_year  = String(years);
+		date3_month = retrieve_date.month;
+		date3_day   = retrieve_date.day;
+		date3_year  = retrieve_date.year;
 			
 			update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm);
-		}
-		else
-		{
-			update2(num_rows,line,newPen,comm);
-		}
+
+		
+		
+	$('#last3').click(function () // match to id in tag in HTML file
+	{
+		var num_rows = $(document.getElementById('row1')).attr('value');
+		var line   = $('#line').val();
+		var newPen = $('#newPen').val();
+		var comm   = $('#comments').val();
+
+		update2(num_rows,line,newPen,comm);
 	});
 });
 
@@ -332,8 +334,9 @@ function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,dat
 		np          : newPen,
 		comm        : comm
 	},
-	function (date)
+	function (data,status)
 	{
+	    alert(status);
 		$('#result').html(data); // match in HTML file
 	});
 }
@@ -348,8 +351,9 @@ function update2(num_rows,line,newPen,comm)
 		np   : newPen,
 		comm : comm
 	},
-	function (date)
+	function (data,status)
 	{
+	    alert(status);
 		$('#result').html(data); // match in HTML file
 	});
 }

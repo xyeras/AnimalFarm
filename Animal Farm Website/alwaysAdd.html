@@ -57,7 +57,7 @@
 
     </style>
 </head>   
-<body> 
+<body onload="disableSub()"> 
   <nav>
 
     <div class="nav-wrapper white">
@@ -95,11 +95,12 @@
     <div class="container" style="padding-top: 40px ">
     
     <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
-            <tr id="myRow" >
-				<td id="cell1"></td>
-				<td id="cell2"></td>
-				<td id="cell3"></td>
+            <tr class="container" id="myRow" >
+                <td id="cell1"> </td>
+                <td id="cell2"> </td>
+                <td id="cell3"> </td>
             </tr>
+        
         </table>
     </div>
  </div>
@@ -139,6 +140,12 @@
         var row = document.getElementById("myRow");
         var d = row.insertCell(0);
         d.innerHTML = document.getElementById("line").value;
+        /* if user enter something for line they could only do it once 
+        and if they enter something then the submit button is enabled*/
+        disableLine();
+        if(d.innerHTML != ""){
+            document.getElementById("add").disabled = false;
+        }
    
     }
     
@@ -146,14 +153,41 @@
         var row = document.getElementById("myRow");
         var e = row.insertCell(1);
         e.innerHTML = document.getElementById("newPen").value;
-        
+         /* if user enter something for pen they could only do it once 
+        and if they enter something then the submit button is enabled*/
+         disablePen();
+        if(d.innerHTML != ""){
+           document.getElementById("add").disabled = false;
+        }
       }
     
     function commfunc() {
         var row = document.getElementById("myRow");
         var f = row.insertCell(2);
         f.innerHTML = document.getElementById("comments").value;
+         /* if user enter something for comm they could only do it once 
+        and if they enter something then the submit button is enabled*/
+         disableComm();
+        if(d.innerHTML != ""){
+             document.getElementById("add").disabled = false;
+        }
+    }
+    /*disables line button */
+    function disableLine() {
+        document.getElementById("13").disabled = true;
+    }
+     /*disables pen button */
+    function disablePen() {
+        document.getElementById("14").disabled = true;
+    }
+     /*disables comment button */
+    function disableComm() {
+        document.getElementById("15").disabled = true;
+    }
     
+      /*enables submit button */
+    function disableSub() {
+        document.getElementById("add").disabled = true;
     }
     
   

@@ -25,7 +25,7 @@ possibly line, new pen , and comments (these three can always be changed)
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <title>Heat Check</title>
+    <title>Complete Heat Check</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
@@ -36,7 +36,6 @@ possibly line, new pen , and comments (these three can always be changed)
           right: 5%;
         }
 
-       
         
         th {
             height: 50px;
@@ -58,7 +57,7 @@ possibly line, new pen , and comments (these three can always be changed)
 
     </style>
 </head>   
-<body> 
+<body onload="disableAll()"> 
   <nav>
 
     <div class="nav-wrapper white">
@@ -83,13 +82,10 @@ possibly line, new pen , and comments (these three can always be changed)
         <div><p>Slected row from heat checks needed page shows here.</p></div>
     <div class="container" style="padding-top: 40px ">
         
-        <div class="inner"><button data-target="heatModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Heat</button></div>
-        <div class="inner"><button data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
-        <div class="inner"><button data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
-       <div class="inner"><button data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
-        
-        
-    
+        <div class="inner"><button id="heatBtn" data-target="heatModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Heat</button></div>
+        <div class="inner"><button id="lineBtn" data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
+        <div class="inner"><button id="newPenBtn" data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
+       <div class="inner"><button id = "commsBtn" data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
 
         </div>
     </div>
@@ -112,7 +108,7 @@ possibly line, new pen , and comments (these three can always be changed)
     and the user has access to it easily. The modal will show upon user selecting a row..
     -->
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
+    <button id="subBtn"class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
         </div>
    
 
@@ -141,31 +137,52 @@ possibly line, new pen , and comments (these three can always be changed)
 <script>
 
     
-function insertHeat() {
-    var row = document.getElementById("myRow");
-    var a = row.insertCell(0);
-    a.innerHTML = document.getElementById("heat").value;   
-}
+    function insertHeat() {
+        var row = document.getElementById("myRow");
+        var a = row.insertCell(0);
+        a.innerHTML = document.getElementById("heat").value;   
+        document.getElementById("heatBtn").disabled = true;
+        document.getElementById("lineBtn").disabled = false;
+    }
             
-function insertLine() {
-    var row = document.getElementById("myRow");
-    var b = row.insertCell(1);
-    b.innerHTML = document.getElementById("line").value;
+    function insertLine() {
+        var row = document.getElementById("myRow");
+        var b = row.insertCell(1);
+        b.innerHTML = document.getElementById("line").value;
+        document.getElementById("heatBtn").disabled = true;
+        document.getElementById("lineBtn").disabled = true;
+        document.getElementById("newPenBtn").disabled = false;
+
+    }
     
-}
     function insertNewPen() {
-    var row = document.getElementById("myRow");
-    var c = row.insertCell(2);
-    c.innerHTML = document.getElementById("newPen").value;
-    
-}
+        var row = document.getElementById("myRow");
+        var c = row.insertCell(2);
+        c.innerHTML = document.getElementById("newPen").value;
+        document.getElementById("heatBtn").disabled = true;
+        document.getElementById("lineBtn").disabled = true;
+        document.getElementById("newPenBtn").disabled = true;
+        document.getElementById("commsBtn").disabled = false;
+    }   
 
    function insertComm() {
-    var row = document.getElementById("myRow");
-    var d = row.insertCell(3);
-    d.innerHTML = document.getElementById("comments").value;
+        var row = document.getElementById("myRow");
+        var d = row.insertCell(3);
+        d.innerHTML = document.getElementById("comments").value;
+        document.getElementById("heatBtn").disabled = true;
+        document.getElementById("lineBtn").disabled = true;
+        document.getElementById("newPenBtn").disabled = true;
+        document.getElementById("commsBtn").disabled = true;
+        document.getElementById("subBtn").disabled = false;
+   }
     
-}
+    function disableAll(){
+        document.getElementById("heatBtn").disabled = false;
+        document.getElementById("lineBtn").disabled = true;
+        document.getElementById("newPenBtn").disabled = true;
+        document.getElementById("commsBtn").disabled = true;
+        document.getElementById("subBtn").disabled = true;
+    }
    
 </script>
 
@@ -235,14 +252,14 @@ function insertLine() {
   
 	
 <script>
+    /*In order for the page to be mobile friendly I need this JQuery*/
     $(document).ready(
         function() {
             $(".button-collapse").sideNav();
         });
-</script>
+
     
-<!--for the modals to work -->
-<script>
+/*for the modals to work i need this JQuery*/
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();

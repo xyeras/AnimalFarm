@@ -7,6 +7,7 @@ possibly line, new pen , and comments (these three can always be changed)
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="notify.js"></script> 
+    <script src="getRow.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -79,7 +80,7 @@ possibly line, new pen , and comments (these three can always be changed)
     
     <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to modify.</h5>
     <div id="outer" class= "container">
-        <div><p>Slected row from heat checks needed page shows here.</p></div>
+        <div id="rowData"><p>Slected row from heat checks needed page shows here.</p></div>
     <div class="container" style="padding-top: 40px ">
         
         <div class="inner"><button id="heatBtn" data-target="heatModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Heat</button></div>

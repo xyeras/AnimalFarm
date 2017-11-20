@@ -144,6 +144,11 @@ possibly line, new pen , and comments (these three can always be changed)
         a.innerHTML = document.getElementById("heat").value;   
         document.getElementById("heatBtn").disabled = true;
         document.getElementById("lineBtn").disabled = false;
+        document.getElementById("newPenBtn").disabled = false;
+            document.getElementById("commsBtn").disabled = false;
+        document.getElementById("subBtn").disabled = false;
+        
+        
     }
             
     function insertLine() {
@@ -152,7 +157,7 @@ possibly line, new pen , and comments (these three can always be changed)
         b.innerHTML = document.getElementById("line").value;
         document.getElementById("heatBtn").disabled = true;
         document.getElementById("lineBtn").disabled = true;
-        document.getElementById("newPenBtn").disabled = false;
+      
 
     }
     
@@ -163,7 +168,7 @@ possibly line, new pen , and comments (these three can always be changed)
         document.getElementById("heatBtn").disabled = true;
         document.getElementById("lineBtn").disabled = true;
         document.getElementById("newPenBtn").disabled = true;
-        document.getElementById("commsBtn").disabled = false;
+      
     }   
 
    function insertComm() {
@@ -174,7 +179,7 @@ possibly line, new pen , and comments (these three can always be changed)
         document.getElementById("lineBtn").disabled = true;
         document.getElementById("newPenBtn").disabled = true;
         document.getElementById("commsBtn").disabled = true;
-        document.getElementById("subBtn").disabled = false;
+        
    }
     
     function disableAll(){

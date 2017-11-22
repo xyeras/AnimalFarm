@@ -109,7 +109,7 @@ taka place. Line, New Pen , and Comments can always be modified
     <!--upon pressing the submit button, the data that was just entered and each
         cell of the row that was selected must be gathered--> 
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
+    <button data-target="submitModal2" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button> 
         </div>
    
     
@@ -282,6 +282,19 @@ taka place. Line, New Pen , and Comments can always be modified
            <button id="6" onclick="commfunc()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
         </div>
     </div>
+    
+    
+  <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
+  <div id="submitModal2" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">Submission was successful!<i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to edit another entry or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="editData.html" class="modal-action modal-close waves-effect waves-green btn-flat">Edit Another</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
   
 	<!--In order for the page to be mobile friendly I need this JQuery-->
 <script>

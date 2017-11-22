@@ -109,7 +109,7 @@ possibly line, new pen , and comments (these three can always be changed)
     and the user has access to it easily. The modal will show upon user selecting a row..
     -->
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button id="subBtn"class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
+    <button  data-target="submitModal3" id="subBtn" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button> 
         </div>
    
 
@@ -255,6 +255,18 @@ possibly line, new pen , and comments (these three can always be changed)
            <button id="6" onclick="insertComm()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
         </div>
     </div>
+    
+    <!-- Modal Structure for the submit button, will show sucess message and allow user to complte another heat check or go back to home -->
+  <div id="submitModal3" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">Data was sent successful!<i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to complete another heat check or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="heatTable.html" class="modal-action modal-close waves-effect waves-green btn-flat">Complete Another Heat Check</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
   
 	
 <script>

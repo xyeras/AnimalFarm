@@ -5,7 +5,7 @@ the current date for the user.
 <html>
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="addData.js"></script> 
+    <script src="/AnimalFarm/WebsiteLayout/addData.js"></script> 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -108,7 +108,7 @@ the current date for the user.
     
     
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button id="7" class="btn waves-effect waves-light brown" id="add" >Submit Data</button> 
+    <button id="7"  data-target="submitModal" class="btn waves-effect waves-light  modal-trigger brown" id="add" >Submit Data</button> 
         </div>
        
     
@@ -305,6 +305,20 @@ function penFunc() {
            <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
         </div>
     </div>
+    
+    
+
+  <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
+  <div id="submitModal" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">You entry has been sent successfully! <i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to add another entry or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="add.html" class="modal-action modal-close waves-effect waves-green btn-flat">Add Another</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
   
 	<!--In order for the page to be mobile friendly I need this JQuery-->
 <script>

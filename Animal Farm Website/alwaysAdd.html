@@ -97,10 +97,7 @@
     <div class="container" style="padding-top: 40px ">
     
     <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
-            <tr class="container" id="myRow" >
-                <td id="cell1"> </td>
-                <td id="cell2"> </td>
-                <td id="cell3"> </td>
+            <tr id="myRow" >
             </tr>
         
         </table>
@@ -158,7 +155,7 @@
          /* if user enter something for pen they could only do it once 
         and if they enter something then the submit button is enabled*/
          disablePen();
-        if(d.innerHTML != ""){
+        if(e.innerHTML != ""){
            document.getElementById("add").disabled = false;
         }
       }
@@ -170,7 +167,7 @@
          /* if user enter something for comm they could only do it once 
         and if they enter something then the submit button is enabled*/
          disableComm();
-        if(d.innerHTML != ""){
+        if(f.innerHTML != ""){
              document.getElementById("add").disabled = false;
         }
     }

@@ -1,7 +1,7 @@
 
 $(document).ready(function ()
 {
-	$('#subBtn').click(function () // match to id in tag in HTML file
+	$('#add').click(function () // match to id in tag in HTML file
 	{
 		var num_rows = $(document.getElementById('row1')).attr('value');
 		var heat   = $('#heat').val();

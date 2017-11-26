@@ -22,7 +22,7 @@ $insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, comm)
 		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$comments')";
 
 if($con->query($insert) === TRUE){
-	echo "Save successful!)";
+	echo "Save successful!";
 }
 else{
 	echo "Failed to save data";

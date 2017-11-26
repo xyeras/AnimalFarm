@@ -11,16 +11,15 @@ function date_holder (mm,dd,yyyy)
 	this.year  = yyyy;
 }
 
-
+var today = new Date();				// today is a Date object
+var months = today.getMonth()+1;	// gets the current month
+var days = today.getDate();			// gets the current day
+var years = today.getFullYear();	// gets the current year
 
 
 
 function next_date(month_curr, day_curr, year_curr,days_til)
 {
-    var today = new Date();				// today is a Date object
-    var months = today.getMonth()+1;	// gets the current month
-    var days = today.getDate();			// gets the current day
-    var years = today.getFullYear();	// gets the current year
 	var temp_days = 0;
 	
 	// next_**** hold date that will be returned

@@ -11,15 +11,16 @@ function date_holder (mm,dd,yyyy)
 	this.year  = yyyy;
 }
 
-var today = new Date();				// today is a Date object
-var months = today.getMonth()+1;	// gets the current month
-var days = today.getDate();			// gets the current day
-var years = today.getFullYear();	// gets the current year
+
 
 
 
 function next_date(month_curr, day_curr, year_curr,days_til)
 {
+    var today = new Date();				// today is a Date object
+    var months = today.getMonth()+1;	// gets the current month
+    var days = today.getDate();			// gets the current day
+    var years = today.getFullYear();	// gets the current year
 	var temp_days = 0;
 	
 	// next_**** hold date that will be returned
@@ -289,18 +290,18 @@ $(document).ready(function ()
 		// call the next_date function-----------------------------------------
 		var retrieve_date = next_date(months,days,years,20);
 
-		date2_month = String(months);
-		date2_day   = String(days);
-		date2_year  = String(years);
-		date3_month = retrieve_date.month;
-		date3_day   = retrieve_date.day;
-		date3_year  = retrieve_date.year;
+		var date2_month = String(months);
+		var date2_day   = String(days);
+		var date2_year  = String(years);
+		var date3_month = retrieve_date.month;
+		var date3_day   = retrieve_date.day;
+		var date3_year  = retrieve_date.year;
 			
 			update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm);
-
+});
 		
 		
-	$('#last3').click(function () // match to id in tag in HTML file
+	$('#submitModall').click(function () // match to id in tag in HTML file
 	{
 		var num_rows = $(document.getElementById('row1')).attr('value');
 		var line   = $('#line').val();
@@ -320,7 +321,7 @@ $(document).ready(function ()
 // if variable is not NULL 
 function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm)
 {
-	$.post("updateDB_1.php",
+	$.post("../updateDB_1.php",
 	{
 		nr          : num_rows,
 		date2_month : date2_month,
@@ -344,7 +345,7 @@ function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,dat
 
 function update2(num_rows,line,newPen,comm)
 {
-	$.post("updateDB_3.php",
+	$.post("../updateDB_3.php",
 	{
 		nr   : num_rows,
 		line : line,

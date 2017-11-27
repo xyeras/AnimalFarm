@@ -336,7 +336,6 @@ function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,dat
 	},
 	function (data,status)
 	{
-	    alert(status);
 		$('#result').html(data); // match in HTML file
 	});
 }
@@ -353,7 +352,6 @@ function update2(num_rows,line,newPen,comm)
 	},
 	function (data,status)
 	{
-	    alert(status);
 		$('#result').html(data); // match in HTML file
 	});
 }

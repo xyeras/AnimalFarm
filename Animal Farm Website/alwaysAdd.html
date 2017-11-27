@@ -108,7 +108,7 @@
     <!--upon pressing the submit button, the data that was just entered and each
         cell of the row that was selected must be gathered--> 
     <div id= "outer" class="container" style="padding-top: 50px; position: relative">
-    <button data-target="submitModall" class="btn waves-effect waves-light modal-trigger brown" id="submitModall" >Submit Data</button> 
+    <button data-target="submitModall" class="btn waves-effect waves-light modal-trigger brown" id="submit" >Submit Data</button> 
         </div>
    
 
@@ -144,7 +144,7 @@
         and if they enter something then the submit button is enabled*/
         disableLine();
         if(d.innerHTML != ""){
-            document.getElementById("add").disabled = false;
+            document.getElementById("submit").disabled = false;
         }
    
     }
@@ -157,7 +157,7 @@
         and if they enter something then the submit button is enabled*/
          disablePen();
         if(e.innerHTML != ""){
-           document.getElementById("add").disabled = false;
+           document.getElementById("submit").disabled = false;
         }
       }
     
@@ -169,7 +169,7 @@
         and if they enter something then the submit button is enabled*/
          disableComm();
         if(f.innerHTML != ""){
-             document.getElementById("add").disabled = false;
+             document.getElementById("submit").disabled = false;
         }
     }
     /*disables line button */
@@ -187,7 +187,7 @@
     
       /*enables submit button */
     function disableSub() {
-        document.getElementById("add").disabled = true;
+        document.getElementById("submit").disabled = true;
     }
     
   

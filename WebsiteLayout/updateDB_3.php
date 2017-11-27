@@ -21,11 +21,11 @@ $msyqlStatment = "UPDATE pigpens SET line = '$line', newPen = '$newPen', comm = 
 // update database statement
 if($con->query($msyqlStatment))
 {
-	echo "alert(\"Save successful!\")";
+	echo "Save successful!";
 }
 else
 {
-	echo "alert(\"Failed to save data.\")";
+	echo "Failed to save data.";
 }
 
 

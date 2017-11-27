@@ -48,11 +48,11 @@ $msyqlStatment = "UPDATE pigpens SET date2 = '$date2', boar2 = '$boar2', date3 =
 // update database statement
 if($con->query($msyqlStatment))
 {
-	echo "alert(\"Save successful!\")";
+	echo "Save successful";
 }
 else
 {
-	echo "alert(\"Failed to save data.\")";
+	echo "Failed to save data.";
 }
 
 

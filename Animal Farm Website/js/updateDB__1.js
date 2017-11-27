@@ -300,7 +300,7 @@ $(document).ready(function ()
 });
 		
 		
-	$('#submitModall').click(function () // match to id in tag in HTML file
+	$('#submit').click(function () // match to id in tag in HTML file
 	{
 		var num_rows = $(document.getElementById('row1')).attr('value');
 		var line   = $('#line').val();

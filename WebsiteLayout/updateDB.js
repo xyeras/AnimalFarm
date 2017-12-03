@@ -1,19 +1,22 @@
-var hi = 0;
 function month_stats(mn,d) 
 {
 	this.month_num = mn;
 	this.days = d;
 }
 
-	var today = new Date();				// today is a Date object
-	var months = today.getMonth()+1;	// gets the current month
-	var days = today.getDate();			// gets the current day
-	var years = today.getFullYear();	// gets the current year
-	
-	// call the next_date function
-	next_date(months,days,years,27);
-	
-	
+function date_holder (mm,dd,yyyy)
+{
+	this.month = mm;
+	this.day   = dd;
+	this.year  = yyyy;
+}
+
+var today = new Date();				// today is a Date object
+var months = today.getMonth()+1;	// gets the current month
+var days = today.getDate();			// gets the current day
+var years = today.getFullYear();	// gets the current year
+
+
 
 function next_date(month_curr, day_curr, year_curr,days_til)
 {
@@ -112,6 +115,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == apr.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -128,6 +132,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == may.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -160,6 +165,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == jul.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -176,6 +182,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == aug.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -192,6 +199,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == sep.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -208,6 +216,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == oct.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -224,6 +233,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == nov.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -240,6 +250,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
+	
 	else if (month_curr == dec.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -257,22 +268,110 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		}
 	}
 	
-	// prints out the date
-	document.write("next month: " + next_month + " next day: " + next_day + " next year: " + next_year);
-//	var futr_date = 
-//	{
-//		futr_month: next_month,
-//		futr_day  : next_day,
-//		futr_year : next_year
-//	};
-		
+	// save the date
+	var new_date = new date_holder(next_month,next_day,next_year);
+	return new_date;
 }
 
 
-// retrieves data from the database
-$.get("index.php",function (data)
+
+
+$(document).ready(function ()
 {
-	$('#result').html(data);	
+	$('#update').click(function () // match to id in tag in HTML file
+	{
+		var num_rows = $('#num_rows').val();
+		var boar2  = $('#boar2').val();
+		// only need date3 to check when to update date2 and date3
+		var date3  = $('#date3').val();
+		var heat   = $('#heat').val();
+		var line   = $('#line').val();
+		var newPen = $('#newPen').val();
+		var comm   = $('#comm').val();
+		
+		// call the next_date function-----------------------------------------
+		var retrieve_date = next_date(months,days,years,20);
+		if (boar2 != NULL && date3 == NULL)
+		{
+			date2_month = String(months);
+			date2_day   = String(days);
+			date2_year  = String(years);
+			date3_month = retrieve_date.month;
+			date3_day   = retrieve_date.day;
+			date3_year  = retrieve_date.year;
+			
+			update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm);
+		}
+		else if (date3 != NULL && heat == NULL)
+		{
+			update2(num_rows,heat,line,newPen,comm);
+		}
+		else
+		{
+			update3(num_rows,line,newPen,comm);
+		}
+		// call update function (2 functions????? 2 php files???????)
+	});
 });
+
+
+
+// updating date2,boar2,     heat,date3,line,newPen,    comm
+// automatic enter date2    date3
+
+// date3 is updated to 20 days after date2
+// if variable is not NULL 
+function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm)
+{
+	$.post("updateDB_1.php",
+	{
+		nr          : num_rows,
+		date2_month : date2_month,
+		date2_day   : date2_day,
+		date2_year  : date2_year,
+		b2          : boar2,
+		date3_month : date3_month,
+		date3_day   : date3_day,
+		date3_year  : date3_year,
+		line        : line,
+		np          : newPen,
+		comm        : comm
+	},
+	function (date)
+	{
+		$('#result').html(data); // match in HTML file
+	});
+}
+
+function update2(num_rows,heat,line,newPen,comm)
+{
+	$.post("updateDB_2.php",
+	{
+		nr   : num_rows,
+		h    : heat,
+		line : line,
+		np   : newPen,
+		comm : comm
+	},
+	function (date)
+	{
+		$('#result').html(data); // match in HTML file
+	});
+}
+
+function update3(num_rows,line,newPen,comm)
+{
+	$.post("updateDB_3.php",
+	{
+		nr   : num_rows,
+		line : line,
+		np   : newPen,
+		comm : comm
+	},
+	function (date)
+	{
+		$('#result').html(data); // match in HTML file
+	});
+}
 
 

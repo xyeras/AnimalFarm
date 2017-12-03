@@ -3,8 +3,7 @@
 <!DOCTYPE html>
   <html lang="en">
     <head>
-        
-         <script src="addData.js"></script> 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
     <!--Import Google Icon Font-->
@@ -12,10 +11,10 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 
-      <!-- Compiled and minified JavaScript -->
+    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
     </script>
-         <!-- Compiled and minified JavaScript -->
+    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
     </script>
 
@@ -24,7 +23,7 @@
 
     <!--animate css -->
     <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -34,6 +33,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
+	
       <style>
           .makePink{
            color:#d81b60;
@@ -45,11 +45,12 @@
 	 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper white">
-        <a href="#" class="brand-logo center pink-text">View Recent Data</a>
+        <a href="#" class="brand-logo center pink-text">Login</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           
         <li><a class="makePink text" href="homeapp.html">Home</a></li>
+		<li><a class="makePink text" href="add.html">View Recent Data</a></li>
         <li><a class="makePink text" href="add.html">Add Data</a></li>
 		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
       </ul>
@@ -60,10 +61,33 @@
       </ul>
     </div>
   </nav>
+  </div>
+  
+    <div class="row container" style="margin-top: 50px">
+    <form class="col s12">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email" data-error="Invalid" data-success="Valid">Email</label>
         </div>
-		
-	<div id="result"></div>
-	
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+    </form>
+  </div>
+ 
+<center>
+    <div class="container" style="padding-top: 50px; position: relative; margin-bottom: 50px">
+		<button class="btn waves-effect waves-light brown" id="register" >Submit</button> 
+    </div>
+</center>
+        
 	
         <footer class="page-footer pink darken-1">
           <div class="container">
@@ -81,15 +105,6 @@
             </div>
           </div>
         </footer>
-	<script>
-    $(document).ready(
-        function() {
-          
-            $(".button-collapse").sideNav();
-        });
-    
-      
-</script>
     
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

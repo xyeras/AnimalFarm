@@ -9,43 +9,60 @@
      <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- CSS  -->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <title>Animal Farm Storage</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+    <title>Animal Farm Storage</title>
 </head>
+  
+   <style>
+    .makePink {
+        color:#d81b60;
+          
+    }
+      
+      </style>
+      
 <body>
     <!--Import jQuery before materialize.js
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>-->
     <!--Start of the webpage -->
-  <nav class="white" role="navigation">
+    <div class="navbar-fixed">
+  <nav class="white">
+      
       <div class="nav-wrapper container white">
-          <a href="#" class="brand-logo">Logo</a> 
+          <a href="index.html" class="brand-logo"><img src="images/animalFarmLogo.png" style="width: 146px; height: 34px;"alt="oink"></a> 
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
           <ul id="nav-mobile" class="right white-text hide-on-med-and-down">
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a class=" makePink text" href="#">Register</a></li>
+                <li><a class=" makePink text" href="#">Login</a></li>
         </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="side-nav" id="mobile-demo">
+          <li><a class=" makePink text" href="#">Register</a></li>
+                <li><a class=" makePink text" href="#">Login</a></li>
+      </ul>
     </div>
-  </nav>
-
+</nav>
+</div>
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container" style= "padding-top: 180px;">
         <br><br>
-        <h1 class="header center teal-text">Animal Farm</h1>
+        <h3 class="header center white-text">Improve your data collection</h3>
         <div class="row center">
           <h5 class="header col s12 light">A user-friendly application to record agricultural activity</h5>
         </div>
         <div class="row center">
-          <a href="homeapp.html" id="download-button" class="btn-large">Get Started</a>
+          <a href="homeapp.html" id="download-button" class="btn-large pink darken-1">Get Started</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="images/background1.1.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
+    <div class="parallax"><img src="images/pig4.jpg"  alt="homebackground"></div>
+ 
+ </div>
 
   <div class="container">
     <div class="section">
@@ -73,9 +90,9 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">description</i></h2>
-            <h5 class="center">Bye, paper</h5>
+            <h5 class="center">Farewell, paper</h5>
 
-            <p class="light">"Where are the papers with all the data?", "I need a pen!", "I need to find the paper that says this on it?" Sounds familiar? Oh my, no more worrying about that big ol stack of papers anymore!</p>
+            <p class="light">"Where are the papers with all the data?", "I need a pen!", "I need to find the paper that says this on it?" Sounds familiar? Thankfully, you can now say goodbye to this problem! </p>
           </div>
         </div>
       </div>
@@ -83,7 +100,7 @@
     </div>
   </div>
 
-
+<!--
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -93,23 +110,11 @@
       </div>
     </div>
     <div class="parallax"><img src="images/pexels-photo-270112.jpeg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  </div>-->
 
 
+
+<!--
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -120,41 +125,34 @@
     </div>
     <div class="parallax"><img src="images/pexels-photo-185941.jpeg" alt="Unsplashed background img 3"></div>
   </div>
-
-  <footer class="page-footer teal">
+-->
+      
+  <footer class="page-footer pink darken-1 ">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
+        <div class="col l12 s12">
+          <h5 class="white-text">Who We Are</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+           <p><a  class="grey-text" href="https://logomakr.com/3kpooT#">Logo</a> created with <a class="grey-text" href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a></p>
 
-
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
+    
+   
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
+    <div class="footer-copyright pink darken-1">
+       <div class="container">
+           <a class="grey-text text-lighten-4 left" href="index.html"> Animal Farm 2017</a>
+           <a class="right white-text"> California State University, Fresno</a>
+            </div>
+        
+       
+      
     </div>
+      
+      
+      
+      
   </footer>
 
 <!--  Scripts-->
@@ -162,15 +160,16 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   
-  <script>
-    $(document).ready(function(){
-    $('.target').pushpin({
-      top: 0,
-      bottom: 600,
-      offset: 40
-    });
-  });
-  </script>
+  
+    <script>
+    $(document).ready(
+        function() {
+          
+            $(".button-collapse").sideNav();
+        });
+    
+      
+</script>
   
   </body>
 </html>

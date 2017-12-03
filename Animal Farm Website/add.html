@@ -1,0 +1,341 @@
+<!--add:This is the page that the user will arrive on when they want to add for the first time. The date button is automatically inserts
+the current date for the user.
+-->
+<!DOCTYPE html>
+<html>
+<head> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="addData.js"></script> 
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    <!--animate css -->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <title>Add Data</title>
+    <style>
+        .space button{margin-right:15px;}
+        .space button:last-child{margin-right:0px;}
+
+        #notchModal, #penModal, #dateModal, #boarModal, #commentsModal, #tagModal {
+          width: 50%;
+          left: 25%;
+          right: 5%;
+        }
+
+       
+        
+        th {
+            height: 50px;
+        }
+        
+     
+        #outer{
+            width:100%;
+            text-align: center;
+        }
+        .inner{
+            display: inline-flex;
+        }
+
+              
+        .makePink{
+           color:#d81b60;
+        }
+
+    </style>
+</head>   
+    <!--All buttons except the first are disabled -->
+<body onload="disableBtns()"> 
+  <nav>
+
+    <div class="nav-wrapper white">
+      <a href="#" class="brand-logo center pink-text">Add Data</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <li><a class="makePink text" href="homeapp.html">Home</a></li>
+        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
+		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
+      </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="homeapp.html">Home</a></li>
+        <li><a href="pigTable.html">View Data</a></li>
+		<li><a href="editData.html">Edit Data</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which field you would like to fill.</h5>
+    <div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+        
+        <div class="inner"><button id="1" data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
+        <div class="inner"><button id="2" data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
+        <div class="inner"><button id="3" data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
+        <div class="inner"><button id="4" onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
+        <div class="inner"><button id="5" data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
+       <div class="inner"><button id="6"  data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
+        
+        
+    
+
+        </div>
+    </div>
+
+   <!-- This is where what the user enter shows up-->    
+<div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+    
+    <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
+            <tr id="myRow">
+            </tr>   
+        </table>
+    </div>
+ </div>
+    
+    
+    <div id= "outer" class="container" style="padding-top: 50px; position: relative">
+    <button id="add"  data-target="submitModal" class="btn waves-effect waves-light  modal-trigger brown">Submit Data</button> 
+        </div>
+       
+    
+  
+	<!--Footer-->
+        <footer class="page-footer pink darken-1">
+           <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Summary</h5>
+                <p class="grey-text text-lighten-4">You can use this page to add new data.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright pink darken-1 ">
+            <div class="container">
+            Animal Farm 2017
+            <a class="grey-text text-lighten-4 right" href="index.html">California State University, Fresno</a>
+            </div>
+          </div>
+        </footer>
+    
+        
+<script>
+
+    
+function tagFunc() {
+    var row = document.getElementById("myRow");
+    var x = row.insertCell(0);
+    x.innerHTML = document.getElementById("tag").value; 
+    /* enable pen and disable tag keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = false;
+  
+}
+            
+function penFunc() {
+    var row = document.getElementById("myRow");
+    var y = row.insertCell(1);
+    y.innerHTML = document.getElementById("pen").value;
+    /* enable notch and disable tag and pen keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = true;
+    document.getElementById("3").disabled = false;
+    
+}
+    function notchFunc() {
+    var row = document.getElementById("myRow");
+    var z = row.insertCell(2);
+    z.innerHTML = document.getElementById("notch").value;
+      /* enable notch and disable tag and pen keep all others as is */
+    document.getElementById("1").disabled = true;
+    document.getElementById("2").disabled = true;
+    document.getElementById("3").disabled = true;
+    document.getElementById("4").disabled = false;
+}
+
+    function getDateNow() {
+        var row = document.getElementById("myRow");
+        var date = new Date();
+        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        var a = row.insertCell(3);
+        a.innerHTML = formatDate;
+         /* enable date and disable  all others */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = false;
+    }
+
+    /*function myFunction4() {
+    var row = document.getElementById("myRow");
+    var b = row.insertCell(3);
+    b.innerHTML = document.getElementById("date").value;
+    
+
+}*/
+    function boarFunc() {
+    var row = document.getElementById("myRow");
+    var c = row.insertCell(4);
+    c.innerHTML = document.getElementById("boar").value;
+     /* enable boar and disable  all others  */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = false;
+    
+}
+    function myFunction6() {
+    var row = document.getElementById("myRow");
+    var d = row.insertCell(5);
+    d.innerHTML = document.getElementById("comments").value;
+         /* enable sumbit and disable all others */
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = true;
+        document.getElementById("7").disabled = false;
+        
+    
+}
+    
+    function disableBtns() {
+        document.getElementById("1").disabled = false;
+        document.getElementById("2").disabled = true;
+        document.getElementById("3").disabled = true;
+        document.getElementById("4").disabled = true;
+        document.getElementById("5").disabled = true;
+        document.getElementById("6").disabled = true;
+        document.getElementById("7").disabled = true;
+      
+    }
+</script>
+
+
+    
+    
+    <!-- Modal Structure for TAG -->
+    <div id="tagModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Tag</h4>
+                <div class="input-field col s3">
+                        <input id="tag" type="text" name="tagEn" class="validate">
+                        <label for="tag">Tag</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="tagFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
+  
+        </div>
+        
+    </div>
+
+    <!-- Modal Structure for PEN -->
+    <div id="penModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Pen </h4>
+                <div class="input-field col s3">
+                    <form>
+                        <input id="pen" type="text" name="penEn" class="validate ">
+                        <label for="pen">Pen</label>
+                    </form>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button id="3" onclick="penFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
+        </div>
+    </div>
+    
+    <!-- Modal Structure for NOTCH -->
+    <div id="notchModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Notch</h4>
+                <div class="input-field col s6 ">
+                    <input id="notch" type="text" class="validate">
+                    <label for="notch">Notch</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button id="4" onclick="notchFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
+        </div>
+    </div>
+
+
+    <!-- Modal Structure for BOAR -->
+    <div id="boarModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Boar</h4>
+            <div class="input-field col s6">
+                <input id="boar" type="text" class="validate">
+                <label for="boar">Boar</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button id="5" onclick="boarFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
+        </div>
+    </div>
+
+     <!-- Modal Structure for comments -->
+    <div id="commentsModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Comments</h4>
+            <div class="input-field col s6">
+                <input id="comments" type="text" class="validate">
+                <label for="comments">Comments</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
+        </div>
+    </div>
+    
+    
+
+  <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
+  <div id="submitModal" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">You entry has been sent successfully! <i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to add another entry or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="add.html" class="modal-action modal-close waves-effect waves-green btn-flat">Add Another</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
+  
+	<!--In order for the page to be mobile friendly I need this JQuery-->
+<script>
+    $(document).ready(
+        function() {
+            $(".button-collapse").sideNav();
+        });
+</script>
+    
+<!--for the modals to work i need this JQuery-->
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+    
+</script>
+
+</body>    
+</html>

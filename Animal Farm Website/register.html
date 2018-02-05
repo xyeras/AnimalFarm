@@ -95,6 +95,25 @@
 		<button class="btn waves-effect waves-light brown" id="register" >Submit</button> 
     </div>
 </center>
+
+<?php
+
+$email = $pass = "";
+$emailErr = $passErr = "";
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["pass"])) {
+    $passErr = "Password is required";
+  } else {
+    $pass = test_input($_POST["pass"]);
+  }
+
+?>
         
 	
         <footer class="page-footer pink darken-1">

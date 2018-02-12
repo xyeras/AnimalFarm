@@ -25,9 +25,9 @@ taka place. Line, New Pen , and Comments can always be modified
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
     </script>
     <!--animate css -->
-    <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <title>Add More Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+	<title>Add More Data</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
@@ -38,10 +38,8 @@ taka place. Line, New Pen , and Comments can always be modified
           right: 5%;
         }
 
-        
         th {  
             height: 50px;}
-        
      
         #outer{
             width:100%;
@@ -50,7 +48,6 @@ taka place. Line, New Pen , and Comments can always be modified
         .inner{
             display: inline-flex;
         }
-
               
         .makePink{
            color:#d81b60;
@@ -83,13 +80,13 @@ taka place. Line, New Pen , and Comments can always be modified
         <div id="rowData"><p>Selected row from edit data shows here.</p></div>
     <div class="container" style="padding-top: 40px ">
         
-        <div class="inner"><button id="10" onclick="getDate2()" class="waves-effect waves-light btn-large pink darken-1">Date 2</button></div>
-        <div class="inner"><button id="11" data-target="boar2Modal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar 2</button></div>
+        Date 2<input type="text" name="date2"><br>
+        Boar 2<input type="text" name="boar2"><br>
         <!--date 3 is automatically retrieved with the notfiy.js -->
-        <div class="inner"><button id="12" onclick="getHeatCheckDate()" class=" waves-effect waves-light btn-large pink darken-1">Date 3</button></div>
-        <div class="inner"><button id="13" data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
-        <div class="inner"><button id="14" data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
-       <div class="inner"><button id="15" data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
+        Date 3<input type="text" name="date3"><br>
+        Line<input type="text" name="line"><br>
+        New Pen<input type="text" name="newpen"><br>
+       Comments<input type="text" name="comment"><br>
 
         </div>
     </div>
@@ -142,10 +139,7 @@ taka place. Line, New Pen , and Comments can always be modified
         document.getElementById("14").disabled = true;
         document.getElementById("15").disabled = true;
         document.getElementById("add").disabled = true;
-      
     }
-    
-  
     
     function getDate2() {
         var row = document.getElementById("myRow");

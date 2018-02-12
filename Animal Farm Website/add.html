@@ -29,28 +29,21 @@ the current date for the user.
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
 
-        #notchModal, #penModal, #dateModal, #boarModal, #commentsModal, #tagModal {
+        #notchModal, #penModal, #dateModal, #boarModal, #breedModal, #commentsModal, #tagModal {
           width: 50%;
           left: 25%;
           right: 5%;
         }
-
-       
-        
         th {
             height: 50px;
         }
-        
-     
         #outer{
             width:100%;
             text-align: center;
         }
         .inner{
             display: inline-flex;
-        }
-
-              
+        }     
         .makePink{
            color:#d81b60;
         }
@@ -78,21 +71,15 @@ the current date for the user.
     </div>
   </nav>
     
-    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which field you would like to fill.</h5>
-    <div id="outer" class= "container">
-    <div class="container" style="padding-top: 40px ">
-        
-        <div class="inner"><button id="1" data-target="tagModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Tag</button></div>
-        <div class="inner"><button id="2" data-target="penModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Pen</button></div>
-        <div class="inner"><button id="3" data-target="notchModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Notch</button></div>
-        <div class="inner"><button id="4" onclick="getDateNow()" class=" waves-effect waves-light btn-large pink darken-1">Date</button></div>
-        <div class="inner"><button id="5" data-target="boarModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar</button></div>
-       <div class="inner"><button id="6"  data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
-        
-        
-    
-
-        </div>
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Click on a text field you would like to fill in.</h5>
+    <div class="container" style="padding-top: 40px">
+			Tag<input type="text" name="tag"><br>
+			Pen<input type="text" name="pen"><br>
+			Notch<input type="text" name="notch"><br>
+			Date<input type="text" name="date"><br>
+			Boar<input type="text" name="boar"><br>
+			Breed<input type="text" name="breed"><br>
+			Comments<input type="text" name="comment"><br>
     </div>
 
    <!-- This is where what the user enter shows up-->    

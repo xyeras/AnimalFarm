@@ -1,5 +1,5 @@
 
-function addNew(p,n,t,d1,b1,c)
+function addNew(p,n,t,d1,b1,br,c)
 {
 
 	$.post("addData.php",
@@ -8,6 +8,7 @@ function addNew(p,n,t,d1,b1,c)
 		tag		: t,
 		date1	: d1,
 		boar1	: b1,
+		breed	: br;
 		comments: c
 	},
 	function(data, status){
@@ -26,9 +27,10 @@ $(document).ready(function(){
 		var t 	= $('#tag').val();
 		var d1	= $('#date').val();
 		var b1	= $('#boar').val();
+		var br	= $('#breed').val();
 		var c	= $('#comments').val();
 		
-		addNew(p,n,t,d1,b1,c);
+		addNew(p,n,t,d1,b1,br,c);
 	});
 	
 });

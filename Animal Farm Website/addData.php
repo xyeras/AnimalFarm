@@ -15,11 +15,12 @@ $notch		=	mysqli_real_escape_string($con,$_POST['notch']);
 $tag		=	mysqli_real_escape_string($con,$_POST['tag']);
 $date1		=	mysqli_real_escape_string($con,$_POST['date1']);
 $boar1		=	mysqli_real_escape_string($con,$_POST['boar1']);
+$breed		=	mysqli_real_escape_string($con,$_POST['breed']);
 $comments	=	mysqli_real_escape_string($con,$_POST['comments']);
 
 
 $insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, comm)
-		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$comments')";
+		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$breed', '$comments')";
 
 if($con->query($insert) === TRUE){
 	echo "Save successful!)";

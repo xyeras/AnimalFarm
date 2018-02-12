@@ -29,9 +29,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script>-->
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -65,33 +62,53 @@ td {
     padding: 5px; 
     cursor: pointer;
 }
-.selected {
-    background-color: brown;
-    color: #FFF;
-}
-/*Css for selsecting row*/
-td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
-.selected {
-    background-color: brown;
+/*Css for selsecting row*/
+
+tr.selected {
+    background-color: #ff5050 !important;
     color: #FFF;
 }
 
 </style>
 
 <script type="text/javascript" class="init">
+//$('#table1').DataTable({select:true});
 
-function showData(x) {
-	alert(x.innerHTML);
+
+function edButton(x) {
+    var val = $(x).attr('value');
+    $(x).addClass('selected');
+    $(x).siblings().removeClass('selected');
+    var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
+        /*alert(x[8].innerHTML);*/
+    /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
+            if(x[8].innerHTML == ''){
+                 document.getElementById("insem").disabled = false;
+                 document.getElementById("last3").disabled = true;
+                
+            }
+            /* if heat is filled in it means they just want to edit line pen or comment*/
+            else if(x[7].innerHTML != ''){
+                 document.getElementById("last3").disabled = false;
+                document.getElementById("insem").disabled = true;
+                
+            } 
+    /*alert("Row index is: " + x.rowIndex)
+	alert("The Data in Row is: " + x.innerHTML);*/
+    document.getElementById('rowNum').value = val;
+	document.getElementById('rowNum2').value = val;
+	
+	//e.target.parentNode.className = 'selected';
 }
 	
 </script>
-
+<script src="editData.js"></script>
 <style>.makePink{color:#d81b60;}</style>
 </head>
 
-
-<body>
+<!-- On page load all the buttons are disabled -->
+<body onload="disableAll()">
 <!--Top Header-->
      <div class="navbar-fixed">
   <nav>
@@ -130,15 +147,16 @@ function showData(x) {
       <option value="1">Pen</option>
       <option value="2">Notch</option>
       <option value="3">Tag</option>
-	  <option value="4">Date</option>
-      <option value="5">Boar 1</option>
-	  <option value="6">Date 2</option>
-	  <option value="7">Boar 2</option>
-	  <option value="8">Heat</option>
-	  <option value="9">Date 3</option>
-	  <option value="10">Line</option>
-	  <option value="11">New Pen</option>
-	  <option value="12">Comment</option>
+	  <option value="4">Breed</option>
+	  <option value="5">Date</option>
+      <option value="6">Boar 1</option>
+	  <option value="7">Date 2</option>
+	  <option value="8">Boar 2</option>
+	  <option value="9">Heat</option>
+	  <option value="10">Date 3</option>
+	  <option value="11">Line</option>
+	  <option value="12">New Pen</option>
+	  <option value="13">Comment</option>
     </select>
         <label>Search By: </label>
 </div></div></div>
@@ -158,12 +176,33 @@ function showData(x) {
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 
-<form id="editForm" class="container center" style="padding-bottom: 20px;" action="checkData.html">
-	<input id="rowData" type=text name="rowData" style="display:none">
-    <input type="submit" style="display:none">
+    
+    <div class="container center"  >
+     <form action="addMore.html" style="padding-bottom: 20px;">
+         <input id="rowNum" type="hidden" name="rowNum" value="0">
+        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
+    </form>
+    <form action= "alwaysAdd.html">
+        <input id="rowNum2" type="hidden" name="rowNum" value="0">
+    <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
+    </form>
+    </div> 
+    
+     <script>
+        /* disables all buttons on load*/
+        function disableAll(){
+            document.getElementById("insem").disabled = true;
+            document.getElementById("last3").disabled = true;
+        }    
+        
+    </script>
+<!--
+<form id="editForm" class="container center" style="padding-bottom: 20px;" action="addMore.html">
+	<input id="rowNum" type="hidden" name="rowNum" value="0">
+	<input id="submit" type="submit" value="Edit Data" class="conwaves-effect waves-light btn-large brown disabled">
 </form>
-<button id="edit" class="waves-effect waves-light btn-large red disabled" style="padding-top: 15px"></button>
 
+-->
 <!--Bottom header-->
         <footer class="page-footer pink darken-1 ">
           <div class="container">
@@ -187,20 +226,6 @@ function showData(x) {
     //Makes the select tag work
     $('select').material_select();
     $(".button-collapse").sideNav();
-});
-$(document).ready(function() {
-    //does stuff when clicking on a table row
-    $('tr').click(function(){
-        alert(this.innerHTML);
-    	document.getElementById('Edit').classList = "waves-effect waves-light btn-large red";
-        $("#rowData").val(this.innerHTML);
-    });
-});
-$(document).ready(function() {
-    //submits form
-    $('#edit').click(function(){
-        $("#editForm").submit();
-    });
 });
  </script>
 

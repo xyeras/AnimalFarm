@@ -8,7 +8,7 @@ if (mysqli_connect_error())
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
 // statment to retrieve rows from database
-$msyqlStatment = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
+$msyqlStatment = "SELECT num_rows,pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
 
 // Kathryn's code here
 //function fetchData(){
@@ -35,7 +35,7 @@ if($rowData->num_rows > 0) {
 	while($row = $rowData->fetch_assoc())
 	{
 		echo
-		"<tr data-value=\"".$row["num_rows"]."\">
+		"<tr data-value=\"".$row["num_rows"]."\" onclick=\"edButton(this)\">
 		<td>".$row["pen"]."</td>
 		<td>".$row["notch"]."</td>
 		<td>".$row["tag"]."</td>

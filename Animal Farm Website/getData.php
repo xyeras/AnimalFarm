@@ -30,7 +30,7 @@ if (mysqli_connect_error())
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
 // statment to retrieve rows from database
-$msyqlStatment = "SELECT pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
+$msyqlStatment = "SELECT pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
 
 // Kathryn's code here
 //function fetchData(){
@@ -44,6 +44,7 @@ if($rowData->num_rows > 0) {
 	        <th>Pen</th>
 	        <th>Notch</th>
 	        <th>Tag</th>
+	        <th>Breed</th>
         	<th>Date 1</th>
         	<th>Boar 1</th>
         	<th>Date 2</th>
@@ -62,6 +63,7 @@ if($rowData->num_rows > 0) {
 		    <td>".$row["pen"]."</td>
 		    <td>".$row["notch"]."</td>
 		    <td>".$row["tag"]."</td>
+		    <td>".$row["breed"]."</td>
 		    <td>".$row["date1"]."</td>
 		    <td>".$row["boar1"]."</td>
 		    <td>".$row["date2"]."</td>

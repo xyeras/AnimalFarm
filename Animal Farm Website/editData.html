@@ -57,18 +57,23 @@ function edButton(x) {
     $(x).siblings().removeClass('selected');
     var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
         /*alert(x[8].innerHTML);*/
+        
+        // active edit button when a row is selected
+        document.getElementById("insem").disabled = false;
+        
+        // When there was two buttons need for cases
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
-            if(x[8].innerHTML == ''){
-                 document.getElementById("insem").disabled = false;
-                 document.getElementById("last3").disabled = true;
+          //  if(x[8].innerHTML == ''){
+          //       document.getElementById("insem").disabled = false;
+          //       document.getElementById("last3").disabled = true;
                 
-            }
+          //  }
             /* if heat is filled in it means they just want to edit line pen or comment*/
-            else if(x[7].innerHTML != ''){
-                 document.getElementById("last3").disabled = false;
-                document.getElementById("insem").disabled = true;
+          //  else if(x[7].innerHTML != ''){
+          //       document.getElementById("last3").disabled = false;
+        //        document.getElementById("insem").disabled = true;
                 
-            } 
+         //   } 
     /*alert("Row index is: " + x.rowIndex)
 	alert("The Data in Row is: " + x.innerHTML);*/
     document.getElementById('rowNum').value = val;
@@ -145,6 +150,7 @@ function edButton(x) {
 <div id = "result"></div>
 
 </div>
+
 <p>
 </p>
 <style>h1 {margin: 40px 0 0 550px;}</style> 
@@ -155,19 +161,22 @@ function edButton(x) {
     <div class="container center"  >
      <form action="addMore.html" style="padding-bottom: 20px;">
          <input id="rowNum" type="hidden" name="rowNum" value="0">
-        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
+        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Edit Row</button>
     </form>
+    <!--
     <form action= "alwaysAdd.html">
         <input id="rowNum2" type="hidden" name="rowNum" value="0">
     <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
     </form>
+    -->
     </div> 
     
      <script>
         /* disables all buttons on load*/
         function disableAll(){
             document.getElementById("insem").disabled = true;
-            document.getElementById("last3").disabled = true;
+          //document.getElementById("last3").disabled = true; 
+           
         }    
         
     </script>

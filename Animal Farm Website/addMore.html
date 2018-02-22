@@ -1,0 +1,309 @@
+<!--add more data:This is the page that the user will arrive on when they want to add more information to thier previously collected data
+for the first time. Date 2 records this day and date 3 automatically calculates 20 days after this date (when heat check should)
+taka place. Line, New Pen , and Comments can always be modified 
+-->
+
+<!DOCTYPE html>
+<html>
+<head> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="getRow.js"></script>
+    <script src="js/updateDB__1.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    <!--animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+	<title>Add More Data</title>
+    <style>
+        .space button{margin-right:15px;}
+        .space button:last-child{margin-right:0px;}
+
+         #lineModal, #boar2Modal, #commentsModal, #newPenModal {
+          width: 50%;
+          left: 25%;
+          right: 5%;
+        }
+
+        th {  
+            height: 50px;}
+     
+        #outer{
+            width:100%;
+            text-align: center;
+        }
+        .inner{
+            display: inline-flex;
+        }
+              
+        .makePink{
+           color:#d81b60;
+        }
+
+    </style>
+</head>   
+<body onload="disableAll()"> 
+  <nav>
+
+    <div class="nav-wrapper white">
+      <a href="#" class="brand-logo center pink-text">Add More Data</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <li><a class="makePink text" href="homeapp.html">Home</a></li>
+        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
+		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
+      </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="homeapp.html">Home</a></li>
+        <li><a href="pigTable.html">View Data</a></li>
+		<li><a href="editData.html">Edit Data</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to add to your exisiting data.</h5>
+    <div id="outer" class= "container" style="padding-left: 300px; padding-right: 300px">
+        <div id="rowData"><p>Selected row from edit data shows here.</p></div>
+    <div class="container" style="padding-top: 40px ">
+        
+        Date 2<input type="text" name="date2"><br>
+        Boar 2<input type="text" name="boar2"><br>
+        <!--date 3 is automatically retrieved with the notfiy.js -->
+        Date 3<input type="text" name="date3"><br>
+        Line<input type="text" name="line"><br>
+        New Pen<input type="text" name="newpen"><br>
+       Comments<input type="text" name="comment"><br>
+
+        </div>
+    </div>
+
+       
+<div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+    
+    <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
+            <tr id="myRow" >
+            </tr>   
+        </table>
+    </div>
+ </div>
+    
+    <!--upon pressing the submit button, the data that was just entered and each
+        cell of the row that was selected must be gathered--> 
+    <div id= "outer" class="container" style="padding-top: 50px; position: relative">
+    <button data-target="submitModal2" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button> 
+        </div>
+   
+    
+    
+  
+	<!--Footer-->
+        <footer class="page-footer pink darken-1">
+           <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Summary</h5>
+                <p class="grey-text text-lighten-4">You can use this page to modify exisiting data--more precisely to finish your data collection. This page is only accesible from the Edit Data page.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright pink darken-1 ">
+            <div class="container">
+            Animal Farm 2017
+            <a class="grey-text text-lighten-4 right" href="index.html">California State University, Fresno</a>
+            </div>
+          </div>
+        </footer>
+    
+        
+<script>
+    
+    function disableAll() {
+        document.getElementById("11").disabled = true;
+        document.getElementById("12").disabled = true;
+        document.getElementById("13").disabled = true;
+        document.getElementById("14").disabled = true;
+        document.getElementById("15").disabled = true;
+        document.getElementById("add").disabled = true;
+    }
+    
+    function getDate2() {
+        var row = document.getElementById("myRow");
+        var date = new Date();
+        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+         var a = row.insertCell(0);
+        a.innerHTML = formatDate;
+         /* enable date and disable  all others */
+        document.getElementById("11").disabled = false;
+        document.getElementById("10").disabled = true;
+    }
+
+    function boar2func() {
+        var row = document.getElementById("myRow");
+        var b = row.insertCell(1);
+        b.innerHTML = document.getElementById("boar2").value;
+        document.getElementById("12").disabled = false;
+        document.getElementById("11").disabled = true;
+        document.getElementById("10").disabled = true;
+        
+    
+}
+     function getHeatCheckDate() {
+        var row = document.getElementById("myRow");
+        var date = new Date();
+        /*formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();*/
+        var date2 = next_date(date.getMonth()+1, date.getDate(), date.getFullYear(), 20);
+        var c = row.insertCell(2);
+        var date3 = date2.month + '/' + date2.day + '/' + date2.year;
+        c.innerHTML = date3;
+        document.getElementById("13").disabled = false;
+        document.getElementById("11").disabled = true;
+        document.getElementById("10").disabled = true;
+        document.getElementById("12").disabled = true;
+    }
+    
+    function linefunc() {
+        var row = document.getElementById("myRow");
+        var d = row.insertCell(3);
+        d.innerHTML = document.getElementById("line").value;
+        document.getElementById("14").disabled = false;
+        document.getElementById("11").disabled = true;
+        document.getElementById("10").disabled = true;
+        document.getElementById("12").disabled = true;
+        document.getElementById("13").disabled = true;    
+    
+}
+      function newpenfunc() {
+        var row = document.getElementById("myRow");
+        var e = row.insertCell(4);
+        e.innerHTML = document.getElementById("newPen").value;
+         document.getElementById("15").disabled = false;
+         document.getElementById("10").disabled = true;
+         document.getElementById("11").disabled = true;
+         document.getElementById("12").disabled = true;
+         document.getElementById("13").disabled = true;
+         document.getElementById("14").disabled = true; 
+
+      }
+    
+    function commfunc() {
+    var row = document.getElementById("myRow");
+    var f= row.insertCell(5);
+    f.innerHTML = document.getElementById("comments").value;
+     document.getElementById("add").disabled = false;
+         document.getElementById("10").disabled = true;
+         document.getElementById("11").disabled = true;
+         document.getElementById("12").disabled = true;
+         document.getElementById("13").disabled = true;
+         document.getElementById("14").disabled = true;
+        document.getElementById("15").disabled = true;
+    }
+    
+  
+</script>
+
+    <!-- MODAL STRUCTURES -->
+    
+    <!-- Modal Structure for BOAR 2 -->
+    <div id="boar2Modal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Boar 2</h4>
+                <div class="input-field col s3">
+                        <input id="boar2" type="text" name="boar2en" class="validate ">
+                        <label for="boar2">Boar 2</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button id ="3" onclick="boar2func()" class=" modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
+  
+        </div>
+        
+    </div>
+    
+    <!-- Modal Structure for LINE -->
+    <div id="lineModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Line</h4>
+                <div class="input-field col s6 ">
+                    <input id="line" type="text" class="validate">
+                    <label for="line">Line</label>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button id="4" onclick="linefunc()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
+        </div>
+    </div>
+
+    <!-- Modal Structure for NEW PEN -->
+    <div id="newPenModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter New Pen</h4>
+            <div class="input-field col s6">
+                <input id="newPen" type="text" class="validate">
+                <label for="newPen">New Pen</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button id="5" onclick="newpenfunc()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown ">Enter</button>
+        </div>
+    </div>
+
+     <!-- Modal Structure for comments -->
+    <div id="commentsModal" class="modal bottom-sheet">
+        <div class="modal-content center col s6">
+            <h4>Enter Comments</h4>
+            <div class="input-field col s6">
+                <input id="comments" type="text" class="validate">
+                <label for="comments">Comments</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+           <button id="6" onclick="commfunc()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
+        </div>
+    </div>
+    
+    
+  <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
+  <div id="submitModal2" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">Submission was successful!<i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to edit another entry or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="editData.html" class="modal-action modal-close waves-effect waves-green btn-flat">Edit Another</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
+  
+	<!--In order for the page to be mobile friendly I need this JQuery-->
+<script>
+    $(document).ready(
+        function() {
+            $(".button-collapse").sideNav();
+        });
+</script>
+    
+<!--for the modals to work i need this JQuery-->
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
+
+</body>    
+</html>

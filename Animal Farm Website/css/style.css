@@ -6,6 +6,9 @@
  * Made By MaterializeCSS.com
  */
 
+.dropdown-content li>a, dropdown-content li>span{
+    color: #795548;
+}
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -16,7 +19,7 @@ p {
 }
 
 .button-collapse {
-  color: #26a69a;
+  color: #ffffff;
 }
 
 .parallax-container {

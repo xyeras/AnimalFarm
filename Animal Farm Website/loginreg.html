@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/custom.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <style>
+        html { 
+          background: url(images/bg4.jpg) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+        
+        
+        
+        </style>
+    </head>
+    
+    
+
+    <body class="valign-wrapper">
+      <!--Import jQuery before materialize.js-->                    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s3 valign">
+      <div class="card hoverable valign container">
+           <div class="card-content center">
+            <img src="images/animalFarmLogo.png" style="width: 146px; height: 34px;"alt="oink">
+           </div>
+   
+        <div class="card-tabs ">      
+          <ul class="tabs tabs-fixed-width">
+            <li class="tab"><a class="active" href="#test5">Login</a></li>
+            <li class="tab"><a href="#test6">Register</a></li>
+          </ul>
+        </div>
+        
+        <div class="card-content">
+          <div id="test5" class="container">  
+            <form id= 'login' action='login.php' method='post' accept-charset='UTF-8'>
+                <input type='hidden' name='submitted' id='submitted' value = '1'/>
+                    <div class="input-field">
+                        <input type ='email' name ='email' id='email' maxlength="50"/>
+                        <label for='email'>Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password" id='password' maxlength="50"/>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="container center" style="padding-top: 15px">
+                        <button class="container btn waves-effect waves-light brown " type="submit" name="login">Login</button>
+                    </div>
+            </form>
+          </div>
+          <div id="test6" class="container">   
+            <form id= 'register' action='register.php' method='post' accept-charset='UTF-8'>
+                <input type='hidden' name='submitted' id='submitted1' value = '1'/>
+                <div class="input-field">
+                    <input type ='text' name ='fname' id='fname' maxlength="50">
+                    <label for='fname'>First Name</label>
+                </div>  
+                <div class="input-field">
+                    <input type ='text' name ='lname' id='lname' maxlength="50"/>
+                    <label for='lname'>Last Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" name="email" id='rEmail' maxlength="50"/>
+                    <label for="rEail1">Email</label>
+                </div>   
+                <div class="input-field">
+                    <input type="password" name="password" id='password1' maxlength="50"/>
+                    <label for="password1">Password</label>
+                </div>
+                <div class="container center" style="padding-top: 15px">
+                    <button class="btn waves-effect waves-light brown" type="submit" name="register">Register</button>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+        </div>  
+         
+</body>
+
+
+</html>

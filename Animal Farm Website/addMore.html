@@ -31,13 +31,11 @@ taka place. Line, New Pen , and Comments can always be modified
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
-
          #lineModal, #boar2Modal, #commentsModal, #newPenModal {
           width: 50%;
           left: 25%;
           right: 5%;
         }
-
         th {  
             height: 50px;}
      
@@ -52,7 +50,6 @@ taka place. Line, New Pen , and Comments can always be modified
         .makePink{
            color:#d81b60;
         }
-
     </style>
 </head>   
 <body onload="disableAll()"> 
@@ -76,8 +73,10 @@ taka place. Line, New Pen , and Comments can always be modified
   </nav>
     
     <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply fill in which fields you would like to add to your exisiting data.</h5>
-	<div id="outer" class= "container" style="padding-left: 80px; padding-right: 80px"></div>
+    <div id="outer" class= "container" style="padding-left: 80px; padding-right: 80px"></div>
+    <div class = "container">
     <div id="rowData"><p>Selected row from edit data shows here.</p></div>
+    </div>
     <div class="container center" style="padding-top: 40px; padding-left: 10px; padding-right: 10px;">
 		<div class="row">
 		<form class="col s12">
@@ -197,7 +196,6 @@ taka place. Line, New Pen , and Comments can always be modified
         document.getElementById("11").disabled = false;
         document.getElementById("10").disabled = true;
     }
-
     function boar2func() {
         var row = document.getElementById("myRow");
         var b = row.insertCell(1);
@@ -243,7 +241,6 @@ taka place. Line, New Pen , and Comments can always be modified
          document.getElementById("12").disabled = true;
          document.getElementById("13").disabled = true;
          document.getElementById("14").disabled = true; 
-
       }
     
     function commfunc() {

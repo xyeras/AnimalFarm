@@ -13,7 +13,7 @@ if (mysqli_connect_error())
 $rowNum		=	mysqli_real_escape_string($con,$_POST['rowNum']);
 
 
-$find = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm 
+$find = "SELECT num_rows,pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm 
 					FROM pigpens WHERE num_rows='$rowNum'";
 
 $rowData = $con->query($find);
@@ -25,6 +25,7 @@ if($rowData->num_rows > 0) {
 	        <th>Pen</th>
 	        <th>Notch</th>
 	        <th>Tag</th>
+            <th>Breed</th>
         	<th>Date 1</th>
         	<th>Boar 1</th>
         	<th>Date 2</th>
@@ -42,6 +43,7 @@ if($rowData->num_rows > 0) {
 		<td>".$row["pen"]."</td>
 		<td>".$row["notch"]."</td>
 		<td>".$row["tag"]."</td>
+        <td>".$row["breed"]."</td>
 		<td>".$row["date1"]."</td>
 		<td>".$row["boar1"]."</td>
 		<td>".$row["date2"]."</td>

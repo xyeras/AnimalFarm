@@ -280,19 +280,19 @@ $(document).ready(function ()
 {
 	$('#add').click(function () // match to id in tag in HTML file
 	{
-		var num_rows = $(document.getElementById('row1')).attr('value');
-        var pen    = $('#pen').val();
-        var notch  = $('#notch').val();
+		var num_rows = window.location.search.substring(8);
+        var pen    = $('#Pen').val();
+        var notch  = $('#Notch').val();
         var tag    = $('#tag').val();
         var breed  = $('#breed').val();
         var boar1  = $('#boar1').val();
 		var boar2  = $('#boar2').val();
         var heat   = $('#heat').val();
 		var line   = $('#line').val();
-		var newPen = $('#newPen').val();
-		var comm   = $('#comments').val();
+		var newPen = $('#newpen').val();
+		var comm   = $('#comment').val();
 		
-	
+        console.log(pen);
 
 	
 			

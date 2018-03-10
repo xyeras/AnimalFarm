@@ -285,6 +285,7 @@ $(document).ready(function ()
         var notch  = $('#Notch').val();
         var tag    = $('#tag').val();
         var breed  = $('#breed').val();
+        var date1  = $('#date1').val();
         var boar1  = $('#boar1').val();
 		var boar2  = $('#boar2').val();
         var heat   = $('#heat').val();
@@ -292,11 +293,97 @@ $(document).ready(function ()
 		var newPen = $('#newpen').val();
 		var comm   = $('#comment').val();
 		
-        console.log(pen);
-
-	
-			
-        update1(num_rows,pen,notch,tag,breed,boar1,boar2,heat,line,newPen,comm);
+		
+		var y1 = new Date();
+		var m1 = new Date();
+		var d1 = new Date();
+        var dates;
+        var setDate1 = "0";       //date1 is being used
+		
+	   if (date1)
+	   {
+	       console.log("in");
+	       dates = new Date(date1);
+	       
+	       if (!!dates.valueOf())
+	       {
+	           y1 = dates.getFullYear();
+	           m1 = dates.getMonth()+1;
+	           d1 = dates.getDate()+1;
+	       }
+	   }
+	   // checks if the input pen field is empty
+	     if (!pen)
+	     {
+	         pen = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[0].innerHTML; // gets the first element of the table (pen)
+	     }
+	     
+	     if (!notch)
+	     {
+	         notch = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[1].innerHTML;
+	     }
+	     
+	     if (!tag)
+	     {
+	         tag = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[2].innerHTML;
+	     }
+	     
+	     if (!breed)
+	     {
+	         breed = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[3].innerHTML;
+	     }
+         
+         if (!date1)
+         {
+             console.log("not");
+             date1 = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[4].innerHTML;
+             dates = new Date(date1);
+             if (!!dates.valueOf())
+            {
+               y1 = dates.getFullYear();
+	           m1 = dates.getMonth()+1;
+	           d1 = dates.getDate()+1;
+            }
+            else
+            {
+                setDate1 = "1";         // date1 is not being used
+                y1 = 0;
+                m1 = 0;
+                d1 = 0;
+            }
+         }
+	     
+	     if (!boar1)
+	     {
+	         boar1 = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[5].innerHTML;
+	     }
+	     
+	     if (!boar2)
+	     {
+	         boar2 = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[7].innerHTML;
+	     }
+	     
+	     if (!heat)
+	     {
+	         heat = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[8].innerHTML;
+	     }
+	     
+	     if (!line)
+	     {
+	         line = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[10].innerHTML;
+	     }
+	     
+	     if (!newPen)
+	     {
+	         newPen = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[11].innerHTML;
+	     }
+		
+		if (!comm)
+		{
+		    comm = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[12].innerHTML;
+		}
+		
+        update1(num_rows,pen,notch,tag,breed,y1,m1,d1,boar1,boar2,heat,line,newPen,comm,setDate1);
 });
 		
 		
@@ -309,7 +396,7 @@ $(document).ready(function ()
 
 // date3 is updated to 20 days after date2
 // if variable is not NULL 
-function update1(num_rows,pen,notch,tag,breed,boar1,boar2,heat,line,newPen,comm)
+function update1(num_rows,pen,notch,tag,breed,y1,m1,d1,boar1,boar2,heat,line,newPen,comm,setDate1)
 {
 	$.post("../updateDB_1.php",
 	{
@@ -318,12 +405,16 @@ function update1(num_rows,pen,notch,tag,breed,boar1,boar2,heat,line,newPen,comm)
         n           : notch,
         t           : tag,
         b           : breed,
+        y1          : y1,
+        m1          : m1,
+        d1          : d1,
         b1          : boar1,
 		b2          : boar2,
 		h           : heat,
 		line        : line,
 		np          : newPen,
-		comm        : comm
+		comm        : comm,
+        setDate1    : setDate1
 	},
 	function (data,status)
 	{

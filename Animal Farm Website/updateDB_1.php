@@ -14,22 +14,37 @@ $pen      = mysqli_real_escape_string($con,$_POST['p']);
 $notch    = mysqli_real_escape_string($con,$_POST['n']);
 $tag      = mysqli_real_escape_string($con,$_POST['t']);
 $breed    = mysqli_real_escape_string($con,$_POST['b']);
+$year1    = mysqli_real_escape_string($con,$_POST['y1']);
+$month1   = mysqli_real_escape_string($con,$_POST['m1']);
+$day1     = mysqli_real_escape_string($con,$_POST['d1']);
 $boar1    = mysqli_real_escape_string($con,$_POST['b1']);
 $boar2    = mysqli_real_escape_string($con,$_POST['b2']);
 $heat     = mysqli_real_escape_string($con,$_POST['h']);
-$line = mysqli_real_escape_string($con,$_POST['line']);
-$newPen = mysqli_real_escape_string($con,$_POST['np']);
-$comm = mysqli_real_escape_string($con,$_POST['comm']);
+$line     = mysqli_real_escape_string($con,$_POST['line']);
+$newPen   = mysqli_real_escape_string($con,$_POST['np']);
+$comm     = mysqli_real_escape_string($con,$_POST['comm']);
+$setDate1 = mysqli_real_escape_string($con,$_POST['setDate1']);
 
-// --------------- date2 ------------------------------------------
+// --------------- date1 ------------------------------------------
 // converts date from string to int
-//$m2Int = (int) $date2_month;
-//$d2Int = (int) $date2_day;
-//$y2Int = (int) $date2_year ;
+if ($setDate1 == '0')
+{
+    
 
-// n is for month with no 0 prefix,j is for the day with no 0 prefix Y is needed for fout digit year
-// this is a string
-//$date2 = date("n/j/Y",mktime(0,0,0,$m2Int,$d2Int,$y2Int));
+    $m1Int = (int) $month1;
+    $d1Int = (int) $day1;
+    $y1Int = (int) $year1;
+
+    // n is for month with no 0 prefix,j is for the day with no 0 prefix Y is needed for fout digit year
+    // this is a string
+    $date1 = date("n/j/Y",mktime(0,0,0,$m1Int,$d1Int,$y1Int));
+    echo "date1  ";
+    echo $date1;
+    echo " ";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = $date1, boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+
+}
+
 
 // ---------------- date 3 ----------------------------------------
 // converts date from string to int
@@ -42,9 +57,11 @@ $comm = mysqli_real_escape_string($con,$_POST['comm']);
 //$date3 = date("n/j/Y",mktime(0,0,0,$m3Int,$d3Int,$y3Int));
 
 // ------------------------------------------------------------------
-// update database sentence
-$msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
-
+else
+{
+    // update database sentence
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+}
 // update database statement
 if($con->query($msyqlStatment))
 {

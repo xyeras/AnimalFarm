@@ -8,7 +8,7 @@ taka place. Line, New Pen , and Comments can always be modified
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="getRow.js"></script>
-    <script src="js/updateDB__1.js"></script>
+    <script src="js/updateDB__1.4.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -25,23 +25,19 @@ taka place. Line, New Pen , and Comments can always be modified
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
     </script>
     <!--animate css -->
-    <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <title>Add More Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+	<title>Add More Data</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
-
          #lineModal, #boar2Modal, #commentsModal, #newPenModal {
           width: 50%;
           left: 25%;
           right: 5%;
         }
-
-        
         th {  
             height: 50px;}
-        
      
         #outer{
             width:100%;
@@ -50,12 +46,10 @@ taka place. Line, New Pen , and Comments can always be modified
         .inner{
             display: inline-flex;
         }
-
               
         .makePink{
            color:#d81b60;
         }
-
     </style>
 </head>   
 <body onload="disableAll()"> 
@@ -78,20 +72,68 @@ taka place. Line, New Pen , and Comments can always be modified
     </div>
   </nav>
     
-    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to add to your exisiting data.</h5>
-    <div id="outer" class= "container">
-        <div id="rowData"><p>Selected row from edit data shows here.</p></div>
-    <div class="container" style="padding-top: 40px ">
-        
-        <div class="inner"><button id="10" onclick="getDate2()" class="waves-effect waves-light btn-large pink darken-1">Date 2</button></div>
-        <div class="inner"><button id="11" data-target="boar2Modal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Boar 2</button></div>
-        <!--date 3 is automatically retrieved with the notfiy.js -->
-        <div class="inner"><button id="12" onclick="getHeatCheckDate()" class=" waves-effect waves-light btn-large pink darken-1">Date 3</button></div>
-        <div class="inner"><button id="13" data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
-        <div class="inner"><button id="14" data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
-       <div class="inner"><button id="15" data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
-
-        </div>
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply fill in which fields you would like to add to your exisiting data.</h5>
+    <div id="outer" class= "container" style="padding-left: 80px; padding-right: 80px"></div>
+    <div class = "container">
+    <div id="rowData"><p>Selected row from edit data shows here.</p></div>
+    </div>
+    <div class="container center" style="padding-top: 40px; padding-left: 10px; padding-right: 10px;">
+		<div class="row">
+		<form class="col s12">
+			<div class="input-field col s6">
+			  <input id="Pen" type="text" class="validate" style="padding-left: 30px">
+			  <label for="Pen">Pen</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="Notch" type="text" class="validate" style="padding-left: 30px">
+			  <label for="Notch">Notch</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="tag" type="text" class="validate" style="padding-left: 30px">
+			  <label for="tag">Tag</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="date1" type="date" class="validate" style="padding-left: 50px">
+			  <label for="date1">Date 1</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="boar1" type="text" class="validate" style="padding-left: 30px">
+			  <label for="boar1">Boar 1</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="date2" type="date" class="validate" style="padding-left: 50px">
+			  <label for="date2">Date 2</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="boar2" type="text" class="validate" style="padding-left: 30px">
+			  <label for="boar2">Boar 2</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="heat" type="text" class="validate" style="padding-left: 30px">
+			  <label for="heat">Heat</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="date3" type="date" class="validate" style="padding-left: 50px">
+			  <label for="date3">Date 3</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="line" type="text" class="validate" style="padding-left: 30px">
+			  <label for="line">Line</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="newpen" type="text" class="validate" style="padding-left: 30px">
+			  <label for="newpen">New Pen</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="breed" type="text" class="validate" style="padding-left: 30px">
+			  <label for="breed">Breed</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="comment" type="text" class="validate" style="padding-left: 30px">
+			  <label for="comment">Comments</label>
+			</div>
+		</form>
+		</div>
     </div>
 
        
@@ -132,7 +174,7 @@ taka place. Line, New Pen , and Comments can always be modified
           </div>
         </footer>
     
-        
+<!--        
 <script>
     
     function disableAll() {
@@ -142,10 +184,7 @@ taka place. Line, New Pen , and Comments can always be modified
         document.getElementById("14").disabled = true;
         document.getElementById("15").disabled = true;
         document.getElementById("add").disabled = true;
-      
     }
-    
-  
     
     function getDate2() {
         var row = document.getElementById("myRow");
@@ -157,7 +196,6 @@ taka place. Line, New Pen , and Comments can always be modified
         document.getElementById("11").disabled = false;
         document.getElementById("10").disabled = true;
     }
-
     function boar2func() {
         var row = document.getElementById("myRow");
         var b = row.insertCell(1);
@@ -203,7 +241,6 @@ taka place. Line, New Pen , and Comments can always be modified
          document.getElementById("12").disabled = true;
          document.getElementById("13").disabled = true;
          document.getElementById("14").disabled = true; 
-
       }
     
     function commfunc() {
@@ -219,9 +256,8 @@ taka place. Line, New Pen , and Comments can always be modified
         document.getElementById("15").disabled = true;
     }
     
-  
 </script>
-
+-->
     <!-- MODAL STRUCTURES -->
     
     <!-- Modal Structure for BOAR 2 -->

@@ -47,6 +47,9 @@ the current date for the user.
         .makePink{
            color:#d81b60;
         }
+		option1 {
+			background-color: pink;
+		}
 
     </style>
 </head>   
@@ -119,12 +122,16 @@ the current date for the user.
 			  <input id="newpen" type="text" class="validate" style="padding-left: 40px">
 			  <label for="newpen">New Pen</label>
 			</div>
-		  <div class="input-field col s12">
+		  <div class="input-field col s12" style="margin-right: 100px">
 			<select>
 			  <option value="" disabled selected>Choose your option</option>
-			  <option value="1">Option 1</option>
-			  <option value="2">Option 2</option>
-			  <option value="3">Option 3</option>
+			  <option value="1">Yorkshire</option>
+			  <option value="2">Crossbreed</option>
+			  <option value="3">Berkshire</option>
+			  <option value="4">Chester White and Landrace</option>
+			  <option value="5">Spotted Hereford Tamworth</option>
+			  <option value="6">Duroc</option>
+			  <option value="7">Hampshire</option>
 			</select>
 			<label>Breed</label>
 		  </div>
@@ -176,183 +183,11 @@ the current date for the user.
         
 <script>
 
-    
-function tagFunc() {
-    var row = document.getElementById("myRow");
-    var x = row.insertCell(0);
-    x.innerHTML = document.getElementById("tag").value; 
-    /* enable pen and disable tag keep all others as is */
-    document.getElementById("1").disabled = true;
-    document.getElementById("2").disabled = false;
-  
-}
-            
-function penFunc() {
-    var row = document.getElementById("myRow");
-    var y = row.insertCell(1);
-    y.innerHTML = document.getElementById("pen").value;
-    /* enable notch and disable tag and pen keep all others as is */
-    document.getElementById("1").disabled = true;
-    document.getElementById("2").disabled = true;
-    document.getElementById("3").disabled = false;
-    
-}
-    function notchFunc() {
-    var row = document.getElementById("myRow");
-    var z = row.insertCell(2);
-    z.innerHTML = document.getElementById("notch").value;
-      /* enable notch and disable tag and pen keep all others as is */
-    document.getElementById("1").disabled = true;
-    document.getElementById("2").disabled = true;
-    document.getElementById("3").disabled = true;
-    document.getElementById("4").disabled = false;
-}
-
-    function getDateNow() {
-        var row = document.getElementById("myRow");
-        var date = new Date();
-        formatDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-        var a = row.insertCell(3);
-        a.innerHTML = formatDate;
-         /* enable date and disable  all others */
-        document.getElementById("1").disabled = true;
-        document.getElementById("2").disabled = true;
-        document.getElementById("3").disabled = true;
-        document.getElementById("4").disabled = true;
-        document.getElementById("5").disabled = false;
-    }
-
-    /*function myFunction4() {
-    var row = document.getElementById("myRow");
-    var b = row.insertCell(3);
-    b.innerHTML = document.getElementById("date").value;
-    
-
-}*/
-    function boarFunc() {
-    var row = document.getElementById("myRow");
-    var c = row.insertCell(4);
-    c.innerHTML = document.getElementById("boar").value;
-     /* enable boar and disable  all others  */
-        document.getElementById("1").disabled = true;
-        document.getElementById("2").disabled = true;
-        document.getElementById("3").disabled = true;
-        document.getElementById("4").disabled = true;
-        document.getElementById("5").disabled = true;
-        document.getElementById("6").disabled = false;
-    
-}
-    function myFunction6() {
-    var row = document.getElementById("myRow");
-    var d = row.insertCell(5);
-    d.innerHTML = document.getElementById("comments").value;
-         /* enable sumbit and disable all others */
-        document.getElementById("1").disabled = true;
-        document.getElementById("2").disabled = true;
-        document.getElementById("3").disabled = true;
-        document.getElementById("4").disabled = true;
-        document.getElementById("5").disabled = true;
-        document.getElementById("6").disabled = true;
-        document.getElementById("7").disabled = false;
-        
-    
-}
-    
-    function disableBtns() {
-        document.getElementById("1").disabled = false;
-        document.getElementById("2").disabled = true;
-        document.getElementById("3").disabled = true;
-        document.getElementById("4").disabled = true;
-        document.getElementById("5").disabled = true;
-        document.getElementById("6").disabled = true;
-        document.getElementById("7").disabled = true;
-      
-    }
-	
+	// Dropdown menu for breed
   $(document).ready(function() {
     $('select').material_select();
   });
 </script>
-
-
-    
-    
-    <!-- Modal Structure for TAG -->
-    <div id="tagModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Tag</h4>
-                <div class="input-field col s3">
-                        <input id="tag" type="text" name="tagEn" class="validate">
-                        <label for="tag">Tag</label>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button onclick="tagFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
-  
-        </div>
-        
-    </div>
-
-    <!-- Modal Structure for PEN -->
-    <div id="penModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Pen </h4>
-                <div class="input-field col s3">
-                    <form>
-                        <input id="pen" type="text" name="penEn" class="validate ">
-                        <label for="pen">Pen</label>
-                    </form>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button id="3" onclick="penFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
-        </div>
-    </div>
-    
-    <!-- Modal Structure for NOTCH -->
-    <div id="notchModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Notch</h4>
-                <div class="input-field col s6 ">
-                    <input id="notch" type="text" class="validate">
-                    <label for="notch">Notch</label>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button id="4" onclick="notchFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat brown white-text">Enter</button>
-        </div>
-    </div>
-
-
-    <!-- Modal Structure for BOAR -->
-    <div id="boarModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Boar</h4>
-            <div class="input-field col s6">
-                <input id="boar" type="text" class="validate">
-                <label for="boar">Boar</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-           <button id="5" onclick="boarFunc()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
-        </div>
-    </div>
-
-     <!-- Modal Structure for comments -->
-    <div id="commentsModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Comments</h4>
-            <div class="input-field col s6">
-                <input id="comments" type="text" class="validate">
-                <label for="comments">Comments</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-           <button id="6" onclick="myFunction6()" class="modal-action modal-close waves-effect waves-grey btn-flat  brown white-text">Enter</button>
-        </div>
-    </div>
-    
-    
 
   <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
   <div id="submitModal" class="modal">

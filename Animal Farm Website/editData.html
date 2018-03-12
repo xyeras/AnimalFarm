@@ -52,11 +52,10 @@ tr.selected {
 
 
 function edButton(x) {
-    var val = $(x).attr('value');
+    var val = $(x).attr('data-value');
     $(x).addClass('selected');
     $(x).siblings().removeClass('selected');
-    var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
-        /*alert(x[8].innerHTML);*/
+
         
         // active edit button when a row is selected
         document.getElementById("insem").disabled = false;
@@ -74,8 +73,7 @@ function edButton(x) {
         //        document.getElementById("insem").disabled = true;
                 
          //   } 
-    /*alert("Row index is: " + x.rowIndex)
-	alert("The Data in Row is: " + x.innerHTML);*/
+
     document.getElementById('rowNum').value = val;
 //	document.getElementById('rowNum2').value = val;
 	

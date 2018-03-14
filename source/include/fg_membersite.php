@@ -38,8 +38,8 @@ class FGMembersite
     //-----Initialization -------
     function FGMembersite()
     {
-        $this->sitename = 'YourWebsiteName.com';
-        $this->rand_key = '0iQx5oBk66oVZep';
+        $this->sitename = 'wwwanimalfarmcom.000webhostapp.com';
+        $this->rand_key = '7Ef5fFpZTnbBVNf';
     }
     
     function InitDB($host,$uname,$pwd,$database,$tablename)
@@ -74,7 +74,7 @@ class FGMembersite
     //-------Main Operations ----------------------
     function RegisterUser()
     {
-        if(!isset($_POST['reg']))
+        if(!isset($_POST['submitted']))
         {
            return false;
         }
@@ -125,9 +125,9 @@ class FGMembersite
     
     function Login()
     {
-        if(empty($_POST['username']))
+        if(empty($_POST['email']))
         {
-            $this->HandleError("UserName is empty!");
+            $this->HandleError("Email is empty!");
             return false;
         }
         
@@ -137,7 +137,7 @@ class FGMembersite
             return false;
         }
         
-        $username = trim($_POST['username']);
+        $username = trim($_POST['email']);
         $password = trim($_POST['password']);
         
         if(!isset($_SESSION)){ session_start(); }
@@ -317,7 +317,7 @@ class FGMembersite
     {
         if(empty($this->error_message))
         {
-            return '';
+            return 'ERROR: ';
         }
         $errormsg = nl2br(htmlentities($this->error_message));
         return $errormsg;
@@ -331,7 +331,7 @@ class FGMembersite
     
     function HandleDBError($err)
     {
-        $this->HandleError($err."\r\n mysqlerror:".mysql_error());
+        $this->HandleError($err."\r\n mysqlierror:".mysqli_error($this->connection));
     }
     
     function GetFromAddress()
@@ -363,20 +363,20 @@ class FGMembersite
         }          
         $username = $this->SanitizeForSQL($username);
         $pwdmd5 = md5($password);
-        $qry = "Select name, email from $this->tablename where username='$username' and password='$pwdmd5' and confirmcode='y'";
+        $qry = "Select firstName, email from $this->tablename where email='$username' and password='$pwdmd5' and confirmcode='y'";
         
-        $result = mysql_query($qry,$this->connection);
+        $result = mysqli_query($this->connection,$qry);
         
-        if(!$result || mysql_num_rows($result) <= 0)
+        if(!$result || mysqli_num_rows($result) <= 0)
         {
             $this->HandleError("Error logging in. The username or password does not match");
             return false;
         }
         
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         
         
-        $_SESSION['name_of_user']  = $row['name'];
+        $_SESSION['name_of_user']  = $row['firstName'];
         $_SESSION['email_of_user'] = $row['email'];
         
         return true;
@@ -391,19 +391,19 @@ class FGMembersite
         }   
         $confirmcode = $this->SanitizeForSQL($_GET['code']);
         
-        $result = mysql_query("Select name, email from $this->tablename where confirmcode='$confirmcode'",$this->connection);   
-        if(!$result || mysql_num_rows($result) <= 0)
+        $result = mysqli_query($this->connection,"Select firstName, email from $this->tablename where confirmcode='$confirmcode'");   
+        if(!$result || mysqli_num_rows($result) <= 0)
         {
             $this->HandleError("Wrong confirm code.");
             return false;
         }
-        $row = mysql_fetch_assoc($result);
-        $user_rec['name'] = $row['name'];
+        $row = mysqli_fetch_assoc($result);
+        $user_rec['fName'] = $row['firstName'];
         $user_rec['email']= $row['email'];
         
         $qry = "Update $this->tablename Set confirmcode='y' Where  confirmcode='$confirmcode'";
         
-        if(!mysql_query( $qry ,$this->connection))
+        if(!mysqli_query( $this->connection,$qry))
         {
             $this->HandleDBError("Error inserting data to the table\nquery:$qry");
             return false;
@@ -428,7 +428,7 @@ class FGMembersite
         
         $qry = "Update $this->tablename Set password='".md5($newpwd)."' Where  id_user=".$user_rec['id_user']."";
         
-        if(!mysql_query( $qry ,$this->connection))
+        if(!mysqli_query( $qry ,$this->connection))
         {
             $this->HandleDBError("Error updating the password \nquery:$qry");
             return false;
@@ -445,14 +445,14 @@ class FGMembersite
         }   
         $email = $this->SanitizeForSQL($email);
         
-        $result = mysql_query("Select * from $this->tablename where email='$email'",$this->connection);  
+        $result = mysqli_query($this->connection,"Select * from $this->tablename where email='$email'");  
 
-        if(!$result || mysql_num_rows($result) <= 0)
+        if(!$result || mysqli_num_rows($result) <= 0)
         {
             $this->HandleError("There is no user with email: $email");
             return false;
         }
-        $user_rec = mysql_fetch_assoc($result);
+        $user_rec = mysqli_fetch_assoc($result);
 
         
         return true;
@@ -464,13 +464,13 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($user_rec['email'],$user_rec['name']);
+        $mailer->AddAddress($user_rec['email'],$user_rec['fName']);
         
         $mailer->Subject = "Welcome to ".$this->sitename;
 
         $mailer->From = $this->GetFromAddress();        
         
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
+        $mailer->Body ="Hello ".$user_rec['fName']."\r\n\r\n".
         "Welcome! Your registration  with ".$this->sitename." is completed.\r\n".
         "\r\n".
         "Regards,\r\n".
@@ -497,12 +497,12 @@ class FGMembersite
         
         $mailer->AddAddress($this->admin_email);
         
-        $mailer->Subject = "Registration Completed: ".$user_rec['name'];
+        $mailer->Subject = "Registration Completed: ".$user_rec['fName'];
 
         $mailer->From = $this->GetFromAddress();         
         
         $mailer->Body ="A new user registered at ".$this->sitename."\r\n".
-        "Name: ".$user_rec['name']."\r\n".
+        "Name: ".$user_rec['fName']."\r\n".
         "Email address: ".$user_rec['email']."\r\n";
         
         if(!$mailer->Send())
@@ -525,7 +525,7 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($email,$user_rec['name']);
+        $mailer->AddAddress($email,$user_rec['fName']);
         
         $mailer->Subject = "Your reset password request at ".$this->sitename;
 
@@ -536,7 +536,7 @@ class FGMembersite
                 urlencode($email).'&code='.
                 urlencode($this->GetResetPasswordCode($email));
 
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
+        $mailer->Body ="Hello ".$user_rec['fName']."\r\n\r\n".
         "There was a request to reset your password at ".$this->sitename."\r\n".
         "Please click the link below to complete the request: \r\n".$link."\r\n".
         "Regards,\r\n".
@@ -558,16 +558,16 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($email,$user_rec['name']);
+        $mailer->AddAddress($email,$user_rec['fName']);
         
         $mailer->Subject = "Your new password for ".$this->sitename;
 
         $mailer->From = $this->GetFromAddress();
         
-        $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
+        $mailer->Body ="Hello ".$user_rec['fName']."\r\n\r\n".
         "Your password is reset successfully. ".
         "Here is your updated login:\r\n".
-        "username:".$user_rec['username']."\r\n".
+        "Email:".$user_rec['email']."\r\n".
         "password:$new_password\r\n".
         "\r\n".
         "Login here: ".$this->GetAbsoluteURLFolder()."/login.php\r\n".
@@ -594,11 +594,11 @@ class FGMembersite
         }
         
         $validator = new FormValidator();
-        $validator->addValidation("name","req","Please fill in Name");
-        $validator->addValidation("email","email","The input for Email should be a valid email value");
-        $validator->addValidation("email","req","Please fill in Email");
-        $validator->addValidation("username","req","Please fill in UserName");
-        $validator->addValidation("password","req","Please fill in Password");
+        $validator->addValidation("fName", 		"req","Please enter your first name.");
+		$validator->addValidation("lName", 		"req","Please enter your last name.");
+		$validator->addValidation("email", 		"req","Please enter your email.");
+		$validator->addValidation("email", 		"email", "Please enter a valid email address.");
+		$validator->addValidation("password", 	"req","Please enter a password.");
 
         
         if(!$validator->ValidateForm())
@@ -617,9 +617,9 @@ class FGMembersite
     
     function CollectRegistrationSubmission(&$formvars)
     {
-        $formvars['name'] = $this->Sanitize($_POST['name']);
+        $formvars['fName'] = $this->Sanitize($_POST['fName']);
+		$formvars['lName'] = $this->Sanitize($_POST['lName']);
         $formvars['email'] = $this->Sanitize($_POST['email']);
-        $formvars['username'] = $this->Sanitize($_POST['username']);
         $formvars['password'] = $this->Sanitize($_POST['password']);
     }
     
@@ -629,7 +629,7 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($formvars['email'],$formvars['firstName']);
+        $mailer->AddAddress($formvars['email'],$formvars['fName']);
         
         $mailer->Subject = "Your registration with ".$this->sitename;
 
@@ -639,7 +639,7 @@ class FGMembersite
         
         $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
         
-        $mailer->Body ="Hello ".$formvars['name']."\r\n\r\n".
+        $mailer->Body ="Hello ".$formvars['fName']."\r\n\r\n".
         "Thanks for your registration with ".$this->sitename."\r\n".
         "Please click the link below to confirm your registration.\r\n".
         "$confirm_url\r\n".
@@ -674,15 +674,13 @@ class FGMembersite
         
         $mailer->AddAddress($this->admin_email);
         
-        $mailer->Subject = "New registration: ".$formvars['name'];
+        $mailer->Subject = "New registration: ".$formvars['fName'];
 
         $mailer->From = $this->GetFromAddress();         
         
         $mailer->Body ="A new user registered at ".$this->sitename."\r\n".
-        "Name: ".$formvars['name']."\r\n".
-        "Email address: ".$formvars['email']."\r\n".
-        "UserName: ".$formvars['username'];
-        
+        "Name: ".$formvars['fName']."\r\n".
+        "Email address: ".$formvars['email']."\r\n";
         if(!$mailer->Send())
         {
             return false;
@@ -707,11 +705,6 @@ class FGMembersite
             return false;
         }
         
-        if(!$this->IsFieldUnique($formvars,'username'))
-        {
-            $this->HandleError("This UserName is already used. Please try another username");
-            return false;
-        }        
         if(!$this->InsertIntoDB($formvars))
         {
             $this->HandleError("Inserting to Database failed!");
@@ -724,8 +717,8 @@ class FGMembersite
     {
         $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
         $qry = "select username from $this->tablename where $fieldname='".$field_val."'";
-        $result = mysql_query($qry,$this->connection);   
-        if($result && mysql_num_rows($result) > 0)
+        $result = mysqli_query($this->connection,$qry);   
+        if($result && mysqli_num_rows($result) > 0)
         {
             return false;
         }
@@ -735,19 +728,19 @@ class FGMembersite
     function DBLogin()
     {
 
-        $this->connection = mysql_connect($this->db_host,$this->username,$this->pwd);
+        $this->connection = mysqli_connect($this->db_host,$this->username,$this->pwd);
 
         if(!$this->connection)
         {   
             $this->HandleDBError("Database Login failed! Please make sure that the DB login credentials provided are correct");
             return false;
         }
-        if(!mysql_select_db($this->database, $this->connection))
+        if(!mysqli_select_db($this->connection,$this->database))
         {
             $this->HandleDBError('Failed to select database: '.$this->database.' Please make sure that the database name provided is correct');
             return false;
         }
-        if(!mysql_query("SET NAMES 'UTF8'",$this->connection))
+        if(!mysqli_query($this->connection,"SET NAMES 'UTF8'"))
         {
             $this->HandleDBError('Error setting utf8 encoding');
             return false;
@@ -757,8 +750,8 @@ class FGMembersite
     
     function Ensuretable()
     {
-        $result = mysql_query("SHOW COLUMNS FROM $this->tablename");   
-        if(!$result || mysql_num_rows($result) <= 0)
+        $result = mysqli_query($this->connection,"SHOW COLUMNS FROM $this->tablename");   
+        if(!$result || mysqli_num_rows($result) <= 0)
         {
             return $this->CreateTable();
         }
@@ -778,7 +771,7 @@ class FGMembersite
                 "PRIMARY KEY ( id_user )".
                 ")";
                 
-        if(!mysql_query($qry,$this->connection))
+        if(!mysqli_query($qry,$this->connection))
         {
             $this->HandleDBError("Error creating the table \nquery was\n $qry");
             return false;
@@ -804,11 +797,11 @@ class FGMembersite
                 (
                 "' . $this->SanitizeForSQL($formvars['email']) . '",
 				"' . md5($formvars['password']) . '",
-                "' . $this->SanitizeForSQL($formvars['fname']) . '",
-                "' . $this->SanitizeForSQL($formvars['lname']) . '",
+                "' . $this->SanitizeForSQL($formvars['fName']) . '",
+                "' . $this->SanitizeForSQL($formvars['lName']) . '",
                 "' . $confirmcode . '"
                 )';      
-        if(!mysql_query( $insert_query ,$this->connection))
+        if(!mysqli_query( $this->connection,$insert_query ))
         {
             $this->HandleDBError("Error inserting data to the table\nquery:$insert_query");
             return false;
@@ -823,9 +816,9 @@ class FGMembersite
     }
     function SanitizeForSQL($str)
     {
-        if( function_exists( "mysql_real_escape_string" ) )
+        if( function_exists( "mysqli_real_escape_string" ) )
         {
-              $ret_str = mysql_real_escape_string( $str );
+              $ret_str = mysqli_real_escape_string($this->connection, $str );
         }
         else
         {

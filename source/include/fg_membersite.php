@@ -369,7 +369,7 @@ class FGMembersite
         
         if(!$result || mysqli_num_rows($result) <= 0)
         {
-            $this->HandleError("Error logging in. The username or password does not match");
+            $this->HandleError("Error logging in. The username or password does not match.");
             return false;
         }
         
@@ -426,9 +426,11 @@ class FGMembersite
     {
         $newpwd = $this->SanitizeForSQL($newpwd);
         
-        $qry = "Update $this->tablename Set password='".md5($newpwd)."' Where  id_user=".$user_rec['id_user']."";
+        $e = $this->SanitizeforSQL($user_rec['email']);
         
-        if(!mysqli_query( $qry ,$this->connection))
+        $qry = "Update $this->tablename Set password='".md5($newpwd)."' Where  email='$e';";
+        
+        if(!mysqli_query( $this->connection,$qry))
         {
             $this->HandleDBError("Error updating the password \nquery:$qry");
             return false;

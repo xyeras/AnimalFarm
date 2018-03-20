@@ -52,7 +52,7 @@ tr.selected {
 
 
 function edButton(x) {
-    var val = $(x).attr('data-value');
+    var val = $(x).attr('data-value'); // gets row_num from row selected
     $(x).addClass('selected');
     $(x).siblings().removeClass('selected');
 

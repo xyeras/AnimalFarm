@@ -6,7 +6,7 @@ $(document).ready(function ()
         var pen    = $('#Pen').val();
         var notch  = $('#Notch').val();
         var tag    = $('#tag').val();
-        var breed  = $('#breed').val();
+        var breed  = $("#breedMenu option:selected").text();
         var date1  = $('#date1').val();
         var boar1  = $('#boar1').val();
         var date2  = $('#date2').val();
@@ -71,6 +71,8 @@ $(document).ready(function ()
                d3 = Dates3.getDate()+1;
            }
        }
+     
+
        
 	   // checks if the input pen field is empty
 	     if (!pen)
@@ -88,7 +90,7 @@ $(document).ready(function ()
 	         tag = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[2].innerHTML;
 	     }
 	     
-	     if (!breed)
+	     if (breed == "Choose your option")
 	     {
 	         breed = (document.getElementsByTagName("tr")[1]).getElementsByTagName("td")[3].innerHTML;
 	     }

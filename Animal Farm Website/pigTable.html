@@ -4,9 +4,13 @@
   <html lang="en">
     <head>
         
-         <script src="addData.js"></script> 
+         
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
+    
+    <!--for google charts-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -42,6 +46,7 @@
       </style>
 
     <body>
+
 	 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper white">
@@ -63,6 +68,7 @@
         </div>
 		
 	<div id="result"></div>
+	<div class = "container" id="piechart" style="width: 900px; height: 500px;"></div>
 	
 	
         <footer class="page-footer pink darken-1">
@@ -96,6 +102,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>	
       <!--Link to js file to get data from the database-->
       <script src = "script.js"></script>
+      <script src="getBreeds.js"></script>
 	
     </body>
   </html>

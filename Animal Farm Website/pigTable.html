@@ -59,6 +59,23 @@
 		
 	<div id="result"></div>
 	
+	<script>
+		$('#mytable tr td').each(function(){
+			if($(this).text() == "Yorkshire")$(this).css('background-color','pink');
+		});
+	</script>
+	
+	<table>
+	  <tr>
+		<th>Month</th>
+		<th>Savings</th>
+	  </tr>
+	  <tr>
+		<td bgcolor="#FF0000">January</td>
+		<td bgcolor="#00FF00">$100</td>
+	  </tr>
+	</table>
+	
 	
         <footer class="page-footer pink darken-1">
           <div class="container">

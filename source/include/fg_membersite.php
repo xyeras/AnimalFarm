@@ -317,7 +317,7 @@ class FGMembersite
     {
         if(empty($this->error_message))
         {
-            return 'ERROR: ';
+            return '';
         }
         $errormsg = nl2br(htmlentities($this->error_message));
         return $errormsg;
@@ -476,7 +476,7 @@ class FGMembersite
         "Welcome! Your registration  with ".$this->sitename." is completed.\r\n".
         "\r\n".
         "Regards,\r\n".
-        "Webmaster\r\n".
+        "The Animal Farm Team\r\n".
         $this->sitename;
 
         if(!$mailer->Send())
@@ -527,7 +527,7 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($email,$user_rec['fName']);
+        $mailer->AddAddress($email,$user_rec['firstName']);
         
         $mailer->Subject = "Your reset password request at ".$this->sitename;
 
@@ -538,11 +538,11 @@ class FGMembersite
                 urlencode($email).'&code='.
                 urlencode($this->GetResetPasswordCode($email));
 
-        $mailer->Body ="Hello ".$user_rec['fName']."\r\n\r\n".
+        $mailer->Body ="Hello ".$user_rec['firstName']."\r\n\r\n".
         "There was a request to reset your password at ".$this->sitename."\r\n".
         "Please click the link below to complete the request: \r\n".$link."\r\n".
         "Regards,\r\n".
-        "Webmaster\r\n".
+        "The Animal Farm Team\r\n".
         $this->sitename;
         
         if(!$mailer->Send())
@@ -560,14 +560,15 @@ class FGMembersite
         
         $mailer->CharSet = 'utf-8';
         
-        $mailer->AddAddress($email,$user_rec['fName']);
+        $mailer->AddAddress($email,$user_rec['firstName']);
         
         $mailer->Subject = "Your new password for ".$this->sitename;
 
         $mailer->From = $this->GetFromAddress();
         
-        $mailer->Body ="Hello ".$user_rec['fName']."\r\n\r\n".
-        "Your password is reset successfully. ".
+        $mailer->Body ="Hello ".$user_rec['firstName']."\r\n\r\n".
+        "Your password is reset successfully. \n".
+        "PLEASE UPDATE YOUR PASSWORD WHEN YOU LOG IN AGAIN\n".
         "Here is your updated login:\r\n".
         "Email:".$user_rec['email']."\r\n".
         "password:$new_password\r\n".
@@ -575,7 +576,7 @@ class FGMembersite
         "Login here: ".$this->GetAbsoluteURLFolder()."/login.php\r\n".
         "\r\n".
         "Regards,\r\n".
-        "Webmaster\r\n".
+        "The Animal Farm Team\r\n".
         $this->sitename;
         
         if(!$mailer->Send())
@@ -647,7 +648,7 @@ class FGMembersite
         "$confirm_url\r\n".
         "\r\n".
         "Regards,\r\n".
-        "Webmaster\r\n".
+        "The Animal Farm Team\r\n".
         $this->sitename;
 
         if(!$mailer->Send())

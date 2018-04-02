@@ -1,23 +1,20 @@
 
-function addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c)
+function addNew(p,n,t,d1,b1,br,c)
 {
-
+	var e = "<?php echo $fgmembersite->UserEmail() ?>"
 	$.post("addData.php",
 	{	pen		: p,
 		notch	: n,
 		tag		: t,
 		date1	: d1,
 		boar1	: b1,
-		date2	: d2,
-		boar2	: b2,
-		heat	: h,
-		date3	: d3,
-		line	: l,
-		newPen	: nP,
-		comm	: c	
+		breed	: br,
+		comments: c,
+		email	: e
 	},
-	function(status){
-		$('#result').html(status);
+	function(data, status){
+	    alert("Status: " + status);
+		$('#result').html(data);
 	});
 }
 
@@ -25,21 +22,16 @@ function addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c)
 $(document).ready(function(){
 	
 	//Gets the input from the html file when add button is pressed
-	$('#add').click(function{
+	$('#add').click(function() {
 		var p 	= $('#pen').val();
 		var n 	= $('#notch').val();
 		var t 	= $('#tag').val();
-		var d1	= $('#date1').val();
-		var b2	= $('#boar1').val();
-		var d2	= $('#date2').val();
-		var b2	= $('#boar2').val();
-		var h 	= $('#heat').val();
-		var d3	= $('#date3').val();
-		var l 	= $('#line').val();
-		var nP	= $('#newPen').val();
-		var c 	= $('#comm').val();
+		var d1	= $('#date').val();
+		var b1	= $('#boar').val();
+		var br	= $('#breed').val();
+		var c	= $('#comments').val();
 		
-		addNew(p,n,t,d1,b1,d2,b2,h,d3,l,nP,c);
+		addNew(p,n,t,d1,b1,br,c);
 	});
 	
 });

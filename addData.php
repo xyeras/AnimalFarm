@@ -10,27 +10,24 @@ if (mysqli_connect_error())
 }
 
 		
-$pen	=$_POST['pen'];
-$notch	=$_POST['notch'];
-$tag	=$_POST['tag'];
-$date1	=$_POST['date1'];
-$boar1	=$_POST['boar1'];
-$date2	=$_POST['date2'];
-$boar2	=$_POST['boar2'];
-$heat	=$_POST['heat'];
-$date3	=$_POST['date3'];
-$line	=$_POST['line'];
-$newPen	=$_POST['newPen'];
-$comments=$_POST['comm'];
+$pen		=	mysqli_real_escape_string($con,$_POST['pen']);
+$notch		=	mysqli_real_escape_string($con,$_POST['notch']);
+$tag		=	mysqli_real_escape_string($con,$_POST['tag']);
+$date1		=	mysqli_real_escape_string($con,$_POST['date1']);
+$boar1		=	mysqli_real_escape_string($con,$_POST['boar1']);
+$breed		=	mysqli_real_escape_string($con,$_POST['breed']);
+$comments	=	mysqli_real_escape_string($con,$_POST['comments']);
+$email		=   mysqli_real_escape_string($con,$_POST['email']);
 
-$insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, date2, boar2, heat, date3, line, newPen, comm)
-		VALUES ($pen, $notch, $tag, $date1, $boar1, $date2, $boar2, $heat, $date3, $line, $newPen, $comments)";
 
-if($con->query($insert)){
-	echo "alert(\"Save successful!\")";
+$insert = "INSERT INTO pigpens (pen, notch, tag, date1, boar1, comm, email)
+		VALUES ('$pen', '$notch', '$tag', '$date1', '$boar1', '$breed', '$comments', '$email')";
+
+if($con->query($insert) === TRUE){
+	echo "Save successful!)";
 }
 else{
-	echo "alert(\"Failed to save data.\")";
+	echo "Failed to save data";
 }
 		
 

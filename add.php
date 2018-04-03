@@ -1,22 +1,25 @@
-<!--add:This is the page that the user will arrive on when they want to add for the first time. The date button is automatically inserts
-the current date for the user.
--->
-
 <?PHP
 require_once("source/include/membersite_config.php");
 
 if(!$fgmembersite->CheckLogin())
 {
-    $fgmembersite->RedirectToURL("login.php");
+    $fgmembersite->RedirectToURL("source/login.php");
     exit;
 }
+$email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
 ?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
 
+<!--add:This is the page that the user will arrive on when they want to add for the first time. The date button is automatically inserts
+the current date for the user.
+-->
 <!DOCTYPE html>
 <html>
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="addData.js"></script> 
+    <script src="addData2.js"></script> 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->

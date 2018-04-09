@@ -4,9 +4,13 @@
   <html lang="en">
     <head>
         
-         <script src="addData.js"></script> 
+         
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
+    
+   
+
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -41,7 +45,8 @@
       
       </style>
 
-    <body>
+    <body onload= "getBreeds()">
+
 	 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper white">
@@ -49,20 +54,22 @@
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           
-        <li><a class="makePink text" href="homeapp.html">Home</a></li>
-        <li><a class="makePink text" href="add.html">Add Data</a></li>
-		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
+        <li><a class="makePink text" href="homeapp.php">Home</a></li>
+        <li><a class="makePink text" href="add.php">Add Data</a></li>
+		<li><a class="makePink text" href="editData.php">Edit Data</a></li>
       </ul>
     <ul class="side-nav" id="mobile-demo">
-      <li><a href="homeapp.html">Home</a></li>
-        <li><a href="add.html">Add Data</a></li>
-		<li><a href="editData.html">Edit Data</a></li>
+      <li><a href="homeapp.php">Home</a></li>
+        <li><a href="add.php">Add Data</a></li>
+		<li><a href="editData.php">Edit Data</a></li>
       </ul>
     </div>
   </nav>
         </div>
+
 		
 	<div id="result"></div>
+	<div class = "container" id="piechart" style="width: 900px; height: 500px;"></div>
 	
 	
         <footer class="page-footer pink darken-1">
@@ -96,6 +103,11 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>	
       <!--Link to js file to get data from the database-->
       <script src = "script.js"></script>
+      
+       <!--for google charts-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="getBreeds3.js"></script>
+    
 	
     </body>
   </html>

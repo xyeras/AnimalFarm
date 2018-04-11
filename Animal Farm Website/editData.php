@@ -1,3 +1,17 @@
+<?PHP
+require_once("source/include/membersite_config.php");
+
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("source/login.php");
+    exit;
+}
+$email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
+?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,25 +20,25 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-     <!--Let browser know website is optimized for mobile-->
+     <!--Let browser know website is optimized for mobile
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- CSS  -->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+     CSS  -->
+ <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
   <title>Edit Page</title>
-  
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
-    </script>
+     <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -32,41 +46,16 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	
+
 <style>
-table {
-    font-family: arial, sans-serif;
-	color: white;
-    border-collapse: collapse;
-    width: 100%;
-}
-td, th {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-}
-th {
-	background-color: pink;
-	color: white;
-}
-tr:nth-child(even) {
-	background-color: white;
-	color: black;
-}
-tr:nth-child(odd) {
-	background-color: #ffafaf;
-	color: black;
-}
-td {
-    border: 1px #DDD solid; 
-    padding: 5px; 
-    cursor: pointer;
+.makePink{
+     color:#d81b60;
 }
 
 /*Css for selsecting row*/
 
 tr.selected {
-    background-color: #ff5050 !important;
+    background-color: #d81b60 !important;
     color: #FFF;
 }
 
@@ -77,31 +66,34 @@ tr.selected {
 
 
 function edButton(x) {
-    var val = $(x).attr('value');
+    var val = $(x).attr('data-value');
     $(x).addClass('selected');
     $(x).siblings().removeClass('selected');
-    var x = /* the row user selected */document.getElementById("table1").rows[x.rowIndex].cells;
-        /*alert(x[8].innerHTML);*/
+
+
+        // active edit button when a row is selected
+        document.getElementById("insem").disabled = false;
+
+        // When there was two buttons need for cases
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
-            if(x[8].innerHTML == ''){
-                 document.getElementById("insem").disabled = false;
-                 document.getElementById("last3").disabled = true;
-                
-            }
+          //  if(x[8].innerHTML == ''){
+          //       document.getElementById("insem").disabled = false;
+          //       document.getElementById("last3").disabled = true;
+
+          //  }
             /* if heat is filled in it means they just want to edit line pen or comment*/
-            else if(x[7].innerHTML != ''){
-                 document.getElementById("last3").disabled = false;
-                document.getElementById("insem").disabled = true;
-                
-            } 
-    /*alert("Row index is: " + x.rowIndex)
-	alert("The Data in Row is: " + x.innerHTML);*/
+          //  else if(x[7].innerHTML != ''){
+          //       document.getElementById("last3").disabled = false;
+        //        document.getElementById("insem").disabled = true;
+
+         //   }
+
     document.getElementById('rowNum').value = val;
-	document.getElementById('rowNum2').value = val;
-	
+//	document.getElementById('rowNum2').value = val;
+
 	//e.target.parentNode.className = 'selected';
 }
-	
+
 </script>
 <script src="editData.js"></script>
 <style>.makePink{color:#d81b60;}</style>
@@ -116,15 +108,15 @@ function edButton(x) {
         <center><a href="#" class="brand-logo center pink-text">Edit Data</a></center>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
         <ul class="right hide-on-med-and-down">
-      
-        <li><a class="makePink text" href="homeapp.html">Home</a></li>
-        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
-        <li><a class="makePink text" href="add.html">Add Data</a></li>
+
+        <li><a class="makePink text" href="homeapp.php">Home</a></li>
+        <li><a class="makePink text" href="pigTable.php">View Data</a></li>
+        <li><a class="makePink text" href="add.php">Add Data</a></li>
       </ul>
      <ul class="side-nav" id="mobile-demo">
-       <li><a href="homeapp.html">Home</a></li>
-        <li><a href="pigTable.html">View Data</a></li>
-		<li><a href="add.html">Add Data</a></li>
+       <li><a href="homeapp.php">Home</a></li>
+        <li><a href="pigTable.php">View Data</a></li>
+		<li><a href="add.php">Add Data</a></li>
       </ul>
     </div>
   </nav>
@@ -135,65 +127,71 @@ function edButton(x) {
   <script src="searchTable.js"></script>
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
- 
- 
 
-<div class="container" style="padding-top: 13px;">
-    <div class="row pink-text">
-    <div class="input-field col s4" style="margin: 40px 0 -30 310px">
-    
-    <select id="specifier">
-      <option value="" disabled selected>select</option>
+
+
+<div class = "container container" style="padding-top: 13px;">
+        <div class=" center container">
+
+    <label class = "left makePink text">Search By: </label>
+    <select id="specifier" class="browser-default responsive">
+      <option value="0">Every Column</option>
       <option value="1">Pen</option>
       <option value="2">Notch</option>
       <option value="3">Tag</option>
-	  <option value="4">Date</option>
-      <option value="5">Boar 1</option>
-	  <option value="6">Date 2</option>
-	  <option value="7">Boar 2</option>
-	  <option value="8">Heat</option>
-	  <option value="9">Date 3</option>
-	  <option value="10">Line</option>
-	  <option value="11">New Pen</option>
-	  <option value="12">Comment</option>
+	  <option value="4">Breed</option>
+	  <option value="5">Date</option>
+      <option value="6">Boar 1</option>
+	  <option value="7">Date 2</option>
+	  <option value="8">Boar 2</option>
+	  <option value="9">Heat</option>
+	  <option value="10">Date 3</option>
+	  <option value="11">Line</option>
+	  <option value="12">New Pen</option>
+	  <option value="13">Comment</option>
     </select>
-        <label>Search By: </label>
-</div></div></div>
-	
-<div id="bodyOfPage" style="padding-bottom: 20px" class="container">
-        <div style="margin: 0px 0 10 310px">
+
+
+</div></div>
+<br/>
+
+<div id="bodyOfPage" style="padding-bottom: 20px" class=" center container">
+        <div>
         <input type="text center" id="searchTerm" placeholder="Search.." onkeyup="searchData()">
         </div>
 <!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
 <input type="text center" id="searchTerm" placeholder="Search the data to be Edit.." onkeyup="searchData()"></div>-->
-<div id = "result"></div>
+
 
 </div>
-<p>
-</p>
-<style>h1 {margin: 40px 0 0 550px;}</style> 
+<div id = "result"></div>
+<br/>
+<style>h1 {margin: 40px 0 0 550px;}</style>
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 
-    
-    <div class="container center"  >
-     <form action="addMore.html" style="padding-bottom: 20px;">
+
+    <div class="container center" >
+     <form action="addMore.html" style="padding-bottom: 20px; padding-top:40px;">
          <input id="rowNum" type="hidden" name="rowNum" value="0">
-        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Second Insemination</button>
+        <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Edit Row</button>
     </form>
+    <!--
     <form action= "alwaysAdd.html">
         <input id="rowNum2" type="hidden" name="rowNum" value="0">
     <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
     </form>
-    </div> 
-    
+    -->
+    </div>
+
      <script>
         /* disables all buttons on load*/
         function disableAll(){
             document.getElementById("insem").disabled = true;
-            document.getElementById("last3").disabled = true;
-        }    
-        
+          //document.getElementById("last3").disabled = true;
+
+        }
+
     </script>
 <!--
 <form id="editForm" class="container center" style="padding-bottom: 20px;" action="addMore.html">

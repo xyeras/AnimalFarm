@@ -15,28 +15,45 @@ if(isset($_GET['code']))
 <head>
       <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
       <title>Confirm registration</title>
-      <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />
       <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
+      <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/custom.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
-<h2>Confirm registration</h2>
+     <!--Import jQuery before materialize.js-->
+     <!-- used here for the input animation -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+   <div class="navbar-fixed">
+  <nav class="white">
+      <a href="../index.html" class="brand-logo center"><img src="../images/animalFarmLogo.png" style="width: 146px;height:34px;" alt="oink"></a>
+  </nav>
+ </div>
+<div id='fg_membersite' class="center container">
+<h3 style="font-weight: 500;">Confirm registration</h3>
 <p>
-Please enter the confirmation code in the box below
+Please enter the confirmation code below
 </p>
 
 <!-- Form Code Start -->
-<div id='fg_membersite'>
+
 <form id='confirm' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='get' accept-charset='UTF-8'>
-<div class='short_explanation'>* required fields</div>
-<div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-<div class='container'>
-    <label for='code' >Confirmation Code:* </label><br/>
-    <input type='text' name='code' id='code' maxlength="50" /><br/>
+<div><span class='error' style="color: #d81b60;"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+<div class='input-field center container'>
+    <label for='code' >Confirmation Code</label>
+    <input type='text' name='code' id='code' maxlength="50" />
     <span id='register_code_errorloc' class='error'></span>
 </div>
-<div class='container'>
-    <input type='submit' name='Submit' value='Submit' />
+<div class ="center container">
+    <input class="btn waves-effect waves-light brown" type='submit' name='Submit' value='Submit' />
 </div>
 
 </form>

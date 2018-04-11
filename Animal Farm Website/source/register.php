@@ -5,7 +5,7 @@ if(isset($_POST['submitted']))
 {
    if($fgmembersite->RegisterUser())
    {
-        $fgmembersite->RedirectToURL("thank-you.html");
+        $fgmembersite->RedirectToURL("almost-there.html");
    }
 }
 
@@ -21,33 +21,24 @@ if(isset($_POST['submitted']))
     <script src="scripts/pwdwidget.js" type="text/javascript"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
+      <!--Impo1rt materialize.css-->
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/custom.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <style>
-        background: url("../images/black_BG.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-
-    </style>
-    
 </head>
 
 
 
 <body class ="valign-wrapper">
 </script>
-<!--Import jQuery before materialize.js-->                    
+<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
 
-    
+
 <!-- Form Code Start -->
 <div class= "container">
     <div class = "row valign-wrapper">
@@ -67,7 +58,7 @@ if(isset($_POST['submitted']))
                     <div class="card-content">
                         <div id='fg_membersite' class="container">
                             <form id='register' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
-                       
+
                                 <input type='hidden' name='submitted' id='submitted' value='1'/>
 
                                 <!--<div class='short_explanation'>* required fields</div>
@@ -96,7 +87,7 @@ if(isset($_POST['submitted']))
                                 <div class='input-field center'>
                                     <label for='password'>Password</label>
                                     <!--<div id='thepwddiv' >Password</div>-->
-                                    
+
                                     <input type='password' name='password' id='password' maxlength="50" />
                                     <!--<div id='register_password_errorloc' class='error' style='clear:both'></div>-->
                                 </div>
@@ -113,12 +104,6 @@ if(isset($_POST['submitted']))
         </div>
     </div>
 
-
-    
-
-
-
-
 <!-- client-side Form Validations:
 Uses the excellent form validation script from JavaScript-coder.com-->
 
@@ -126,18 +111,18 @@ Uses the excellent form validation script from JavaScript-coder.com-->
 // <![CDATA[
     var pwdwidget = new PasswordWidget('thepwddiv','password');
     pwdwidget.MakePWDWidget();
-    
+
     var frmvalidator  = new Validator("register");
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
     frmvalidator.addValidation("fName","req","Please provide your first name");
-    
+
     frmvalidator.addValidation("lName","req","Please provide your last name");
 
     frmvalidator.addValidation("email","req","Please provide your email address");
 
     frmvalidator.addValidation("email","email","Please provide a valid email address");
-    
+
     frmvalidator.addValidation("password","req","Please provide a password");
 
 // ]]>

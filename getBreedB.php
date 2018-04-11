@@ -14,8 +14,9 @@ $email = mysqli_real_escape_string($con,$_POST['e']);
 $find = "SELECT COUNT(breed) AS b FROM pigpens WHERE (breed ='Berkshire') AND (email = '$email')";
 
 
+
 $rowData = $con->query($find);
-$arrayData = $rowData->fetch_assoc();
+$arrayData = mysqli_fetch_assoc($rowData);
 echo $arrayData['b'];
 
 

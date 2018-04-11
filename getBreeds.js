@@ -6,6 +6,7 @@ var sh;
 var duroc;
 var hampshire;
 
+
 $(document).ready(function(){
     getBreeds();
 });
@@ -86,40 +87,30 @@ function getBreeds()
     function (data)
     {
         hampshire = data;
+        
+        // last function to save variable from database (all global variables have values)
+        // saves data in table for pie chart
+        var data2 = google.visualization.arrayToDataTable([
+          ['Breeds', 'num'],
+          ['Yorkshire',                    parseInt(yorkshire)],
+          ['Crossbreed',                   parseInt(crossbred)],
+          ['Berkshire',                    parseInt(berkshire)],
+          ['Chester White and Landrace',   parseInt(chester)],
+          ['Spotted Hereford Tamworth',    parseInt(sh)],
+          ['Duroc',                        parseInt(duroc)],
+          ['Hampshire',                    parseInt(hampshire)]
+        ]);
+        drawChart(data2); 
     });
 }
-
-
-
-
-    google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    
       
-      function drawChart() {
-          console.log("here!!!!!!!!!!!!!!!!!!!!!!");
-        console.log(yorkshire);
-        console.log(crossbred);
-        console.log(berkshire);
-        console.log(chester);
-        console.log(sh);
-        console.log(duroc);
-        console.log(hampshire);
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Yorkshire',                     parseInt(yorkshire)],
-          ['Crossbreed',                    parseInt(crossbred)],
-          ['Berkshire',                     parseInt(berkshire)],
-          ['Chester White and Landrace',    parseInt(chester)],
-          ['Spotted Hereford Tamworth',     parseInt(sh)],
-          ['Duroc',                         parseInt(duroc)],
-          ['Hampshire',                     parseInt(hampshire)]
-        ]);
-
+      function drawChart(a) {
         var options = {
         
           title: 'Breeds'};
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
+        chart.draw(a, options);
       }

@@ -1,0 +1,185 @@
+<!-- Complete heat check: this is the page that the user will arrive once they want to edit an entry
+for the second time. This time the user should be adding data into the heat cell and 
+possibly line, new pen , and comments (these three can always be changed)
+-->
+<!DOCTYPE html>
+<html>
+<head> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/updateDB__2.js"></script> 
+    <script src="getRow.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js">
+    </script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+    <!--animate css -->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <title>Complete Heat Check</title>
+    <style>
+        .space button{margin-right:15px;}
+        .space button:last-child{margin-right:0px;}
+
+        #heatModal, #lineModal, #newPenModal, #commentsModal {
+          width: 50%;
+          left: 25%;
+          right: 5%;
+        }
+
+        
+        th {
+            height: 50px;
+        }
+        
+     
+        #outer{
+            width:100%;
+            text-align: center;
+        }
+        .inner{
+            display: inline-flex;
+        }
+
+              
+        .makePink{
+           color:#d81b60;
+        }
+
+    </style>
+</head>   
+<body onload="disableAll()"> 
+  <nav>
+
+    <div class="nav-wrapper white">
+      <a href="#" class="brand-logo center pink-text">Complete Heat Check</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <li><a class="makePink text" href="homeapp.html">Home</a></li>
+        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
+		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
+      </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="homeapp.html">Home</a></li>
+        <li><a href="pigTable.html">View Data</a></li>
+		<li><a href="editData.html">Edit Data</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+    <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to modify.</h5>
+    <div id="outer" class= "container">
+        <div id="rowData"><p>Selected row from heat checks needed page shows here.</p></div>
+
+    <div class="container center" style="padding-top: 40px; padding-left: 300px; padding-right: 300px;">
+		<div class="input-field col s12">
+		  <input id="heat" type="text" class="validate" style="padding-left: 30px">
+		  <label for="heat">Heat</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="date3" type="date" class="validate" style="padding-left: 60px">
+		  <label for="date3">Date 3</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="line" type="text" class="validate" style="padding-left: 30px">
+		  <label for="line">Line</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="newpen" type="text" class="validate" style="padding-left: 30px">
+		  <label for="newpen">New Pen</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="comment" type="text" class="validate" style="padding-left: 30px">
+		  <label for="comment">Comments</label>
+		</div>		
+    </div>
+
+       
+<div id="outer" class= "container">
+    <div class="container" style="padding-top: 40px ">
+    
+    <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
+            <!--cells that should already be filled when arriving at this page 
+            or i can make another instance of it and then it can be appended to whats exisiting??
+            -->
+            <tr id="myRow" >
+				<!--<td id="cell1"></td>
+				<td id="cell2"></td>
+				<td id="cell3"></td>
+				<td id="cell4"></td>-->
+            </tr>   
+        </table>
+    </div>
+ </div>
+    
+    <!--This will probably have to be put in a modal that pops up so it shows up anywhere on the screen
+    and the user has access to it easily. The modal will show upon user selecting a row..
+    -->
+    <div id= "outer" class="container" style="padding-top: 50px; position: relative">
+    <button  data-target="submitModal3" id="subBtn" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button> 
+        </div>
+   
+
+    
+    
+  
+	<!--Footer-->
+        <footer class="page-footer pink darken-1">
+           <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Summary</h5>
+                <p class="grey-text text-lighten-4">You can use this page to complete the heat check. This page is only accesible through the heat checks needed page.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright pink darken-1 ">
+            <div class="container">
+            Animal Farm 2017
+            <a class="grey-text text-lighten-4 right" href="index.html">California State University, Fresno</a>
+            </div>
+          </div>
+        </footer>
+    
+    <!-- Modal Structure for the submit button, will show sucess message and allow user to complte another heat check or go back to home -->
+  <div id="submitModal3" class="modal">
+    <div class="modal-content">
+      <h4 id ="result">Data was sent successful!<i class="small material-icons green-text">done_all</i></h4>
+      <p>Choose if you would like to complete another heat check or go back to home.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="heatTable.html" class="modal-action modal-close waves-effect waves-green btn-flat">Complete Another Heat Check</a>
+      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+    </div>
+  </div>
+  
+	
+<script>
+    /*In order for the page to be mobile friendly I need this JQuery*/
+    $(document).ready(
+        function() {
+            $(".button-collapse").sideNav();
+        });
+
+    
+/*for the modals to work i need this JQuery*/
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+    
+</script>
+
+</body>    
+</html>

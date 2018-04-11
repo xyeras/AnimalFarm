@@ -37,9 +37,25 @@ if(isset($_POST['submitted']))
      <!-- used here for the input animation -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
+          <div class="navbar-fixed">
+    <nav class="white">
+     <div class="nav-wrapper container white">
+      <a href="index.html" class="brand-logo"><img src="../images/animalFarmLogo.png" style="width: 146px; height: 34px;"alt="oink"></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons text" style="color: #d81b60;" >menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../homeapp.php"><i class="material-icons left"  style="color: #d81b60;">dashboard</i></a></li>
+        <li><a href="account-settings.php"><i class="material-icons"  style="color: #d81b60;">settings</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+          <li><a class=" makePink text" href="source/account-settings.php">My Account</a></li>
+          <li><a class=" makePink text" href="ource/logout.php">Logout</a></li>
 
+      </ul>
+    </div>
+  </nav>
+  </div>
 <!-- Form Code Start -->
-<div id='fg_membersite' class="center container">
+<div id='fg_membersite' class=" container">
     <h3 style="font-weight: 500; margin-bottom:30px;">Change Password</h3>
 <form id='changepwd' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 
@@ -48,7 +64,7 @@ if(isset($_POST['submitted']))
 
 
 <div><span class='error' style="color: #d81b60;"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-<div class=' input-field center container'>
+<div class=' input-field left container'>
     <label for='oldpwd' >Old Password</label><br/>
     <div class='pwdwidgetdiv' id='oldpwddiv' ></div><br/>
     <noscript>
@@ -57,23 +73,21 @@ if(isset($_POST['submitted']))
     <span id='changepwd_oldpwd_errorloc' class='error'></span>
 </div>
 
-<div class='input-field center container'>
+<div class='input-field left container'>
     <label for='newpwd' >New Password</label><br/>
     <div class='pwdwidgetdiv' id='newpwddiv' ></div>
     <noscript>
-    <input type='password' name='newpwd' id='newpwd' maxlength="50" /><br/>
+    <input type='password' name='newpwd' id='newpwd' maxlength="50" />
     </noscript>
     <span id='changepwd_newpwd_errorloc' class='error'></span>
 </div>
 
 <br/><br/><br/>
-<div class=' center container'>
+<div class=' left container' style ="margin-top:40px;">
     <input class="btn waves-effect waves-light brown" type='submit' name='Submit' value='Submit' />
 </div>
 
 </form>
-<!-- client-side Form Validations:
-Uses the excellent form validation script from JavaScript-coder.com-->
 
 <script type='text/javascript'>
 // <![CDATA[
@@ -99,21 +113,6 @@ Uses the excellent form validation script from JavaScript-coder.com-->
 </script>
 
 
-<p>
-<i class="material-icons"  style="color: #d81b60;">dashboard</i>
-<br>
-<a href='homeapp.php'>Dashboard</a>
-<br>
-<br>
-<i class="material-icons"  style="color: #d81b60;">account_circle</i>
-<br>
-<a href='login-home.php'>Account</a>
-<br>
-</p>
-
-<!--
-Form Code End (see html-form-guide.com for more info.)
--->
 
 </body>
 </html>

@@ -45,7 +45,7 @@ $(document).ready(function ()
 	       {
 	           y1 = Dates1.getFullYear();
 	           m1 = Dates1.getMonth()+1;
-	           d1 = Dates1.getDate()+1;
+	           d1 = Dates1.getDate();
 	       }
 	   }
        
@@ -57,7 +57,7 @@ $(document).ready(function ()
            {
                y2 = Dates2.getFullYear();
                m2 = Dates2.getMonth()+1;
-               d2 = Dates2.getDate()+1;
+               d2 = Dates2.getDate();
            }
        }
        
@@ -68,7 +68,7 @@ $(document).ready(function ()
            {
                y3 = Dates3.getFullYear();
                m3 = Dates3.getMonth()+1;
-               d3 = Dates3.getDate()+1;
+               d3 = Dates3.getDate();
            }
        }
      
@@ -217,7 +217,8 @@ function update1(num_rows,pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat
 		comm         : comm,
         isDate1Valid : isDate1Valid,
         isDate2Valid : isDate2Valid,
-        isDate3Valid : isDate3Valid
+        isDate3Valid : isDate3Valid,
+        e            : getEmail
 	},
 	function (data,status)
 	{

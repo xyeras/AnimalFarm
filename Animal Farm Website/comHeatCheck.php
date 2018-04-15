@@ -1,3 +1,16 @@
+<?PHP
+require_once("source/include/membersite_config.php");
+
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("source/login.php");
+    exit;
+}
+$email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
+?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
 <!--add more data:This is the page that the user will arrive on when they want to add more information to thier previously collected data
 for the first time. Date 2 records this day and date 3 automatically calculates 20 days after this date (when heat check should)
 taka place. Line, New Pen , and Comments can always be modified 
@@ -8,7 +21,7 @@ taka place. Line, New Pen , and Comments can always be modified
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="getRow1.js"></script>
-    <script src="js/updateDB__1.js"></script>
+    <script src="js/updateDB__1.8.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -27,7 +40,7 @@ taka place. Line, New Pen , and Comments can always be modified
     <!--animate css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     
-	<title>Add More Data</title>
+	<title>Complete Heat Check</title>
     <style>
         .space button{margin-right:15px;}
         .space button:last-child{margin-right:0px;}
@@ -57,18 +70,18 @@ taka place. Line, New Pen , and Comments can always be modified
   <nav>
 
     <div class="nav-wrapper white">
-      <a href="#" class="brand-logo center pink-text">Add More Data</a>
+      <a href="#" class="brand-logo center pink-text">Complete Heat Check</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <li><a class="makePink text" href="homeapp.html">Home</a></li>
-        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
-		<li><a class="makePink text" href="editData.html">Edit Data</a></li>
+        <li><a class="makePink text" href="homeapp.php">Home</a></li>
+        <li><a class="makePink text" href="pigTable.php">View Data</a></li>
+		<li><a class="makePink text" href="editData.php">Edit Data</a></li>
       </ul>
      <ul class="side-nav" id="mobile-demo">
-       <li><a href="homeapp.html">Home</a></li>
-        <li><a href="pigTable.html">View Data</a></li>
-		<li><a href="editData.html">Edit Data</a></li>
+       <li><a href="homeapp.php">Home</a></li>
+        <li><a href="pigTable.php">View Data</a></li>
+		<li><a href="editData.php">Edit Data</a></li>
       </ul>
     </div>
   </nav>
@@ -91,7 +104,7 @@ taka place. Line, New Pen , and Comments can always be modified
 			  <label for="tag">Tag</label>
 			</div>
 		  <div class="input-field col s12">
-			<select>
+			<select id = "breedMenu">
 			  <option value="" disabled selected>Choose your option</option>
 			  <option value="1">Yorkshire</option>
 			  <option value="2">Crossbreed</option>
@@ -170,7 +183,7 @@ taka place. Line, New Pen , and Comments can always be modified
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Summary</h5>
-                <p class="grey-text text-lighten-4">You can use this page to modify exisiting data--more precisely to finish your data collection. This page is only accesible from the Edit Data page.</p>
+                <p class="grey-text text-lighten-4">You can use this page to complete the heat check. This page is only accessible through the heat checks needed page.</p>
               </div>
             </div>
           </div>
@@ -194,11 +207,11 @@ taka place. Line, New Pen , and Comments can always be modified
   <div id="submitModal2" class="modal">
     <div class="modal-content">
       <h4 id ="result">Submission was successful!<i class="small material-icons green-text">done_all</i></h4>
-      <p>Choose if you would like to edit another entry or go back to home.</p>
+      <p>Choose if you would like to complete another heat check or go back to home.</p>
     </div>
     <div class="modal-footer">
-      <a href="editData.html" class="modal-action modal-close waves-effect waves-green btn-flat">Edit Another</a>
-      <a href="homeapp.html" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
+      <a href="heatTable.php" class="modal-action modal-close waves-effect waves-green btn-flat">Complete Another Heat Check</a>
+      <a href="homeapp.php" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
     </div>
   </div>
   

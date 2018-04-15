@@ -1,3 +1,16 @@
+<?PHP
+require_once("source/include/membersite_config.php");
+
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("source/login.php");
+    exit;
+}
+$email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
+?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
 <!--add more data:This is the page that the user will arrive on when they want to add more information to thier previously collected data
 for the first time. Date 2 records this day and date 3 automatically calculates 20 days after this date (when heat check should)
 taka place. Line, New Pen , and Comments can always be modified 
@@ -8,7 +21,7 @@ taka place. Line, New Pen , and Comments can always be modified
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="getRow1.js"></script>
-    <script src="js/updateDB__1.js"></script>
+    <script src="js/updateDB__1.7.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->

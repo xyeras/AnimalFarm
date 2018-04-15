@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 function addNew(pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat,y3,m3,d3,line,newPen,comm,isDate1Valid,isDate2Valid,isDate3Valid)
 {
 
@@ -25,8 +26,20 @@ function addNew(pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat,y3,m3,d3,
 		comm         : comm,
         isDate1Valid : isDate1Valid,
         isDate2Valid : isDate2Valid,
-        isDate3Valid : isDate3Valid,
-        e            : getEmail
+        isDate3Valid : isDate3Valid
+=======
+function addNew(p,n,t,d1,b1,br,c)
+{
+
+	$.post("addData.php",
+	{	pen		: p,
+		notch	: n,
+		tag		: t,
+		date1	: d1,
+		boar1	: b1,
+		breed	: br;
+		comments: c
+>>>>>>> origin/Development
 	},
 	function(data, status){
 		$('#result').html(data);
@@ -38,6 +51,7 @@ $(document).ready(function(){
 	
 	//Gets the input from the html file when add button is pressed
 	$('#add').click(function() {
+<<<<<<< HEAD
         var pen    = $('#Pen').val();
         var notch  = $('#Notch').val();
         var tag    = $('#tag').val();
@@ -79,7 +93,7 @@ $(document).ready(function(){
 	       {
 	           y1 = Dates1.getFullYear();
 	           m1 = Dates1.getMonth()+1;
-	           d1 = Dates1.getDate();
+	           d1 = Dates1.getDate()+1;
 	       }
 	   }
        
@@ -91,7 +105,7 @@ $(document).ready(function(){
            {
                y2 = Dates2.getFullYear();
                m2 = Dates2.getMonth()+1;
-               d2 = Dates2.getDate();
+               d2 = Dates2.getDate()+1;
            }
        }
        
@@ -102,7 +116,7 @@ $(document).ready(function(){
            {
                y3 = Dates3.getFullYear();
                m3 = Dates3.getMonth()+1;
-               d3 = Dates3.getDate();
+               d3 = Dates3.getDate()+1;
            }
        }        
         
@@ -137,6 +151,17 @@ $(document).ready(function(){
 
          
 		addNew(pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat,y3,m3,d3,line,newPen,comm,isDate1Valid,isDate2Valid,isDate3Valid);
+=======
+		var p 	= $('#pen').val();
+		var n 	= $('#notch').val();
+		var t 	= $('#tag').val();
+		var d1	= $('#date').val();
+		var b1	= $('#boar').val();
+		var br	= $('#breed').val();
+		var c	= $('#comments').val();
+		
+		addNew(p,n,t,d1,b1,br,c);
+>>>>>>> origin/Development
 	});
 	
 });

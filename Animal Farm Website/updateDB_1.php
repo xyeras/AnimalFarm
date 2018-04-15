@@ -32,6 +32,7 @@ $comm         = mysqli_real_escape_string($con,$_POST['comm']);
 $isDate1Valid = mysqli_real_escape_string($con,$_POST['isDate1Valid']);
 $isDate2Valid = mysqli_real_escape_string($con,$_POST['isDate2Valid']);
 $isDate3Valid = mysqli_real_escape_string($con,$_POST['isDate3Valid']);
+$email        = mysqli_real_escape_string($con,$_POST['e']);
 
 // --------------- date1 ------------------------------------------
 // 0 if date has input from user or read from row
@@ -50,7 +51,7 @@ if ($isDate1Valid == '0' and $isDate2Valid == '1' and $isDate3Valid == '1')   //
     // this is a string
     $date1 = date("n/j/Y",mktime(0,0,0,$m1Int,$d1Int,$y1Int));
 
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 
 }
 
@@ -63,7 +64,7 @@ else if ($isDate1Valid == '1' and $isDate2Valid == '0' and $isDate3Valid == '1')
     
     $date2 = date("n/j/Y",mktime(0,0,0,$m2Int,$d2Int,$y2Int));
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1',date2 = '$date2', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1',date2 = '$date2', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '1' and $isDate2Valid == '1' and $isDate3Valid == '0')   // only date3 is being used
@@ -74,7 +75,7 @@ else if ($isDate1Valid == '1' and $isDate2Valid == '1' and $isDate3Valid == '0')
 
     $date3 = date("n/j/Y",mktime(0,0,0,$m3Int,$d3Int,$y3Int));
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '0' and $isDate2Valid == '0' and $isDate3Valid == '1')   // only date1 and date2 are being used
@@ -93,7 +94,7 @@ else if ($isDate1Valid == '0' and $isDate2Valid == '0' and $isDate3Valid == '1')
     $date2 = date("n/j/Y",mktime(0,0,0,$m2Int,$d2Int,$y2Int));
     
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '1' and $isDate2Valid == '0' and $isDate3Valid == '0')   // only date2 and date3 are being used
@@ -112,7 +113,7 @@ else if ($isDate1Valid == '1' and $isDate2Valid == '0' and $isDate3Valid == '0')
     $date3 = date("n/j/Y",mktime(0,0,0,$m3Int,$d3Int,$y3Int));
     
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '0' and $isDate2Valid == '1' and $isDate3Valid == '0')  // only date1 and date3 are being used
@@ -130,7 +131,7 @@ else if ($isDate1Valid == '0' and $isDate2Valid == '1' and $isDate3Valid == '0')
 
     $date3 = date("n/j/Y",mktime(0,0,0,$m3Int,$d3Int,$y3Int));
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '0' and $isDate2Valid == '0' and $isDate3Valid == '0') // all date fields are filled
@@ -155,12 +156,12 @@ else if ($isDate1Valid == '0' and $isDate2Valid == '0' and $isDate3Valid == '0')
 
     $date3 = date("n/j/Y",mktime(0,0,0,$m3Int,$d3Int,$y3Int));
     
-    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+    $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', date1 = '$date1', boar1 = '$boar1', date2 = '$date2', boar2 = '$boar2', heat = '$heat', date3 = '$date3', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 else if ($isDate1Valid == '1' and $isDate2Valid == '1' and $isDate3Valid == '1') // no date fields are filled
 {
-     $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows'";
+     $msyqlStatment = "UPDATE pigpens SET pen = '$pen', notch ='$notch', tag = '$tag', breed = '$breed', boar1 = '$boar1', boar2 = '$boar2', heat = '$heat', line = '$line', newPen = '$newPen', comm = '$comm' WHERE  num_rows = '$num_rows' AND email = '$email'";
 }
 
 

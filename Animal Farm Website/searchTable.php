@@ -7,8 +7,11 @@ if (mysqli_connect_error())
 {
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
+
+$email = mysqli_real_escape_string($con,$_POST['e']);
+
 // statment to retrieve rows from database
-$msyqlStatment = "SELECT num_rows,pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
+$msyqlStatment = "SELECT num_rows,pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE email = '$email' ORDER BY num_rows DESC";
 
 // Kathryn's code here
 //function fetchData(){

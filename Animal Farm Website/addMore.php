@@ -8,19 +8,20 @@ if(!$fgmembersite->CheckLogin())
 }
 $email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
 ?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
 
 <!--add more data:This is the page that the user will arrive on when they want to add more information to thier previously collected data
-for the first time. Date 2 records this day and date 3 automatically calculates 20 days after this date (when heat check should)
-taka place. Line, New Pen , and Comments can always be modified
+for the first time. Date 2 records this day and date 3 is for 20 days after this date (when heat check should
+taka place).
 -->
-
 <!DOCTYPE html>
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="getRow.js"></script>
-    <script src="js/getDate3.js"></script>
-    <script src="js/updateDB__1.2.js"></script>
+    <script src="getRow1.js"></script>
+    <script src="js/updateDB__1.7.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -74,12 +75,10 @@ taka place. Line, New Pen , and Comments can always be modified
         .dropdown-content li>a, .dropdown-content li>span{
              color: #795548;
         }
-
         /*changing the input text fields color to the brown */
           .input-field input[type=text]:focus + label, textarea:focus + label {
             color: #795548 !important;
         }
-
           .input-field input[type=text]:focus, textarea:focus {
             border-bottom: 1px solid #795548 !important;
              box-shadow: 0 1px 0 0 #795548 !important;
@@ -89,11 +88,10 @@ taka place. Line, New Pen , and Comments can always be modified
             border-bottom: 1px solid #d81b60;
             box-shadow: 0 1px 0 0 #d81b60;
         }
-
     </style>
 </head>
 
-<body onload="disableAll()">
+<body>
   <nav>
 
     <div class="nav-wrapper white">
@@ -114,7 +112,7 @@ taka place. Line, New Pen , and Comments can always be modified
   </nav>
     <div class = "container" id="rowData" style="padding-top:30px;"><p>Selected row from edit data shows here.</p></div>
     <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 40px; padding-top: 50px; text-align:center">Fill in the text field you would like to modify.</h5>
-    <div class="container center" style=" padding-left: 300px; padding-right: 300px;">
+    <div class="container center" style= "padding-left: 300px; padding-right: 300px;">
 
 		<div class="row">
 		<form class="col s12">
@@ -123,14 +121,14 @@ taka place. Line, New Pen , and Comments can always be modified
 			  <label for="Pen">Pen</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="Notch" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="Notch" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="Notch">Notch</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="tag" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="tag" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="tag">Tag</label>
 			</div>
-		  <div class="input-field col s12" margin-bottom:30px;>
+		  <div class="input-field col s12">
 			<select>
 			  <option value="" disabled selected>Choose your option</option>
 			  <option value="1">Yorkshire</option>
@@ -144,40 +142,39 @@ taka place. Line, New Pen , and Comments can always be modified
 			<label>Breed</label>
 		  </div>
 			<div class="input-field col s12">
-			  <input id="date1" type="text" class="validate datepicker" style="padding-left: 40px;margin-bottom:30px;">
-			  <label for="date1"> Date 1</label>
+			  <input id="date1" type="text" class="validate datepicker" style="padding-left: 40px; margin-bottom:30px;">
+			  <label for="date1">Date 1</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="boar1" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="boar1" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="boar1">Boar 1</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="date2" type="text" class="validate datepicker" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="date2" type="text" class="validate datepicker" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="date2">Date 2</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="boar2" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="boar2" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="boar2">Boar 2</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="heat" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="heat" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="heat">Heat</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="date3" type="text" class="validate datepicker" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="date3" type="text" class="validate datepicker" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="date3">Date 3</label>
-			  <script>next_date()</script>
 			</div>
 			<div class="input-field col s12">
-			  <input id="line" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
+			  <input id="line" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="line">Line</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="newpen" type="text" class="validate" style="padding-left: 40px;margin-bottom:40px;">
+			  <input id="newpen" type="text" class="validate" style="padding-left: 40px;margin-bottom:30px;">
 			  <label for="newpen">New Pen</label>
 			</div>
 			<div class="input-field col s12">
-			  <textarea id="comment" type="text" class="materialize-textarea validate" style="padding-left: 40px;"></textarea>
+			  <input id="comment" type="text" class="validate" style="padding-left: 40px;">
 			  <label for="comment">Comments</label>
 			</div>
 			</div>
@@ -198,7 +195,7 @@ taka place. Line, New Pen , and Comments can always be modified
 
     <!--upon pressing the submit button, the data that was just entered and each
         cell of the row that was selected must be gathered-->
-    <div id= "outer" class="container center" style="padding-top: 40px; padding-bottom: 35px;">
+    <div id= "outer" class="container center" style="padding-top: 40px; padding-bottom:35px;">
     <button data-target="submitModal2" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button>
         </div>
 
@@ -211,7 +208,7 @@ taka place. Line, New Pen , and Comments can always be modified
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Summary</h5>
-                <p class="grey-text text-lighten-4">You can use this page to modify exisiting data. This page is only accesible from the Edit Data page.</p>
+                <p class="grey-text text-lighten-4">You can use this page to modify exisiting data--more precisely to finish your data collection. This page is only accesible from the Edit Data page.</p>
               </div>
             </div>
           </div>
@@ -229,9 +226,7 @@ taka place. Line, New Pen , and Comments can always be modified
   $(document).ready(function() {
     $('select').material_select();
   });
-
   //for the datepicker to work
-
       $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -241,9 +236,7 @@ taka place. Line, New Pen , and Comments can always be modified
       closeOnSelect: false, // Close upon selecting a date,
       format: "mm/dd/yyyy"
     });
-
 </script>
-
 
   <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
   <div id="submitModal2" class="modal">

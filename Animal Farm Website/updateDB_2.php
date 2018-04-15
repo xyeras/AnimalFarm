@@ -22,11 +22,11 @@ $msyqlStatment = "UPDATE pigpens SET heat = '$heat', line = '$line', newPen = '$
 // update database statement
 if($con->query($msyqlStatment))
 {
-	echo "alert(\"Save successful!\")";
+	echo "Submission was successful! <i class=\"small material-icons green-text\">check_circle</i>";
 }
 else
 {
-	echo "alert(\"Failed to save data.\")";
+	echo "Failed to save data. <i class=\"small material-icons red-text\">cancel</i>";
 }
 
 

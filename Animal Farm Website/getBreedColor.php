@@ -13,18 +13,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     </head>
     <style>
-        td.Yorkshire{
-            
+        td.York {
+            background-color: purple;
         }
-		td.Hampshire{
-			
+		td.Cross {
+			background-color: green;
 		}
-		td.Crossbreed{
-			
+		td.Berk {
+			background-color: blue;
+		}
+		td.Chester {
+			background-color: red;
+		}
+		td.Spotted {
+			background-color: white;
+		}
+		td.Duroc {
+			background-color: orange;
+		}
+		td.Hampshire {
+			background-color: yellow;
 		}
         
     </style>
     <body>
+	
+	<select id = "breedMenu" >
+	  <option value="" disabled selected>Choose your option</option>
+	  <option value="1" >Yorkshire</option>
+	  <option value="2">Crossbreed</option>
+	  <option value="3">Berkshire</option>
+	  <option value="4">Chester White and Landrace</option>
+	  <option value="5">Spotted Hereford Tamworth</option>
+	  <option value="6">Duroc</option>
+	  <option value="7">Hampshire</option>
+	</select>
         
 <?php
 // connects to the database in 000webhost

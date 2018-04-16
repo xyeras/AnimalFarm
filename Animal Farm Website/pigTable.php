@@ -58,14 +58,31 @@
      </div>
 		
 	<div id="result"></div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script type="text/javascript">
 	
 	<script>
-		$('#mytable tr td').each(function(){
+		$('td').each(function(){
 			if($(this).text() == "Yorkshire")$(this).css('background-color','pink');
 		});
+		$('.status:contains("Paid")').css('color', 'red');
+		$('.status:contains("Yorkshire")').css('color', 'green');
+		$('td.status').each(function() {
+		if ($(this).text() == 'Yorkshire') {
+			  $(this).style('color', 'red');
+		  } // similarly for other statuses
+		});
+		$(document).ready(function(){
+			$('#table_id td.status').each(function(){
+			if ($(this).text() == 'Yorkshire') {
+				$(this).css('background-color','#1AC6CF');
+        }
+		});
+});
 	</script>
 	
-	<table>
+	<table id="table_id">
 	  <tr>
 		<th>Month</th>
 		<th>Savings</th>
@@ -73,7 +90,7 @@
 	  <tr>
 		<td bgcolor="#FF0000">January</td>
 		<td bgcolor="#00FF00">$100</td>
-		<td>Yorkshire</td>
+		<td class="status">Yorkshire</td>
 	  </tr>
 	</table>
 	

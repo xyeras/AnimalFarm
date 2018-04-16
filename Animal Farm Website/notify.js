@@ -13,9 +13,10 @@ $.post("notify.php",
 {
 	months: String(months),
 	days: String(days),
-	years: String(years)
+	years: String(years),
+    e  : getEmail
 },
 function (data)
 {
-	$('#result').html(data);	// change '#result in HTML file'
+	$('#notify').html(data);	// change '#result in HTML file'
 });

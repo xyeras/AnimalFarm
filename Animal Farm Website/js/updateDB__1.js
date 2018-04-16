@@ -1,4 +1,4 @@
-function month_stats(mn,d) 
+function month_stats(mn,d)
 {
 	this.month_num = mn;
 	this.days = d;
@@ -21,33 +21,33 @@ var years = today.getFullYear();	// gets the current year
 function next_date(month_curr, day_curr, year_curr,days_til)
 {
 	var temp_days = 0;
-	
+
 	// next_**** hold date that will be returned
 	var next_month;
 	var next_day;
 	var next_year;
-	
+
 	// initialize months
 	var jan = new month_stats(1,31);
-	
+
 	var year_count = 1900;		// base year for determining the leap year
-	
+
 	// determines if it is a leap year/how many days in feb
 	while (year_count < year_curr)
 	{
 		year_count = year_count + 4;
 		if (year_count == (year_curr-1) || year_count == (year_curr-2) || year_count == (year_curr-3))
-			break;	
-	}	
-	
+			break;
+	}
+
 	var feb = new month_stats(0,0);
-	
+
 	if (year_count == year_curr)
 	{
 		feb.month_num = 2;
 		feb.days = 29;
 	}
-	else	
+	else
 	{
 		feb.month_num = 2;
 		feb.days = 28;
@@ -63,7 +63,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 	var oct = new month_stats(10,31);
 	var nov = new month_stats(11,30);
 	var dec = new month_stats(12,31);
-	
+
 	// calculated next date
 	if (month_curr == jan.month_num)		// matches the current month
 	{
@@ -80,8 +80,8 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_day   = temp_days;
 			next_year  = year_curr;
 		}
-	}	
-	
+	}
+
 	else if (month_curr == feb.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -115,7 +115,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == apr.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -132,7 +132,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == may.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -165,7 +165,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == jul.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -182,7 +182,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == aug.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -199,7 +199,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == sep.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -216,7 +216,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == oct.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -233,7 +233,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == nov.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -250,7 +250,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	else if (month_curr == dec.month_num)
 	{
 		temp_days = day_curr + days_til;
@@ -258,7 +258,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 		{
 			next_month = 1;
 			next_day   = temp_days - dec.days;
-			next_year  = year_curr + 1;			// increments year 
+			next_year  = year_curr + 1;			// increments year
 		}
 		else
 		{
@@ -267,7 +267,7 @@ function next_date(month_curr, day_curr, year_curr,days_til)
 			next_year  = year_curr;
 		}
 	}
-	
+
 	// save the date
 	var new_date = new date_holder(next_month,next_day,next_year);
 	return new_date;
@@ -285,7 +285,7 @@ $(document).ready(function ()
 		var line   = $('#line').val();
 		var newPen = $('#newPen').val();
 		var comm   = $('#comments').val();
-		
+
 		// call the next_date function-----------------------------------------
 		var retrieve_date = next_date(months,days,years,20);
 
@@ -295,11 +295,11 @@ $(document).ready(function ()
 		var date3_month = retrieve_date.month;
 		var date3_day   = retrieve_date.day;
 		var date3_year  = retrieve_date.year;
-			
+
 			update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm);
 });
-		
-		
+
+
 	$('#submit').click(function () // match to id in tag in HTML file
 	{
 		var num_rows = $(document.getElementById('row1')).attr('value');
@@ -317,7 +317,7 @@ $(document).ready(function ()
 // automatic enter date2    date3
 
 // date3 is updated to 20 days after date2
-// if variable is not NULL 
+// if variable is not NULL
 function update1(num_rows,date2_month,date2_day,date2_year,boar2,date3_month,date3_day,date3_year,line,newPen,comm)
 {
 	$.post("../updateDB_1.php",
@@ -355,5 +355,3 @@ function update2(num_rows,line,newPen,comm)
 		$('#result').html(data); // match in HTML file
 	});
 }
-
-

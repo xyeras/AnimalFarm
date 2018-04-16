@@ -45,7 +45,7 @@ $(document).ready(function ()
 	       {
 	           y1 = Dates1.getFullYear();
 	           m1 = Dates1.getMonth()+1;
-	           d1 = Dates1.getDate();
+	           d1 = Dates1.getDate()+1;
 	       }
 	   }
        
@@ -57,7 +57,7 @@ $(document).ready(function ()
            {
                y2 = Dates2.getFullYear();
                m2 = Dates2.getMonth()+1;
-               d2 = Dates2.getDate();
+               d2 = Dates2.getDate()+1;
            }
        }
        
@@ -68,7 +68,7 @@ $(document).ready(function ()
            {
                y3 = Dates3.getFullYear();
                m3 = Dates3.getMonth()+1;
-               d3 = Dates3.getDate();
+               d3 = Dates3.getDate()+1;
            }
        }
      

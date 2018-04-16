@@ -21,7 +21,7 @@ taka place. Line, New Pen , and Comments can always be modified
 <head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="getRow1.js"></script>
-    <script src="js/updateDB__1.8.js"></script>
+    <script src="js/updateDB__1.7.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -104,7 +104,7 @@ taka place. Line, New Pen , and Comments can always be modified
 			  <label for="tag">Tag</label>
 			</div>
 		  <div class="input-field col s12">
-			<select id = "breedMenu">
+			<select>
 			  <option value="" disabled selected>Choose your option</option>
 			  <option value="1">Yorkshire</option>
 			  <option value="2">Crossbreed</option>

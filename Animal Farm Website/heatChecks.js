@@ -13,7 +13,8 @@ $.post("heatChecks.php",
 {
 	months: String(months),
 	days: String(days),
-	years: String(years)
+	years: String(years),
+    e  : getEmail
 },
 function (data)
 {

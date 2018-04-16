@@ -15,6 +15,7 @@ $m = mysqli_real_escape_string($con,$_POST['months']);
 $d = mysqli_real_escape_string($con,$_POST['days']);
 $y = mysqli_real_escape_string($con,$_POST['years']);
 
+$email = mysqli_real_escape_string($con,$_POST['e']);
 
 
 $mInt = (int) $m;
@@ -25,11 +26,8 @@ $yInt = (int) $y;
 $heatDate = date("n/j/Y",mktime(0,0,0,$mInt,$dInt,$yInt));
 
 
-// Pass in current date and see what days are before this day
-$mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm
-					FROM pigpens
-					WHERE date3 = '$heatDate' AND heat IS NULL";
-// original: WHERE date3 = '$heatDate' AND heat IS NULL";
+$mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE date3 = '$heatDate' AND (heat IS NULL OR heat ='') AND email = '$email'"; 
+
 
 // return data for pigs who need a heat checkdate
 $counter = 0;

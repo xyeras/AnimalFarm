@@ -25,9 +25,11 @@ $yInt = (int) $y;
 $heatDate = date("n/j/Y",mktime(0,0,0,$mInt,$dInt,$yInt));
 
 
-
-$mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE date3 = '$heatDate' AND heat IS NULL"; 
-
+// Pass in current date and see what days are before this day
+$mysqlStatement = "SELECT num_rows,pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm
+					FROM pigpens
+					WHERE date3 = '$heatDate' AND heat IS NULL";
+// original: WHERE date3 = '$heatDate' AND heat IS NULL";
 
 // return data for pigs who need a heat checkdate
 $counter = 0;

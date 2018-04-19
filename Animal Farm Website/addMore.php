@@ -13,15 +13,16 @@ $email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
 </script>
 
 <!--add more data:This is the page that the user will arrive on when they want to add more information to thier previously collected data
-for the first time. Date 2 records this day and date 3 is for 20 days after this date (when heat check should
-taka place).
+for the first time. Date 2 records this day and date 3 automatically calculates 20 days after this date (when heat check should)
+taka place. Line, New Pen , and Comments can always be modified 
 -->
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="getRow1.js"></script>
-    <script src="js/updateDB__1.7.js"></script>
+    <script src="js/updateDB__1.8.js"></script>
+    <script src="js/getDate3.1.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -39,7 +40,7 @@ taka place).
     </script>
     <!--animate css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
+    
 	<title>Add More Data</title>
     <style>
         .space button{margin-right:15px;}
@@ -49,9 +50,9 @@ taka place).
           left: 25%;
           right: 5%;
         }
-        th {
+        th {  
             height: 50px;}
-
+     
         #outer{
             width:100%;
             text-align: center;
@@ -59,7 +60,7 @@ taka place).
         .inner{
             display: inline-flex;
         }
-
+              
         .makePink{
            color:#d81b60;
         }
@@ -89,9 +90,9 @@ taka place).
             box-shadow: 0 1px 0 0 #d81b60;
         }
     </style>
-</head>
+</head>   
 
-<body>
+<body> 
   <nav>
 
     <div class="nav-wrapper white">
@@ -129,7 +130,7 @@ taka place).
 			  <label for="tag">Tag</label>
 			</div>
 		  <div class="input-field col s12">
-			<select>
+			<select id ="breedMenu">
 			  <option value="" disabled selected>Choose your option</option>
 			  <option value="1">Yorkshire</option>
 			  <option value="2">Crossbreed</option>
@@ -165,6 +166,7 @@ taka place).
 			  <input id="date3" type="text" class="validate datepicker" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="date3">Date 3</label>
 			</div>
+            <script>next_date();</script>
 			<div class="input-field col s12">
 			  <input id="line" type="text" class="validate" style="padding-left: 40px; margin-bottom:30px;">
 			  <label for="line">Line</label>
@@ -182,26 +184,26 @@ taka place).
 		</div>
     </div>
 
-
+       
 <div id="outer" class= "container">
     <div class="container" style="padding-top: 40px ">
-
+    
     <table class="bordered centered responsive-table container" style="padding-top: 100px; table-layout:fixed">
             <tr id="myRow" >
-            </tr>
+            </tr>   
         </table>
     </div>
  </div>
-
+    
     <!--upon pressing the submit button, the data that was just entered and each
-        cell of the row that was selected must be gathered-->
+        cell of the row that was selected must be gathered--> 
     <div id= "outer" class="container center" style="padding-top: 40px; padding-bottom:35px;">
-    <button data-target="submitModal2" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button>
+    <button data-target="submitModal2" class="btn waves-effect waves-light modal-trigger brown" id="add" >Submit Data</button> 
         </div>
-
-
-
-
+   
+    
+    
+  
 	<!--Footer-->
         <footer class="page-footer pink darken-1">
            <div class="container">
@@ -219,8 +221,8 @@ taka place).
             </div>
           </div>
         </footer>
-
-
+    
+        
 <script>
 	// dropdown menu for breed
   $(document).ready(function() {
@@ -237,7 +239,7 @@ taka place).
       format: "mm/dd/yyyy"
     });
 </script>
-
+    
   <!-- Modal Structure for the submit button, will show sucess message and allow user to edit another entry or go back to home -->
   <div id="submitModal2" class="modal">
     <div class="modal-content">
@@ -249,7 +251,7 @@ taka place).
       <a href="homeapp.php" class="modal-action modal-close waves-effect waves-green btn-flat">Home</a>
     </div>
   </div>
-
+  
 	<!--In order for the page to be mobile friendly I need this JQuery-->
 <script>
     $(document).ready(
@@ -257,7 +259,7 @@ taka place).
             $(".button-collapse").sideNav();
         });
 </script>
-
+    
 <!--for the modals to work i need this JQuery-->
 <script>
   $(document).ready(function(){
@@ -266,5 +268,5 @@ taka place).
   });
 </script>
 
-</body>
+</body>    
 </html>

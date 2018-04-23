@@ -174,7 +174,7 @@ taka place).
 			  <label for="newpen">New Pen</label>
 			</div>
 			<div class="input-field col s12">
-			  <input id="comment" type="text" class="validate" style="padding-left: 40px;">
+			  <textarea id="comment" type="text" class="materialize-textarea validate" style="padding-left: 40px;"></textarea>
 			  <label for="comment">Comments</label>
 			</div>
 			</div>

@@ -12,8 +12,42 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     </head>
-
+    <style>
+        td.York {
+            background-color: purple;
+        }
+		td.Cross {
+			background-color: green;
+		}
+		td.Berk {
+			background-color: blue;
+		}
+		td.Chester {
+			background-color: red;
+		}
+		td.Spotted {
+			background-color: white;
+		}
+		td.Duroc {
+			background-color: orange;
+		}
+		td.Hampshire {
+			background-color: yellow;
+		}
+        
+    </style>
     <body>
+	
+	<select id = "breedMenu" >
+	  <option value="" disabled selected>Choose your option</option>
+	  <option value="1" >Yorkshire</option>
+	  <option value="2">Crossbreed</option>
+	  <option value="3">Berkshire</option>
+	  <option value="4">Chester White and Landrace</option>
+	  <option value="5">Spotted Hereford Tamworth</option>
+	  <option value="6">Duroc</option>
+	  <option value="7">Hampshire</option>
+	</select>
         
 <?php
 // connects to the database in 000webhost
@@ -24,11 +58,8 @@ if (mysqli_connect_error())
 {
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
-
-$email = mysqli_real_escape_string($con,$_POST['e']);
-
 // statment to retrieve rows from database
-$msyqlStatment = "SELECT pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE email = '$email' ORDER BY num_rows DESC";
+$msyqlStatment = "SELECT pen,notch,tag,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
 
 // Kathryn's code here
 //function fetchData(){
@@ -42,7 +73,6 @@ if($rowData->num_rows > 0) {
 	        <th>Pen</th>
 	        <th>Notch</th>
 	        <th>Tag</th>
-	        <th>Breed</th>
         	<th>Date 1</th>
         	<th>Boar 1</th>
         	<th>Date 2</th>
@@ -61,7 +91,6 @@ if($rowData->num_rows > 0) {
 		    <td>".$row["pen"]."</td>
 		    <td>".$row["notch"]."</td>
 		    <td>".$row["tag"]."</td>
-		    <td>".$row["breed"]."</td>
 		    <td>".$row["date1"]."</td>
 		    <td>".$row["boar1"]."</td>
 		    <td>".$row["date2"]."</td>

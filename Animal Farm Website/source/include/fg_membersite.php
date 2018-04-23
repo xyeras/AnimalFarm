@@ -474,7 +474,7 @@ class FGMembersite
 
         $mailer->From = $this->GetFromAddress();
 
-        $mailer->Body =.$user_rec['fName'].",\r\n\r\n".
+        $mailer->Body = $user_rec['fName'].",\r\n\r\n".
         "\r\n".
         "Thank you! Your registration with us was successfully completed!\r\n".
         "\r\n".

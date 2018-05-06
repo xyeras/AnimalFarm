@@ -1,3 +1,17 @@
+<?PHP
+require_once("source/include/membersite_config.php");
+
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("source/login.php");
+    exit;
+}
+$email = $_SESSION[$fgmembersite->GetLoginSessionVar()];
+?>
+<script type="text/javascript">
+    var getEmail = "<?php echo $email; ?>";
+</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +25,7 @@
      CSS  -->
  <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
   <title>Edit Page</title>
-  
-	
+
 <!--	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
@@ -24,7 +37,7 @@
 
      <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-          
+
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -32,7 +45,7 @@
     <!--animate css -->
     <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	
+
 <style>
 .makePink{
      color:#d81b60;
@@ -52,34 +65,33 @@ tr.selected {
 
 
 function edButton(x) {
-    var val = $(x).attr('data-value'); // gets row_num from row selected
+
+    var val = $(x).attr('data-value');
     $(x).addClass('selected');
     $(x).siblings().removeClass('selected');
 
-        
+
         // active edit button when a row is selected
         document.getElementById("insem").disabled = false;
-        
+
         // When there was two buttons need for cases
     /* id date 3 is emepty it means that it should take them to page to add date 2 boar2 and date 3 page */
           //  if(x[8].innerHTML == ''){
           //       document.getElementById("insem").disabled = false;
           //       document.getElementById("last3").disabled = true;
-                
           //  }
             /* if heat is filled in it means they just want to edit line pen or comment*/
           //  else if(x[7].innerHTML != ''){
           //       document.getElementById("last3").disabled = false;
         //        document.getElementById("insem").disabled = true;
-                
-         //   } 
+         //   }
 
     document.getElementById('rowNum').value = val;
 //	document.getElementById('rowNum2').value = val;
-	
+
 	//e.target.parentNode.className = 'selected';
 }
-	
+
 </script>
 <script src="editData.js"></script>
 <style>.makePink{color:#d81b60;}</style>
@@ -94,15 +106,15 @@ function edButton(x) {
         <center><a href="#" class="brand-logo center pink-text">Edit Data</a></center>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons makePink text">menu</i></a>
         <ul class="right hide-on-med-and-down">
-      
-        <li><a class="makePink text" href="homeapp.html">Home</a></li>
-        <li><a class="makePink text" href="pigTable.html">View Data</a></li>
-        <li><a class="makePink text" href="add.html">Add Data</a></li>
+
+        <li><a class="makePink text" href="homeapp.php">Home</a></li>
+        <li><a class="makePink text" href="pigTable.php">View Data</a></li>
+        <li><a class="makePink text" href="add.php">Add Data</a></li>
       </ul>
      <ul class="side-nav" id="mobile-demo">
-       <li><a href="homeapp.html">Home</a></li>
-        <li><a href="pigTable.html">View Data</a></li>
-		<li><a href="add.html">Add Data</a></li>
+       <li><a href="homeapp.php">Home</a></li>
+        <li><a href="pigTable.php">View Data</a></li>
+		<li><a href="add.php">Add Data</a></li>
       </ul>
     </div>
   </nav>
@@ -113,12 +125,8 @@ function edButton(x) {
   <script src="searchTable.js"></script>
  <!-- where the table from the database will be printed
  <div id = "putTableHere"></div>-->
- 
- 
-
-<div class = "container" style="padding-top: 13px;">
-        <div class = "left" style ="margin: 40px 0 -30 310px">
-        
+<div class = "container container" style="padding-top: 13px;">
+        <div class=" center container">
     <label class = "left makePink text">Search By: </label>
     <select id="specifier" class="browser-default responsive">
       <option value="0">Every Column</option>
@@ -136,13 +144,10 @@ function edButton(x) {
 	  <option value="12">New Pen</option>
 	  <option value="13">Comment</option>
     </select>
-    
-        
 </div></div>
 <br/>
-	
-<div id="bodyOfPage" style="padding-bottom: 20px" class="container">
-        <div style="margin: 0px 0 10 310px">
+<div id="bodyOfPage" style="padding-bottom: 20px" class=" center container">
+        <div>
         <input type="text center" id="searchTerm" placeholder="Search.." onkeyup="searchData()">
         </div>
 <!--<div class="container" style=" padding-bottom: 5px; padding-left: 500px">
@@ -152,13 +157,13 @@ function edButton(x) {
 </div>
 <div id = "result"></div>
 <br/>
-<style>h1 {margin: 40px 0 0 550px;}</style> 
+<style>h1 {margin: 40px 0 0 550px;}</style>
 <style>h2 {margin: 40px 0 0 100px;}</style>
 
 
-    
-    <div class="container center"  >
-     <form action="addMore.html" style="padding-bottom: 20px;">
+
+    <div class="container center" >
+     <form action="addMore.html" style="padding-bottom: 20px; padding-top:40px;">
          <input id="rowNum" type="hidden" name="rowNum" value="0">
         <button id="insem" type="submit" value="insem" class="waves-effect waves-light btn-large brown " style="padding-top: 0px;" onclick = showdata()>Edit Row</button>
     </form>
@@ -168,16 +173,16 @@ function edButton(x) {
     <button id="last3" type="submit" value="last3" class="waves-effect waves-light btn-large brown" style="padding-top: 0px;">Edit Last 3 columns</button>
     </form>
     -->
-    </div> 
-    
+    </div>
+
      <script>
         /* disables all buttons on load*/
         function disableAll(){
             document.getElementById("insem").disabled = true;
-          //document.getElementById("last3").disabled = true; 
-           
-        }    
-        
+          //document.getElementById("last3").disabled = true;
+
+        }
+
     </script>
 <!--
 <form id="editForm" class="container center" style="padding-bottom: 20px;" action="addMore.html">

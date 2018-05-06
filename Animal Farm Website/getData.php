@@ -12,12 +12,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     </head>
-    <style>
-        table{
-            
-        }
-        
-    </style>
+
     <body>
         
 <?php
@@ -29,8 +24,11 @@ if (mysqli_connect_error())
 {
 	echo "Fail to connect to MySQL:" . mysqli_connect_error();
 }
+
+$email = mysqli_real_escape_string($con,$_POST['e']);
+
 // statment to retrieve rows from database
-$msyqlStatment = "SELECT pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens ORDER BY num_rows DESC";
+$msyqlStatment = "SELECT pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm FROM pigpens WHERE email = '$email' ORDER BY num_rows DESC";
 
 // Kathryn's code here
 //function fetchData(){

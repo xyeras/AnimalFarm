@@ -11,10 +11,11 @@ if (mysqli_connect_error())
 
 		
 $rowNum		=	mysqli_real_escape_string($con,$_POST['rowNum']);
+$email = mysqli_real_escape_string($con,$_POST['e']);
 
 
 $find = "SELECT num_rows,pen,notch,tag,breed,date1,boar1,date2,boar2,heat,date3,line,newPen,comm 
-					FROM pigpens WHERE num_rows='$rowNum'";
+					FROM pigpens WHERE num_rows='$rowNum' AND email = '$email'";
 
 $rowData = $con->query($find);
 if($rowData->num_rows > 0) {
@@ -31,7 +32,7 @@ if($rowData->num_rows > 0) {
         	<th>Date 2</th>
         	<th>Boar 2</th>
         	<th>Heat</th>
-        	<th>Date</th>
+        	<th>Date 3</th>
         	<th>Line</th>
         	<th>New Pen</th>
     	    <th>Comments</th>

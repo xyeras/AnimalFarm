@@ -274,7 +274,7 @@ function next_date()
 	}
 	
 	
-	document.write(next_month+"/"+next_day+"/"+next_year);
+	document.write("20 Days after today: "+next_month+"/"+next_day+"/"+next_year);
 }
 
 

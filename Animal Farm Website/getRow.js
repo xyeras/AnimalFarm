@@ -6,7 +6,8 @@ $(document).ready(function(){
 	//Takes the row sent from Edit Data, gets the matching row from the Database, 
 	$.post("getRow.php",
 	{
-		rowNum: rn
+		rowNum: rn,
+        e  : getEmail
 	},
 	function(data){
 		$('#rowData').html(data);

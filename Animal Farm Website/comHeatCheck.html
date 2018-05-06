@@ -81,14 +81,28 @@ possibly line, new pen , and comments (these three can always be changed)
     <h5 class="animated bounceInDown header col xl12 light" style="padding-bottom: 50px; padding-top: 50px; text-align:center">Simply select which fields you would like to modify.</h5>
     <div id="outer" class= "container">
         <div id="rowData"><p>Selected row from heat checks needed page shows here.</p></div>
-    <div class="container" style="padding-top: 40px ">
-        
-        <div class="inner"><button id="heatBtn" data-target="heatModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Heat</button></div>
-        <div class="inner"><button id="lineBtn" data-target="lineModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">Line</button></div>
-        <div class="inner"><button id="newPenBtn" data-target="newPenModal" class=" waves-effect waves-light btn-large modal-trigger pink darken-1">New Pen</button></div>
-       <div class="inner"><button id = "commsBtn" data-target="commentsModal" class="waves-effect waves-light btn-large modal-trigger pink darken-1">Comments</button></div>
 
-        </div>
+    <div class="container center" style="padding-top: 40px; padding-left: 300px; padding-right: 300px;">
+		<div class="input-field col s12">
+		  <input id="heat" type="text" class="validate" style="padding-left: 30px">
+		  <label for="heat">Heat</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="date3" type="date" class="validate" style="padding-left: 60px">
+		  <label for="date3">Date 3</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="line" type="text" class="validate" style="padding-left: 30px">
+		  <label for="line">Line</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="newpen" type="text" class="validate" style="padding-left: 30px">
+		  <label for="newpen">New Pen</label>
+		</div>
+		<div class="input-field col s12">
+		  <input id="comment" type="text" class="validate" style="padding-left: 30px">
+		  <label for="comment">Comments</label>
+		</div>		
     </div>
 
        
@@ -137,128 +151,6 @@ possibly line, new pen , and comments (these three can always be changed)
             </div>
           </div>
         </footer>
-    
-        
-<script>
-
-    
-    function insertHeat() {
-        var row = document.getElementById("myRow");
-        var a = row.insertCell(0);
-        a.innerHTML = document.getElementById("heat").value;   
-        document.getElementById("heatBtn").disabled = true;
-        document.getElementById("lineBtn").disabled = false;
-        document.getElementById("newPenBtn").disabled = false;
-            document.getElementById("commsBtn").disabled = false;
-        document.getElementById("subBtn").disabled = false;
-        
-        
-    }
-            
-    function insertLine() {
-        var row = document.getElementById("myRow");
-        var b = row.insertCell(1);
-        b.innerHTML = document.getElementById("line").value;
-        document.getElementById("heatBtn").disabled = true;
-        document.getElementById("lineBtn").disabled = true;
-      
-
-    }
-    
-    function insertNewPen() {
-        var row = document.getElementById("myRow");
-        var c = row.insertCell(2);
-        c.innerHTML = document.getElementById("newPen").value;
-        document.getElementById("heatBtn").disabled = true;
-        document.getElementById("lineBtn").disabled = true;
-        document.getElementById("newPenBtn").disabled = true;
-      
-    }   
-
-   function insertComm() {
-        var row = document.getElementById("myRow");
-        var d = row.insertCell(3);
-        d.innerHTML = document.getElementById("comments").value;
-        document.getElementById("heatBtn").disabled = true;
-        document.getElementById("lineBtn").disabled = true;
-        document.getElementById("newPenBtn").disabled = true;
-        document.getElementById("commsBtn").disabled = true;
-        
-   }
-    
-    function disableAll(){
-        document.getElementById("heatBtn").disabled = false;
-        document.getElementById("lineBtn").disabled = true;
-        document.getElementById("newPenBtn").disabled = true;
-        document.getElementById("commsBtn").disabled = true;
-        document.getElementById("subBtn").disabled = true;
-    }
-   
-</script>
-
-
-    
-    
-    <!-- Modal Structure for HEAT -->
-    <div id="heatModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Heat</h4>
-                <div class="input-field col s3">
-                        <input id="heat" type="text" name="heatEn" class="validate">
-                        <label for="heat">Heat</label>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button onclick="insertHeat()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
-  
-        </div>
-        
-    </div>
-
-    <!-- Modal Structure for NEW PEN -->
-    <div id="newPenModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter New Pen </h4>
-                <div class="input-field col s3">
-                    <form>
-                        <input id="newPen" type="text" name="newPenEn" class="validate ">
-                        <label for="newPen">New Pen</label>
-                    </form>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button id="3" onclick="insertNewPen()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
-        </div>
-    </div>
-    
-    
-    <!-- Modal Structure for LINE -->
-    <div id="lineModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Line</h4>
-            <div class="input-field col s6">
-                <input id="line" type="text" class="validate">
-                <label for="line">Line</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-           <button id="5" onclick="insertLine()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
-        </div>
-    </div>
-
-     <!-- Modal Structure for comments -->
-    <div id="commentsModal" class="modal bottom-sheet">
-        <div class="modal-content center col s6">
-            <h4>Enter Comments</h4>
-            <div class="input-field col s6">
-                <input id="comments" type="text" class="validate">
-                <label for="comments">Comments</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-           <button id="6" onclick="insertComm()" class="modal-action modal-close waves-effect waves-light btn waves-grey brown">Enter</button>
-        </div>
-    </div>
     
     <!-- Modal Structure for the submit button, will show sucess message and allow user to complte another heat check or go back to home -->
   <div id="submitModal3" class="modal">

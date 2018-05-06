@@ -191,7 +191,13 @@ $(document).ready(function ()
 
 
 
+
 function update1(num_rows,pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat,y3,m3,d3,line,newPen,comm,isDate1Valid,isDate2Valid,isDate3Valid)
+// updating date2,boar2,     heat,date3,line,newPen,    comm
+// automatic enter date2    date3
+
+// date3 is updated to 20 days after date2
+// if variable is not NULL
 {
 	$.post("../updateDB_1.php",
 	{
@@ -224,7 +230,5 @@ function update1(num_rows,pen,notch,tag,breed,y1,m1,d1,boar1,y2,m2,d2,boar2,heat
 		$('#result').html(data); // match in HTML file
 	});
 }
-
-
 
 

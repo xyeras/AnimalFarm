@@ -1,0 +1,121 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>loginTest.sikuli</h2> <a href="loginTest.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">import</span> unittest
+ <span class="cmt">#if correct password is given user will be welcomed with the dashboard page </span>
+<span class="kw">class</span> TestLogin(unittest.TestCase):
+
+    <span class="kw">def</span> test_successful_login(self):
+        <span class="skw">find</span>(<img src="1525629048853.png" />)
+        <span class="skw">click</span>(<img src="1525629058100.png" />)
+        <span class="skw">wait</span>(<img src="1525629083492.png" />)
+        <span class="skw">click</span>(<img src="1525629115196.png" />)
+        <span class="skw">type</span>(<span class="str">"https://wwwanimalfarmcom.000webhostapp.com/"</span> + Key.ENTER)
+        <span class="skw">wait</span>(<img src="1525629176612.png" />)
+        <span class="skw">click</span>(<img src="1525629191742.png" />)
+        <span class="skw">wait</span>(<img src="1525629323241.png" />)
+        <span class="skw">click</span>(<img src="1525667987356.png" />)
+        <span class="skw">type</span>(<span class="str">"dulcemeza2013@gmail.com"</span>)
+        <span class="skw">click</span>(<img src="1525667889424.png" />)
+        <span class="skw">type</span>(<span class="str">"b7281dfda8"</span>)
+        <span class="skw">click</span>(<img src="1525629404668.png" />)
+        <span class="cmt">#wait to get access to the main dashbaord page</span>
+        <span class="skw">wait</span>(<img src="1525629450093.png" />)
+        <span class="cmt">#assert that its true </span>
+        <span class="kw">assert</span>(<img src="1525629507497.png" />)
+        <span class="skw">click</span>(<img src="1525629653130.png" />)
+    <span class="kw">def</span> test_successful_logout(self):
+        <span class="skw">find</span>(<img src="1525629048853.png" />)
+        <span class="skw">click</span>(<img src="1525629058100.png" />)
+        <span class="skw">wait</span>(<img src="1525629083492.png" />)
+        <span class="skw">click</span>(<img src="1525629115196.png" />)
+        <span class="skw">type</span>(<span class="str">"https://wwwanimalfarmcom.000webhostapp.com/"</span> + Key.ENTER)
+        <span class="skw">wait</span>(<img src="1525629176612.png" />)
+        <span class="skw">click</span>(<img src="1525629191742.png" />)
+        <span class="skw">wait</span>(<img src="1525629323241.png" />)
+        <span class="skw">click</span>(<img src="1525667987356.png" />)
+        <span class="skw">type</span>(<span class="str">"dulcemeza2013@gmail.com"</span>)
+        <span class="skw">click</span>(<img src="1525667889424.png" />)
+        <span class="skw">type</span>(<span class="str">"b7281dfda8"</span>)
+        <span class="skw">click</span>(<img src="1525629404668.png" />)
+        <span class="cmt">#wait to get access to the main dashbaord page</span>
+        <span class="skw">wait</span>(<img src="1525629450093.png" />)
+        <span class="skw">click</span>(<img src="1525629573523.png" />)
+        <span class="kw">assert</span>(<img src="1525629594722.png" />)
+        <span class="skw">click</span>(<img src="1525629653130.png" />)
+
+
+suite = unittest.TestLoader().loadTestsFromTestCase(TestLogin)
+unittest.TextTestRunner(verbosity=<span class="dig">2</span>).run(suite)
+</pre>
+</body>
+</html>
